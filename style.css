@@ -1,0 +1,76 @@
+.main-img{/* class for profile picture*/
+  
+  float:left;
+  margin:0px;
+  height:450px;
+  width:350px;
+  }
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+  font-size: 30px;
+}
+
+.header-content {
+  width: 100%;
+  margin: 100 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 75px;
+}
+
+header h2 {
+  font-size: 50px;
+}
+
+p {
+  font-size: 20px;
+  margin:75px
+}
+
+a {font-size: 20px}
+
+ul {
+  list-style-position:inside;
+  text-align:center;
+}
+
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  
+}
+
+.section {
+  padding: 50px 0;
+  text-align: center;
+  font-size: 30px;
+  overflow:hidden;
+}
+
+
