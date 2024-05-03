@@ -3,8 +3,8 @@
     
 	.main-img{/* class for profile picture*/
   	float:center;
-  
   	}
+  
 	.header-content{
 	  width: auto;
 	  margin: 100 auto;
@@ -72,13 +72,12 @@ header h1 {
 }
 
 .welcome{
-  position:absolute;
   color: #fff;
   font-size: 75px;
   top: 250px;
   left: 50%;
   background-image: url("bkg1.jpg");
-  background-size: 1000px,1000px;
+  background-size: auto;
 }
 
 header h2 {
