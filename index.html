@@ -12,24 +12,34 @@
   <div class="header-content">
     <h1>Riccardo Martelli</h1>
     <nav>
-      <ul>
+      <ul class="sections">
+        <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#courses">Courses</a></li>
         <li><a href="#publications">Publications</a></li>
         <li><a href="#contact">Contact</a></li>
-        <li><a href="index.html"><img src="american-flag.png" alt="English"></a></li>
-        <li><a href="index_it.html"><img src="italian-flag.png" alt="Italian"></a></li>
+        <li class= "american-flag"><a href="index.html"><img src="american-flag.png" alt="English"></a></li>
+        <li class = "italian-flag"><a href="index_it.html"><img src="italian-flag.png" alt="Italian"></a></li>
       </ul>
     </nav>
   </div>
 </header>
+<section id="home" class="section">
+<h1 class="welcome"> WELCOME ON MY WBSITE!</h1>
+<img src="bkg1.jpg" class="home-img" alt="Home" id="home-image">
+
+
+</section>
 
 <section id="about" class="section">
   <div class="content">
-    <h2>WORK IN PROGRESS...</h2>
-    <p>
+    <h2> Per prima cosa vedere hovering per le mail che dovrebbe essere semplice. Per fare sfondo con stelle animate e random:cercando random css si trovano cose interessanti . Fare Welcome to my website intro, un immmagine in parrallax magari con scritto in grande WELCOME TO MY WEBSITE. REACT, PARALLAX EFFECT e 3D effects</h2>
+    <p class="intro">
     <img src="Fotoprofilo.PNG" class="main-img" alt="Teacher" id="teacher-image">
-    Welcome to my website! I teach math, physics, and computer science to high school and university students. My passion I graduated with honors in physics at the university of Milan .</p>
+    Welcome to my website! I teach math, physics, and computer science to high school and university students. My passion for science lead me to study physics, so I enrolled at the University of Milan where I graduated with honors.
+    Throughout the years I've helped many students that struggle with scientific subjects so I decided to share some of my passion and help students in need. My method of teaching is quite simple I avoid pointless pompous explanations, that usually are only to make the speaker (usually the professor) look better, and go straight to the point. Giving a method is essential to understands the nature of the problem and to tackle it in the best way possible.<br>
+    During my career I've helped people with learning disabilities such as DSA, ADHD, etc. a precice method and routine is introduced for these students so that learning specific topics become easier and every barrier, that might be present, is broken.<br>
+    In this page you can find the courses I offer, a list of my publications and my contacts.</p>
     <!-- Include more details about teaching philosophy, experience, etc. -->
   </div>
 </section>
@@ -67,13 +77,24 @@
 </section>
 
 <section id="contact" class="section">
-  <div class="content">
-    <h2>Contact</h2>
-    My emails are:
-    <p>
-    riccardomartelli97@gmail.com <br>
-    riccardo.martelli@studenti.unimi.it
-    </p>
+  <h2>Contact</h2>
+  <h3>My emails are:</h3>
+
+  <div class="content tooltip">
+    <button  class="hoverover" onclick="protoHover1()" onmouseout="copyResetFunc()">
+      <span class="tooltiptext" id="myTooltip">Copy to clipboard</span>
+      riccardomartelli97@gmail.com
+   </button>
+   </div>
+
+  </br>
+  
+  <div class="content tooltip">
+    <button  class="hoverover" onclick="protoHover2()" onmouseout="copyResetFunc()">
+      <span class="tooltiptext" id="myTooltip2">Copy to clipboard</span>
+        riccardo.martelli@studenti.unimi.it
+   </button>
+   </div>
    
   </div>
 </section>
