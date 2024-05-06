@@ -1,28 +1,261 @@
 @media only screen and (max-width: 767px) {
     /* Uso rules del file ita */
-    
+    /*All the pixels in the conversion are divided by 2*/
 	.main-img{/* class for profile picture*/
   	float:center;
   	}
+    
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align:center;
+    }
+    
+    header {
+      background-color: #333;
+      color: white;
+      padding: 20px 0;
+      /*font-size: calc(var(--var,1vw)*11*30/75);*/
+      position: sticky;
+      top:0px;
+      text-align:center;
+      opacity:1; 
+      z-index:5;
+    }
+    
+    .header-content {
+      width: auto;
+      margin: auto;
+      display: flex;
+      position: sticky;
+      opacity: 1;
+    }
+    
+    header h1 {
+      margin: 0;
+      font-size: calc(var(--vw,1vw)*11/4);
+      position: sticky;
+      top:0;
+      left: calc(var(--vw,1vw)*11*50/(75));
+    }
+    
+    .welcome{
+      color: #fff;
+      font-size: calc(var(--vw,1vw)*11*75/(75))/2;
+      position: fixed;
+      top: 30%;
+      left: 15%;
+      text-shadow: rgb(255, 0, 0) 1px 0 10px;/*Adds the neon effetct*/
+     
+    }
+    
+    .parrallax1{
+      background-image: url("bkg1.jpg");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      height:75vh;
+      width:100vw;
+    }
+    
+    .parrallax2{
+      background-color: #71de18;
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    
+    }
+    
+    .parrallax3{
+      background-color: #13ddf3;
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      height:100vh;
+      width:100vw;
+    
+    }
+    .parrallax4{
+      background-color: rgb(221, 204, 17);
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      height:100vh;
+      width:100vw;
+    
+    }
+    
+    
+    header h2 {
+      font-size: calc(var(--vw,1vw)*11*50/75);
+      text-align:center;
+    }
+    
+    p {
+      font-size: calc(var(--vh,1vh)*11*20/75);
+      margin:20px;
+      color: #333;
+    }
+    
+    .intro{
+      font-size:calc(var(--vh,1vh)*11*30/75);
+      text-align:left; 
+    }
+    
+    a {
+      font-size: calc(0.5*var(--vw,1vw)*11*15/75);
+    }
+    
+    ul {
+      list-style:none;
+      text-align:center;
+    }
+    
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    nav ul li {
+      list-style: none;
+      display: inline-block;
+      margin-right: calc(var(--vw,1vh)*11*20/75);/* distance between elements*/
+      /*padding-left: calc(var(--vw,1vh)*11*15/75);
+      padding-right: calc(var(--vw,1vh)*11*15/75);   */ 
+
+    }
+    
+    nav ul li a {
+      list-style: none;
+      text-decoration: none;
+      color: #fff;
+      
+    }
+    
+    .sections{
+      position: fixed;
+      display:flex;
   
-	.header-content{
-	  width: auto;
-	  margin: 100 auto;
-	  justify-content: space-evenly;
-	  display: flex;
-	  align-items: stretch;
-	  font-size:50;
-	}
-	header {
- 	 background-color: #333;
-	  color: #fff;
-	  padding: 20px 0;
-	  font-size: 20px;
-	}	
-	header h1{
-	  margin: 0;
-	  font-size: 10px;
-	}
+      top: calc(2*var(--vh,1vh)*11*23/75);
+      right: calc(4*var(--vw,1vw)*11*60/75);
+      opacity:1;
+    
+    }
+    
+    .sections a{
+      position: relative;
+    }
+    
+    .sections a:hover{  
+      transform: scale(1);
+      color: rgba(177, 0, 0, 0.773);
+    
+    }
+    
+    .sections a span{
+      position: absolute;
+      top: 0;
+      left: -2.5px;
+      width: 106%;
+      height: 115%;
+      border-radius: 15px;
+      transform: scale(0);
+      opacity: 0;
+      z-index: -1;
+      background: #fff;
+      transition: 0.7s;
+    }
+    
+    .sections a:hover span{
+      transform: scale(1);
+      opacity: 1;
+    
+    }
+    
+    .american-flag{
+      position: fixed;
+      right: 50px;
+      top:20px;
+    
+    }
+    
+    .italian-flag{
+      position: fixed;
+      right: 0;
+      top:20px;
+    }
+    
+    
+    .section {
+      padding: 50px 0;
+      font-size: calc(var(--var,1vh)*11*30/75);
+      opacity: 0;
+      filter: blur(5px);
+      transform: translateX(-100%);
+      transition: all 1s;
+    }
+    
+    .show{
+       opacity: 1;
+       filter: blur(0);
+       transform: translate(0);
+    }
+    
+    /*Tooltip*/
+    .tooltip {
+      position: relative;
+      display: inline-block;
+      border-bottom: 1px black;
+    }
+    
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 200px;
+      background-color: gray;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 5px 0;
+      position: absolute;
+      z-index: 1;
+      bottom: 110%;
+      left: 12.5%;
+    
+    }
+    
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+    }
+    /*bottom arrow*/
+    .tooltip .tooltiptext::after {
+      content: " ";
+      position: absolute;
+      top: 100%; /* At the bottom of the tooltip */
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: gray transparent transparent transparent;
+    }
+    
+    button{
+      background-color: transparent;
+      border-radius: 8px;
+      border: none;
+      font-size: 20px;
+    
+    }
+    
+    button.hoverover:hover{
+      color: black;
+      background-color: rgba(46, 152, 173, 0.2);
+    
+    }
+    
+    
+
     }
 
 /* for pc */
@@ -47,7 +280,7 @@ header {
   background-color: #333;
   color: white;
   padding: 20px 0;
-  font-size: 30px;
+  /*font-size: calc(var(--var,1vw)*11*30/75);*/
   position: sticky;
   top:0px;
   text-align:center;
@@ -57,7 +290,7 @@ header {
 
 .header-content {
   width: auto;
-  margin: 100 auto;
+  margin: auto;
   display: flex;
   position: sticky;
   opacity: 1;
@@ -65,7 +298,7 @@ header {
 
 header h1 {
   margin: 0;
-  font-size: 75px;
+  font-size: calc(var(--var,1vh)*11);
   position: sticky;
   top:0;
   left: 50px;
@@ -73,30 +306,70 @@ header h1 {
 
 .welcome{
   color: #fff;
-  font-size: 75px;
-  top: 250px;
-  left: 50%;
-  background-image: url("bkg1.jpg");
-  background-size: auto;
+  font-size: calc(var(--var,1vh)*11*75/75);
+  position: fixed;
+  top: 30%;
+  left: 15%;
+  text-shadow: rgb(255, 0, 0) 1px 0 10px;/*Adds the neon effetct*/
+ 
 }
 
+.parrallax1{
+  background-image: url("bkg1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height:75vh;
+  width:100vw;
+}
+
+.parrallax2{
+  background-color: #71de18;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
+}
+
+.parrallax3{
+  background-color: #13ddf3;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height:100vh;
+  width:100vw;
+
+}
+.parrallax4{
+  background-color: rgb(221, 204, 17);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height:100vh;
+  width:100vw;
+
+}
+
+
 header h2 {
-  font-size: 50px;
+  font-size: calc(var(--var,1vh)*11*50/75);
   text-align:center;
 }
 
 p {
-  font-size: 20px;
+  font-size: calc(var(--var,1vh)*11*20/75);
   margin:20px;
   color: #333;
 }
 
 .intro{
-  font-size:30px;
+  font-size:calc(var(--var,1vh)*11*30/75);
   text-align:left; 
 }
 
-a {font-size: 30px}
+a {
+  font-size: calc(var(--var,1vh)*11*30/75);
+}
 
 ul {
   list-style:none;
@@ -112,7 +385,7 @@ nav ul {
 nav ul li {
   list-style: none;
   display: inline;
-  margin-right: 20px;
+  margin-right: calc(var(--var,1vh)*11*20/75);
 }
 
 nav ul li a {
@@ -124,9 +397,40 @@ nav ul li a {
 
 .sections{
   position: fixed;
-  top: 50px;
-  right: 150px;
+  top: calc(var(--var,1vh)*11*46/75);
+  right: calc(var(--var,1vh)*11*120/75);
   opacity:1;
+
+}
+
+.sections a{
+  position: relative;
+}
+
+.sections a:hover{  
+  transform: scale(1);
+  color: rgba(177, 0, 0, 0.773);
+
+}
+
+.sections a span{
+  position: absolute;
+  top: 0;
+  left: -2.5px;
+  width: 106%;
+  height: 115%;
+  border-radius: 15px;
+  transform: scale(0);
+  opacity: 0;
+  z-index: -1;
+  background: #fff;
+  transition: 0.7s;
+}
+
+.sections a:hover span{
+  transform: scale(1);
+  opacity: 1;
+
 }
 
 .american-flag{
@@ -145,7 +449,7 @@ nav ul li a {
 
 .section {
   padding: 50px 0;
-  font-size: 30px;
+  font-size: calc(var(--var,1vh)*11*30/75);
   opacity: 0;
   filter: blur(5px);
   transform: translateX(-100%);
