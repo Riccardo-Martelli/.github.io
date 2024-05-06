@@ -3,8 +3,10 @@
     /*All the pixels in the conversion are divided by 2*/
 	.main-img{/* class for profile picture*/
   	float:center;
+    margin:-2.5%;
+    height:450px;
+    width:350px;
   	}
-    
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -15,10 +17,10 @@
     header {
       background-color: #333;
       color: white;
-      padding: 20px 0;
+      padding: calc(var(--vw,1vw)*11*40/75) 0px;
       /*font-size: calc(var(--var,1vw)*11*30/75);*/
       position: sticky;
-      top:0px;
+      top:calc(0*var(--vw,1vw)*11*100/75);
       text-align:center;
       opacity:1; 
       z-index:5;
@@ -26,6 +28,7 @@
     
     .header-content {
       width: auto;
+      height: auto;
       margin: auto;
       display: flex;
       position: sticky;
@@ -33,19 +36,19 @@
     }
     
     header h1 {
-      margin: 0;
-      font-size: calc(var(--vw,1vw)*11/4);
+      margin: -5%;
+      font-size: calc(var(--vw,1vw)*11*30/75);
       position: sticky;
-      top:0;
-      left: calc(var(--vw,1vw)*11*50/(75));
+      top:-5%;
+      left: 5%;
     }
     
     .welcome{
       color: #fff;
-      font-size: calc(var(--vw,1vw)*11*75/(75))/2;
+      font-size: calc(var(--vw,1vw)*10*50/75);
+      text-align:center;
       position: fixed;
       top: 30%;
-      left: 15%;
       text-shadow: rgb(255, 0, 0) 1px 0 10px;/*Adds the neon effetct*/
      
     }
@@ -64,6 +67,7 @@
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
+      width:100vw;
     
     }
     
@@ -88,23 +92,25 @@
     
     
     header h2 {
-      font-size: calc(var(--vw,1vw)*11*50/75);
+      font-size: calc(var(--vw,1vw)*11*50/75)px;
       text-align:center;
     }
     
     p {
-      font-size: calc(var(--vh,1vh)*11*20/75);
+      font-size: calc(var(--vw,1vw)*11*20/75)px;
       margin:20px;
       color: #333;
     }
     
     .intro{
-      font-size:calc(var(--vh,1vh)*11*30/75);
+      font-size:calc(var(--vw,1vw)*11*30/75)px;
       text-align:left; 
     }
     
     a {
-      font-size: calc(0.5*var(--vw,1vw)*11*15/75);
+      font-size: calc(var(--vw,1vw)*11*13/75);
+      left: -4%;
+
     }
     
     ul {
@@ -120,26 +126,22 @@
     
     nav ul li {
       list-style: none;
-      display: inline-block;
-      margin-right: calc(var(--vw,1vh)*11*20/75);/* distance between elements*/
-      /*padding-left: calc(var(--vw,1vh)*11*15/75);
-      padding-right: calc(var(--vw,1vh)*11*15/75);   */ 
-
+      display: inline;
+      margin-right: calc(var(--vw,1vw)*11*20/75);
     }
     
     nav ul li a {
       list-style: none;
       text-decoration: none;
       color: #fff;
+      display: inline;
       
     }
     
     .sections{
       position: fixed;
-      display:flex;
-  
-      top: calc(2*var(--vh,1vh)*11*23/75);
-      right: calc(4*var(--vw,1vw)*11*60/75);
+      top: calc(var(--vh,1vh)*11*50/75);
+      right: calc(0*var(--vh,1vh)*11*120/75);
       opacity:1;
     
     }
@@ -190,7 +192,7 @@
     
     .section {
       padding: 50px 0;
-      font-size: calc(var(--var,1vh)*11*30/75);
+      font-size: calc(var(--var,1vh)*11*30/75)px;
       opacity: 0;
       filter: blur(5px);
       transform: translateX(-100%);
@@ -253,7 +255,7 @@
       background-color: rgba(46, 152, 173, 0.2);
     
     }
-    
+   
     
 
     }
