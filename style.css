@@ -30,7 +30,7 @@ background-color: linear-gradient(red,white);
     /*All the pixels in the conversion are divided by 2*/
 	.main-img{/* class for profile picture*/
   	float:center;
-    margin:2.5% 0 2.55% 0;
+    margin:0 0 2.55% 2.5%;
     height:450px;
     width:350px;
 
