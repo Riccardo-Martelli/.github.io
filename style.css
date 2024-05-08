@@ -113,14 +113,15 @@ background-color: linear-gradient(red,white);
       font-size: calc(var(--var,1vw)*11*50/75);
       text-align:center;
       color:#fff;
-
+      float: center;
+    
     }
 
     h3{
       font-size: calc(var(--vw,1vw)*11*30/75)px;
       text-align:center;
       color:#fff;
-
+      margin:auto;
     }
 
     p {
@@ -150,6 +151,8 @@ background-color: linear-gradient(red,white);
     ul {
       list-style:none;
       text-align: center;
+      list-style-type: none;
+
     }
 
     li{
