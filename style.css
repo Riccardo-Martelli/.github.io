@@ -1,19 +1,26 @@
+::-webkit-scrollbar{
+  width: auto;
+  height: auto;
+
+}
+
 ::-webkit-scrollbar-track{
-  background: transparent;
+  background:transparent;
+  border-radius: 20px ;
 
 }
 
 ::-webkit-scrollbar-thumb{
-background: linear-gradient(red,white);
-border-radius: 20px;
+background-color: linear-gradient(red,white);
   
 }
-@supports(scrollbar-color: red white){
-*{
-  scrollbar-color: black transparent;
 
-  /*First is the thumb the second is the bkg*/
-}
+@supports (scrollbar-color: red white){
+  *{
+  scrollbar-color: red hsla(120, 100%, 50%, 0);
+  scrollbar-width: auto;
+  /*First is the thumb the second is the bkg*/  
+  }
 /*this code is needed because firefox doesn't support the above code*/
 }
 
@@ -32,13 +39,15 @@ border-radius: 20px;
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      text-align:center;
+      background-color: #333;
+      text-align: center;
+     
     }
     
     header {
-      background-color: #333;
+      background-color: black;
       color: white;
-      padding:  6vh ;
+      padding:  4vh ;
       margin: auto;
       /*font-size: calc(var(--var,1vw)*11*30/75);*/
       position: sticky;
@@ -61,7 +70,7 @@ border-radius: 20px;
       position: fixed;
       font-size: calc(var(--var,1vw)*11*30/75);
       left: 5%;
-      top:4%;
+      top:2.5;
       color: #fff;
     }
     
@@ -76,7 +85,7 @@ border-radius: 20px;
     
     .welcome{
       color: #fff;
-      font-size: calc(var(--vw,1vw)*11*55/75);
+      font-size: calc(var(--vw,1vw)*11*45/75);
       text-align:center;
       position: fixed;
       top: 30%;
@@ -94,76 +103,65 @@ border-radius: 20px;
       width:100vw;
     }
     
-    .parrallax2{
-      background-color: #71de18;
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      width:100vw;
-    
-    }
-    
-    .parrallax3{
-      background-color: #13ddf3;
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      height:100vh;
-      width:100vw;
-    
-    }
-    .parrallax4{
-      background-color: rgb(221, 204, 17);
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      height:100vh;
-      width:100vw;
-    
-    }
-    
+  
     
     h2 {
       font-size: calc(var(--vw,1vw)*11*50/75)px;
       text-align:center;
+      color:#fff;
+
     }
-    
+
+    h3{
+      font-size: calc(var(--vw,1vw)*11*30/75)px;
+      text-align:center;
+      color:#fff;
+
+    }
+
     p {
       font-size: calc(var(--vw,1vw)*11*20/75)px;
       margin:20px;
-      color: #333;
+      color:#fff;
+      text-align: center;
     }
     
     .intro{
       font-size:calc(var(--vw,1vw)*11*30/75)px;
       text-align:left; 
     }
-    li {
-      text-align: left;
-
-    }
 
     a {
       font-size: calc(var(--var,1vw)*11*15/75);
     }
     
+    .linkvari{
+
+    font-size: 20px;
+    text-align: center;
+
+    }
+
     ul {
       list-style:none;
-      text-align:left;
+      text-align: center;
+    }
+
+    li{
+      color: #fff;
     }
     
     nav ul {
       list-style: none;
       padding: 0;
       margin: 0;
-      text-align:center;
-
+      text-align: none;
     }
     
     nav ul li {
       list-style: none;
       display: inline;
-      margin-right: calc(var(--vw,1vw)*11*20/75);
+      margin-right: calc(var(--vw,1vw)*11*10/75);
     }
     
     nav ul li a {
@@ -179,8 +177,9 @@ border-radius: 20px;
       /*top: calc(var(--var,1vh)*11*46/75);
       right: calc(var(--var,1vh)*11*120/75);*/
       left:38.5%;
-      top:5%; 
+      top:2.5%; 
       opacity:1;
+      font-size: large;
     
     }
     
@@ -218,7 +217,6 @@ border-radius: 20px;
       position: fixed;
       right: 27px;
       top:0%;
-    
     
     }
 
@@ -279,6 +277,7 @@ border-radius: 20px;
     .tooltip:hover .tooltiptext {
       visibility: visible;
     }
+
     /*bottom arrow*/
     .tooltip .tooltiptext::after {
       content: " ";
@@ -296,6 +295,7 @@ border-radius: 20px;
       border-radius: 8px;
       border: none;
       font-size: 20px;
+      color: red;
     
     }
     
@@ -305,17 +305,11 @@ border-radius: 20px;
     
     }
    
-    
 
     }
 
 /* for pc */
 @media only screen and (min-width: 767px) {
-:root {
-    --head-top: 5% ;
-
-  }
-
 .main-img{/* class for profile picture*/
   
   float:left;
@@ -330,12 +324,13 @@ body {
   margin: 0;
   padding: 0;
   text-align:center;
+  background-color: #333;
 }
 
 header {
-  background-color: #333;
+  background-color:black;
   color: white;
-  padding:  5vw ;
+  padding:  4vw ;
   margin: auto;
   /*font-size: calc(var(--var,1vw)*11*30/75);*/
   position: sticky;
@@ -359,7 +354,7 @@ header {
   position: fixed;
   font-size: calc(var(--var,1vw)*11*30/75);
   left: 5%;
-  top:var(--head-top);
+  top:3%;
   color: #fff;
 }
 
@@ -390,44 +385,21 @@ header h1 {
   width:100%;
 }
 
-.parrallax2{
-  background-color: #71de18;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  width:100%;
-
-}
-
-.parrallax3{
-  background-color: #13ddf3;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  height:100vh;
-  width:100%;
-
-}
-.parrallax4{
-  background-color: rgb(221, 204, 17);
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  height:100vh;
-  width:100vw;
-
-}
-
 
 h2 {
   font-size: calc(var(--var,1vh)*11*50/75);
   text-align:center;
+  color: #ffffff;
 }
+h3{
+  color:#fff;
+}
+
 
 p {
   font-size: calc(var(--var,1vh)*11*20/75);
   margin:20px;
-  color: #333;
+  color: #ffffff;
   margin-inline: auto;
 }
 
@@ -445,10 +417,15 @@ ul {
   text-align:center;
 }
 
+li{
+  color: #fff;
+}
+
 nav ul {
   list-style: none;
   padding: 0;
   margin: 0;
+  
 }
 
 nav ul li {
@@ -469,7 +446,7 @@ nav ul li a {
   /*top: calc(var(--var,1vh)*11*46/75);
   right: calc(var(--var,1vh)*11*120/75);*/
   left:40%;
-  top:8%; 
+  top: max(15.5px,6%); 
   opacity:1;
 
 }
@@ -547,20 +524,21 @@ nav ul li a {
   color: #fff;
   text-align: center;
   border-radius: 6px;
-  padding: 5px 0;
+  padding: 0px;
   position: absolute;
   z-index: 1;
   bottom: 110%;
-  left: 12.5%;
+  left: 1rem;
 
 }
 
 .tooltip:hover .tooltiptext {
   visibility: visible;
 }
+
 /*bottom arrow*/
 .tooltip .tooltiptext::after {
-  content: " ";
+  content: "";
   position: absolute;
   top: 100%; /* At the bottom of the tooltip */
   left: 50%;
@@ -575,12 +553,12 @@ button{
   border-radius: 8px;
   border: none;
   font-size: 20px;
-
+  color: red;
 }
 
 button.hoverover:hover{
   color: black;
-  background-color: rgba(46, 152, 173, 0.2);
+  background-color: rgba(46, 152, 173, 0.393);
 
 }
 

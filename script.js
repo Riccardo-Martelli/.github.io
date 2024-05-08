@@ -40,6 +40,12 @@ function protoHover2() {
     var tooltip = document.getElementById("myTooltip2");
     tooltip.innerHTML = "Mail Copied "+"&#x2713";
   }
+  function protoHover3() {
+    navigator.clipboard.writeText("+39 3472847968");
+
+    var tooltip = document.getElementById("myTooltip3");
+    tooltip.innerHTML = "Phone number Copied "+"&#x2713";
+  }
 
 
 function copyResetFunc() {
@@ -48,6 +54,10 @@ function copyResetFunc() {
 }
 function copyResetFunc2() {
   var tooltip = document.getElementById("myTooltip2");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+function copyResetFunc3() {
+  var tooltip = document.getElementById("myTooltip3");
   tooltip.innerHTML = "Copy to clipboard";
 }
 

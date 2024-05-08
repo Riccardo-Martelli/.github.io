@@ -33,7 +33,7 @@
         <li><a id="clikable" href="#about">About<span></span></a></li>
         <li><a id="clikable" href="#courses">Courses<span></span></a></li>
         <li><a id="clikable" href="#publications">Publications<span></span></a></li>
-        <li><a id="clikable" href="#contact">Contact<span></span></a></li>
+        <li><a id="clikable" href="#contact">Contacts<span></span></a></li>
         <li class= "american-flag"><a href="index.html"><img src="american-flag.png" alt="English" id="amflag"></a></li>
         <li class = "italian-flag"><a href="index_it.html"><img src="italian-flag.png" alt="Italian"  id="itflag"></a></li>
       </ul>
@@ -42,11 +42,11 @@
 
 <section id="home" class="section parrallax1">
   <div>
-<h1 class="welcome"> WELCOME ON MY WEBSITE!</h1>
+<h1 class="welcome"> WELCOME TO MY WEBSITE!</h1>
 </div>
 </section>
 
-<section id="about" class="section parrallax2">
+<section id="about" class="section">
   <div class="content">
     <h2>  La cosa più importante è che deve essere decente il rescaling, il sito anche solo modificando la finestra non cambia, diventa illegibile su una finestra ridotta.
       Per fare sfondo con stelle animate e random:cercando random css si trovano cose interessanti . Fare Welcome to my website intro, un immmagine in parrallax magari con scritto in grande WELCOME TO MY WEBSITE. REACT, PARALLAX EFFECT e 3D effects</h2>
@@ -60,11 +60,11 @@
   </div>
 </section>
 
-<section id="courses" class="section parrallax3">
+<section id="courses" class="section">
   <div class="content">
   <h2>Courses</h2>
  	<ul>
-	<li> Mathematics: </li>
+	<li> Mathematics: </li><!--forse meglio usare h3 così si centra meglio-->
      <p> Mathematics for highschool students </p>
 	<li> Physics: </li>
 	<li> Computer Science: </li>
@@ -74,16 +74,16 @@
   </div>
 </section>
 
-<section id="publications" class="section parrallax4">
+<section id="publications" class="section">
   <div class="content">
     <h2>Publications</h2>
     <p>Check out my publications and research: </p>
     <ul>
-		 <li><a href="https://inspirehep.net/literature/2040113">
+		 <li><a href="https://inspirehep.net/literature/2040113" target="_blank" style="color: red;" class="linkvari">
 				 Bachelor Thesis</a></li>
-		 <li><a href="https://arxiv.org/abs/2205.13548">
+		 <li><a href="https://arxiv.org/abs/2205.13548" target="_blank" style="color: red;" class="linkvari">
 				 Black Holes in a Swirling Universe</a></li>
-		 <li><a href="">
+		 <li><a href="" target="_blank" style="color: red;" class="linkvari">
 				 Master Thesis</a></li>
 
     </ul>
@@ -113,6 +113,15 @@
    </div>
    
   </div>
+
+  <h3>My phone number is:</h3>
+
+  <div class="content tooltip">
+    <button  class="hoverover" onclick="protoHover3()" onmouseout="copyResetFunc3()">
+      <span class="tooltiptext" id="myTooltip3">Copy to clipboard</span>
+     +39 3472847968
+   </button>
+   </div>
 </section>
 
 <footer>
