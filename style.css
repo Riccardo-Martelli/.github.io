@@ -29,8 +29,10 @@ background-color: linear-gradient(red,white);
     /* Uso rules del file ita */
     /*All the pixels in the conversion are divided by 2*/
 	.main-img{/* class for profile picture*/
-  	float:center;
-    margin:0 0 2.55% 2.5%;
+  	/*float:center;*/
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     height:450px;
     width:350px;
 
@@ -123,7 +125,8 @@ background-color: linear-gradient(red,white);
 
     p {
       /*font-size: calc(var(--vw,1vw)*11*20/75)px;*/
-      margin:20px 0 0 0;
+      display:block;
+      margin-left:auto;
       color:#fff;
       text-align: center;
     }
