@@ -29,8 +29,8 @@ background-color: linear-gradient(red,white);
     /* Uso rules del file ita */
     /*All the pixels in the conversion are divided by 2*/
 	.main-img{/* class for profile picture*/
-  	float:left;
-    margin:2.5% 0 0 0;
+  	float:center;
+    margin:2.5% 0 2.55% 0;
     height:450px;
     width:350px;
 
@@ -55,7 +55,7 @@ background-color: linear-gradient(red,white);
       text-align:center;
       opacity:1; 
       z-index:5;
-      box-shadow: 0px 10px 5px black;
+      box-shadow: 5px 10px 10px black, -5px 10px 10px black;
 
     }
     
@@ -123,7 +123,7 @@ background-color: linear-gradient(red,white);
 
     p {
       /*font-size: calc(var(--vw,1vw)*11*20/75)px;*/
-      margin:20px 10px;
+      margin:20px 0 0 0;
       color:#fff;
       text-align: center;
     }
@@ -341,7 +341,7 @@ header {
   text-align:center;
   opacity:1; 
   z-index:5;
-  box-shadow: 0px 10px 5px black;
+ box-shadow: 5px 10px 10px black, -5px 10px 10px black;
 }
 
 .header-content {
