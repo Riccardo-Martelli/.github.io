@@ -33,6 +33,7 @@ background-color: linear-gradient(red,white);
     display: block;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom:10px;
     height:450px;
     width:350px;
 
@@ -126,7 +127,8 @@ background-color: linear-gradient(red,white);
 
     p {
       /*font-size: calc(var(--vw,1vw)*11*20/75)px;*/
-      display:block;
+      margin-top:20px;
+
       margin-left:auto;
       color:#fff;
       text-align: center;
