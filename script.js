@@ -7,9 +7,25 @@ document.documentElement.style.setProperty('--vh', `${vh}px`);
 let vw = window.innerHeight * 0.01;
 document.documentElement.style.setProperty('--vw', `${vw}px`);
 
+//Parallaxeffect
+let whiteDwarf = document.getElementById('whitedwarf');
+let Welcome = document.getElementById('welcome');
+
+window.addEventListener('scroll',() => {
+  let value = window.scrollY;
+
+   Welcome.style.marginTop= value * 2.5 +'px';
+   Welcome.style.opacity = Math.abs(1 - 15*value/document.documentElement.scrollHeight);
+   
+   
+
+  /* whiteDwarf.style.left = value * -5.5 +'px';*/
+
+});
 
 
 //Add sliding effects
+/* modifing this section one can make headers p and img slide at different speeds */
 const sectionElem = document.querySelectorAll('.section');
 
 const observer = new IntersectionObserver((entries) => {
@@ -60,5 +76,3 @@ function copyResetFunc3() {
   var tooltip = document.getElementById("myTooltip3");
   tooltip.innerHTML = "Copy to clipboard";
 }
-
-//Add parallax effect
