@@ -1,71 +1,112 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Riccardo Martelli - Math, Physics, Computer Science</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
+
   <div class="header-content">
-    <h1>Riccardo Martelli</h1>
     <nav>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#courses">Courses</a></li>
-        <li><a href="#publications">Publications</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="index.html"><img src="american-flag.png" alt="English"></a></li>
-        <li><a href="index_it.html"><img src="italian-flag.png" alt="Italian"></a></li>
+      <ul class="sections">
+        <li><a id="name">Riccardo Martelli</a></li>
+        <li><a id="clikable" href="#home">Home<span></span></a></li>
+        <li><a id="clikable" href="#about">About<span></span></a></li>
+        <li><a id="clikable" href="#courses">Courses<span></span></a></li>
+        <li><a id="clikable" href="#publications">Publications<span></span></a></li>
+        <li><a id="clikable" href="#contact">Contacts<span></span></a></li>
+        <li class= "american-flag"><a href="index.html"><img src="american-flag.png" alt="English" id="amflag"></a></li>
+        <li class = "italian-flag"><a href="index_it.html"><img src="italian-flag.png" alt="Italian"  id="itflag"></a></li>
       </ul>
     </nav>
-  </div>
 </header>
+
+<section id="home" class="section parrallax1">
+
+<h1 class="welcome" id="Welcome">BENVENUTI SUL MIO SITO</h1>
+<!--Place images here-->
+<!--<img src="galaxy-night-view.png" id="whitedwarf"> </img>-->
+<!--<img src="icon-checkmark.png" id="check"> </img>-->
+
+</section>
 
 <section id="about" class="section">
   <div class="content">
-    <h2>About</h2>
-    <img src="Fotoprofilo.PNG" alt="Teacher" id="teacher-image">
-    <p>Benvenuti sul mio sito! I teach math, physics, and computer science to high school and university students. I am passionate about...</p>
+    <h2>Per fare sfondo con stelle animate e random:cercando random css si trovano cose interessanti . Fare intro, un immmagine in parrallax magari con scritto in grande WELCOME TO MY WEBSITE. REACT, PARALLAX EFFECT e 3D effects</h2>
+    <p class="intro">
+    <img src="Fotoprofilo.PNG" class="main-img" alt="Teacher" id="teacher-image">
+    Welcome to my website! I teach math, physics, and computer science to high school and university students. My passion for science lead me to study physics, so I enrolled at the University of Milan where I graduated with honors.
+    Throughout the years I've helped many students that struggle with scientific subjects so I decided to share some of my passion and help students in need. My method of teaching is quite simple I avoid pointless pompous explanations, that usually are only to make the speaker (usually the professor) look better, and go straight to the point. Giving a method is essential to understands the nature of the problem and to tackle it in the best way possible.<br>
+    During my career I've helped people with learning disabilities such as DSA, ADHD, etc. a precice method and routine is introduced for these students so that learning specific topics become easier and every barrier, that might be present, is broken.<br>
+    In this page you can find the courses I offer, a list of my publications and my contacts.</p>
     <!-- Include more details about teaching philosophy, experience, etc. -->
   </div>
 </section>
 
-<!-- Other sections remain unchanged -->
 <section id="courses" class="section">
-  <div class="content">
-    <h2>Courses</h2>
-    <p>Explore the courses I offer:</p>
-    <!-- List the courses with descriptions -->
+  <div id="coursesList" class="content">
+  <h2>Corsi</h2>
+  <ul>
+	<li> Matematica: </li><!--forse meglio usare h3 così si centra meglio-->
+        <!--<p> Mathematics for highschool students </p>-->
+	<li> Fisica: </li>
+	<li> Informatica: </li>
+	
+  </ul>
   </div>
 </section>
 
 <section id="publications" class="section">
-  <div class="content">
-    <h2>Publications</h2>
-    <p>Pubblicazioni e ricerca:
+  <div id="publicationss" class="content">
+    <h2>Pubblicazioni</h2>
+    <p>Le mie pubblicazioni e i miei articoli: </p>
     <ul>
-		 <li><a href="https://inspirehep.net/literature/2040113">
-				 Bachelor Thesis</a></li>
-		 <li><a href="https://arxiv.org/abs/2205.13548">
+		 <li><a href="https://inspirehep.net/literature/2040113" target="_blank" style="color: red;" class="linkvari">
+				 Tesi triennale</a></li>
+		 <li><a href="https://arxiv.org/abs/2205.13548" target="_blank" style="color: red;" class="linkvari">
 				 Black Holes in a Swirling Universe</a></li>
+		 <li><a href="http://inspirehep.net/record/2784392" target="_blank" style="color: red;" class="linkvari">
+				 Tesi magistrale</a></li>
     </ul>
-    </p>
-    <!-- Include publications, papers, articles, or links to them -->
+
+    
   </div>
 </section>
 
 <section id="contact" class="section">
-  <div class="content">
-    <h2>Contact</h2>
-    Le mie e-mails:
-    <p>
-    riccardomartelli97@gmail.com <br>
-    riccardo.martelli@studenti.unimi.it
-    </p>
+  <h2>Contacts</h2>
+  <h3>Le mie e-mail:</h3>
+
+  <div id="contacts" class="content tooltip">
+    <button  class="hoverover" onclick="protoHover1()" onmouseout="copyResetFunc()">
+      <span class="tooltiptext" id="myTooltip">Copy to clipboard</span>
+      riccardomartelli97@gmail.com
+   </button>
+   </div>
+
+  </br>
+  
+  <div class="content tooltip">
+    <button  class="hoverover" onclick="protoHover2()" onmouseout="copyResetFunc2()">
+      <span class="tooltiptext" id="myTooltip2">Copy to clipboard</span>
+        riccardo.martelli@studenti.unimi.it
+   </button>
+   </div>
    
   </div>
+
+  <h3>Numero di telefono:</h3>
+
+  <div class="content tooltip">
+    <button  class="hoverover" onclick="protoHover3()" onmouseout="copyResetFunc3()">
+      <span class="tooltiptext" id="myTooltip3">Copy to clipboard</span>
+     +39 3472847968
+   </button>
+   </div>
 </section>
 
 <footer>
