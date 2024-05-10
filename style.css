@@ -161,7 +161,7 @@ background-color: linear-gradient(red,white);
       list-style-type:none;
       margin: 0px;
       padding: 0px; 
-      width:90vw;
+      width:90%;
     }
     
     #publicationss li{
@@ -169,7 +169,7 @@ background-color: linear-gradient(red,white);
       list-style-type:none;
       margin: 0px;
       padding: 0px; 
-      width:90vw;
+      width:90%;
     }
     
     #contacts li{
@@ -177,7 +177,7 @@ background-color: linear-gradient(red,white);
       list-style-type:none;
       margin: 0px;
       padding: 0px; 
-      width:90vw;
+      width:90%;
     }
     
     nav ul {
