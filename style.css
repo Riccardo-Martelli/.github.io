@@ -160,6 +160,14 @@ background-color: linear-gradient(red,white);
     li{
       color: #fff;
     }
+
+    #coursesList li{
+      float:center;
+      list-style-type:none;
+      margin: 0px;
+      padding: 0px; /* here could be 20px*/
+      width:100%;
+    }
     
     nav ul {
       list-style: none;
