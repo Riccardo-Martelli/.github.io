@@ -165,8 +165,24 @@ background-color: linear-gradient(red,white);
       float:center;
       list-style-type:none;
       margin: 0px;
-      padding: 0px; /* here could be 20px*/
-      width:80%;
+      padding: 0px; 
+      width:97vw;
+    }
+    
+    #publicationss li{
+      float:center;
+      list-style-type:none;
+      margin: 0px;
+      padding: 0px; 
+      width:97vw;
+    }
+    
+    #contacts li{
+      float:center;
+      list-style-type:none;
+      margin: 0px;
+      padding: 0px; 
+      width:97vw;
     }
     
     nav ul {
@@ -475,8 +491,24 @@ li{
   float:center;
   list-style-type:none;
   margin: 0px;
-  padding: 0px; /* here could be 20px*/
-  width:100%;
+  padding: 0px; 
+  width:97vw;
+}
+
+#publicationss li{
+  float:center;
+  list-style-type:none;
+  margin: 0px;
+  padding: 0px; 
+  width:97vw;
+}
+
+#contacts li{
+  float:center;
+  list-style-type:none;
+  margin: 0px;
+  padding: 0px; 
+  width:97vw;
 }
 
 nav ul {
