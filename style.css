@@ -166,7 +166,7 @@ background-color: linear-gradient(red,white);
       list-style-type:none;
       margin: 0px;
       padding: 0px; /* here could be 20px*/
-      width:100%;
+      width:80%;
     }
     
     nav ul {
