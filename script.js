@@ -9,15 +9,15 @@ document.documentElement.style.setProperty('--vw', `${vw}px`);
 
 //Parallaxeffect
 let whiteDwarf = document.getElementById('whitedwarf');
-let Welcome = document.getElementById('welcome');
+let Welcome = document.getElementById('Welcome');
 
 window.addEventListener('scroll',() => {
   let value = window.scrollY;
-
-   Welcome.style.marginTop= value * 2.5 +'px';
-   Welcome.style.opacity = Math.abs(1 - 15*value/document.documentElement.scrollHeight);
-   
-   
+/*crea un problema con lo scrolling che la pagina diventa infinita questo perchè il margine continua ad aumentare se faccio margin Left non ho problemi*/
+   Welcome.style.marginLeft= value * 2.5 +'px';
+   Welcome.style.marginRight= value * -2.5 +'px';
+   Welcome.style.opacity = Math.abs(1 - 6*value/document.documentElement.scrollHeight);
+    
 
   /* whiteDwarf.style.left = value * -5.5 +'px';*/
 

@@ -1,4 +1,4 @@
-::-webkit-scrollbar{
+/*::-webkit-scrollbar{
   width: auto;
   height: auto;
 
@@ -13,7 +13,7 @@
 ::-webkit-scrollbar-thumb{
 background-color: linear-gradient(red,white);
   
-}
+}*/
 
 @supports (scrollbar-color: red white){
   *{
@@ -336,6 +336,7 @@ body {
   text-align:center;
   background-color: #333;
   overflow-x: hidden;
+
 }
 
 header {
@@ -384,6 +385,7 @@ header h1 {
   top: 30%;
   left: 15%;
   text-shadow: rgb(255, 0, 0) 1px 0 10px;/*Adds the neon effetct*/
+  text-align:inline;
  
 }
 
@@ -459,6 +461,14 @@ ul {
 
 li{
   color: #fff;
+}
+
+#coursesList li{
+  float:center;
+  list-style-type:none;
+  margin: 0px;
+  padding: 0px; /* here could be 20px*/
+  width:100%;
 }
 
 nav ul {
