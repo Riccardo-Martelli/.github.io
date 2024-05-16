@@ -14,11 +14,11 @@
     <nav>
       <ul class="sections">
         <li><a id="name">Riccardo Martelli</a></li>
-        <li><a id="clikable" href="#home">Home<span></span></a></li>
+        <li><a id="clikable" href="#">Home<span></span></a></li>
         <li><a id="clikable" href="#about">About<span></span></a></li>
-        <li><a id="clikable" href="#courses">Courses<span></span></a></li>
-        <li><a id="clikable" href="#publications">Publications<span></span></a></li>
-        <li><a id="clikable" href="#contact">Contacts<span></span></a></li>
+        <li><a id="clikable" href="#courses">Corsi<span></span></a></li>
+        <li><a id="clikable" href="#publications">Pubblicazioni<span></span></a></li>
+        <li><a id="clikable" href="#contact">Contatti<span></span></a></li>
         <li class= "american-flag"><a href="index.html"><img src="american-flag.png" alt="English" id="amflag"></a></li>
         <li class = "italian-flag"><a href="index_it.html"><img src="italian-flag.png" alt="Italian"  id="itflag"></a></li>
       </ul>
@@ -33,34 +33,47 @@
 <!--<img src="icon-checkmark.png" id="check"> </img>-->
 
 </section>
+<span id ="about"></span>
 
-<section id="about" class="section">
+<section  class="section">
   <div class="content">
     <h2>Per fare sfondo con stelle animate e random:cercando random css si trovano cose interessanti . Fare intro, un immmagine in parrallax magari con scritto in grande WELCOME TO MY WEBSITE. REACT, PARALLAX EFFECT e 3D effects</h2>
     <p class="intro">
     <img src="Fotoprofilo.PNG" class="main-img" alt="Teacher" id="teacher-image">
-    Welcome to my website! I teach math, physics, and computer science to high school and university students. My passion for science lead me to study physics, so I enrolled at the University of Milan where I graduated with honors.
-    Throughout the years I've helped many students that struggle with scientific subjects so I decided to share some of my passion and help students in need. My method of teaching is quite simple I avoid pointless pompous explanations, that usually are only to make the speaker (usually the professor) look better, and go straight to the point. Giving a method is essential to understands the nature of the problem and to tackle it in the best way possible.<br>
-    During my career I've helped people with learning disabilities such as DSA, ADHD, etc. a precice method and routine is introduced for these students so that learning specific topics become easier and every barrier, that might be present, is broken.<br>
-    In this page you can find the courses I offer, a list of my publications and my contacts.</p>
-    <!-- Include more details about teaching philosophy, experience, etc. -->
+    Benvenuti sul mio sito! Insegno matematica, fisica e informatica sia a studenti del liceo che a studenti universitari. La mia passsione per la scienza mi ha portato a studiare fisica all'università degli Studi di Milano dove mi sono laureato con il massimo dei voti.
+    Durante questi anni universitari ho aiutato innumerevoli studenti ad affrontare l'avversità e le difficolta delle materie scientifiche, questo condividendo la passione che mi contraddistingue. Il mio metodo di insegnamento è molto semplice, evito spiegazioni insignificanti e pompose, che di solito servo solo ad aumentare il flebile ego  dell'oratore (normalmente il professore), e andare dritto al punto proponendo un metodo per affrontare esami ed esercizi vari. Dare un metodo è essenziale per capire la natura di un problema e affrontarlo nel miglior modo possibile<br>
+    Durante la mia carriera ho aiutato molte persone con disabilità dell'aprrendimento come DSA, ADHD, etc. Un metodo preciso e una routine viene introdotta per questi studenti così che apprendere argomenti specifici diventi più facile e ogni bariera viene abbattuta<br>
+    In questa pagina potete trovare I corsi che offro, una lista delle mie pubblicazioni e i miei contatti.
+    <p>Numero di studenti: 12</p>
+
   </div>
 </section>
+<span id ="courses"></span>
 
-<section id="courses" class="section">
+<section class="section">
   <div id="coursesList" class="content">
   <h2>Corsi</h2>
+  <p class="courseText"> Qui presento ALCUNI dei corsi che offro, la lista completa è piuttosto lunga e qualche argomento potrebbe mancare. Se uno è interessato, i miei recapiti sono  <a href="#contact" style="color: red;" > QUI.</a></p> 
   <ul>
-	<li> Matematica: </li><!--forse meglio usare h3 così si centra meglio-->
-        <!--<p> Mathematics for highschool students </p>-->
+  <ul class="courseElem">
+	<li> Matematica: </li>
+  <p class="courseBullets"> Matematica per studenti del liceo</br></p>
+  <p class="courseBullets"> Algebra Lineare, Analisi 1,Analisi 2,Analisi 3,Analisi 4, Geometria Differenziale, Gruppi di Lie e Algebre di Lie, Analisi Complessa, Metodi Matematici per la Meccanica Classica, Analisi Funzionale, Trasformate di Fourier, Trasformate di Laplace, Trasformate Integrali, Aprossimazioni Padè, Serie di Taylor, Serie di Laurent, Serie di Fourier,...  </p>
+  <p class="courseBullets"> Probabilità e Statistica, Teoria della Misura, Probabilità Bayesiana, Distribuzioni di Probabilità, Sampling, Distribuzioni Discrete, Tests Statistici, p-values, Data Analysis,...</p>
 	<li> Fisica: </li>
+  <p class="courseBullets"> Fisica per studenti del liceo</br></p>
+  <p class="courseBullets">Meccanica Classica, Termodinamica, Metodi Matematici per la Fisica e l'Ingegneria, Formulazioni Lagrangiane e Hamiltoniane della Meccanica, Fluidodinamica, Meccanica Quantistica, Meccanica Quantistica Relativistica e Teoria dei Campi, Relatività Generale, Teoria dei Grouppi per Modelli matematici, Many Body Theory, Elettromagnetismo and Elettrodinamica,..</p>
 	<li> Informatica: </li>
+  <p class="courseBullets">Informatica per studenti del liceo.</br></p>
+  <p class="courseBullets"> C++, C, Python, HTML, CSS, JavaScript, Matheamtica, Tensorflow, Keras, Scikit-learn, SQL, Bash,Cuda, Sed, Awk, Data Analysis, Data Representation, Machine learning, Deep Learning, Simulazione Numerica,... </br></p>
+
 	
   </ul>
   </div>
 </section>
+<span id ="publications"></span>
 
-<section id="publications" class="section">
+<section class="section">
   <div id="publicationss" class="content">
     <h2>Pubblicazioni</h2>
     <p>Le mie pubblicazioni e i miei articoli: </p>
@@ -76,6 +89,7 @@
     
   </div>
 </section>
+<span id ="contact"></span>
 
 <section id="contact" class="section">
   <h2>Contacts</h2>
