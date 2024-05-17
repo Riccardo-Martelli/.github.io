@@ -13,10 +13,9 @@ let Welcome = document.getElementById('Welcome');
 
 window.addEventListener('scroll',() => {
   let value = window.scrollY;
-/*crea un problema con lo scrolling che la pagina diventa infinita questo perchè il margine continua ad aumentare se faccio margin Left non ho problemi*/
    /*Welcome.style.left= value * 2.5 +'px';
    /*Welcome.style.marginRight= value * -2.5 +'px';*/
-   Welcome.style.opacity = Math.abs(1 - 6*value/document.documentElement.scrollHeight);
+   Welcome.style.opacity = Math.abs(1 - 8.5*value/document.documentElement.scrollHeight);
     
 
   /* whiteDwarf.style.left = value * -5.5 +'px';*/
@@ -103,6 +102,8 @@ function copyResetFunc3() {
   tooltip.innerHTML = "Copy to clipboard";
 }
 
+
+// User visits 
 var n = localStorage.getItem('on_load_counter');
 
 if (n === null) {
@@ -114,7 +115,27 @@ localStorage.setItem("on_load_counter", n);
 
 nums = n.toString().split('').map(Number);
 
-document.getElementById('CounterVisitor').innerHTML = 'Total number of vistors:';
+document.getElementById('CounterVisitor').innerHTML = 'Your visits: ';
 for (var i of nums) {
   document.getElementById('CounterVisitor').innerHTML += '<span class="counter-item">' + i + '</span>';
+}
+
+//Function click cell phone
+
+let redFont = document.querySelectorAll('.sections');
+let effect = document.querySelectorAll('.sections a span');
+
+function onClickPhone(){
+  if(screen.width <768){
+
+   document.querySelectorAll('.sections a span').forEach( el =>{
+    el.style.transform="scale(1)"
+    el.style.opacity="1";
+ 
+
+
+  });
+
+  }
+
 }

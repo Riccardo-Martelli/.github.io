@@ -32,8 +32,18 @@ background-color: linear-gradient(red,white);
     margin-bottom:10px;
     height:450px;
     width:95vw;
+    }
 
-  	}
+  .flowcharts{
+      margin: 12.5px;
+      display: block;
+      float: center;
+      height:100%;
+      width:93vw;
+     
+    
+    }
+    
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -50,7 +60,7 @@ background-color: linear-gradient(red,white);
       color: white;
       padding:  5vh ;
       margin: auto;
-      /*font-size: calc(var(--var,1vw)*11*30/75);*/
+      font-size: calc(var(--var,1vw)*11*40/75);
       position: sticky;
       top:0px;
       text-align:center;
@@ -71,7 +81,7 @@ background-color: linear-gradient(red,white);
 
     #name{
       position: fixed;
-      font-size: calc(var(--var,1vw)*11*35/75);
+      font-size: calc(var(--var,1vw)*11*40/75);
       left: 4%;
       top: 2%;
       color: #fff;
@@ -216,13 +226,14 @@ background-color: linear-gradient(red,white);
     nav ul li {
       list-style: none;
       display: inline;
-      margin-right: calc(var(--vw,1vw)*11*10/75);
+      margin-right: calc(var(--var,1vw)*11*10/75);
     }
     
     nav ul li a {
       list-style: none;
       text-decoration: none;
       color: #fff;
+      left: -6%; 
       /*display: inline;*/
       
     }
@@ -262,7 +273,7 @@ background-color: linear-gradient(red,white);
 
     }
     
-    .sections a:hover span{
+   .sections a:hover span{
       transform: scale(1);
       opacity: 1;
     
@@ -390,6 +401,16 @@ background-color: linear-gradient(red,white);
   width:350px;
   transition: background-image 2s
   }
+
+.flowcharts{
+
+  float: center;
+  margin:5px;
+  height:80vh;
+  width:50%;
+  transition: background-image 2s
+
+}
 
 body {
   font-family: Arial, sans-serif;
@@ -530,7 +551,7 @@ p a{
 
 
 .intro{
-  font-size:calc(var(--var,1vh)*11*30/75);
+  font-size:calc(var(--var,1vh)*11*25/75);
   text-align:left; 
 }
 
