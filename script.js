@@ -32,6 +32,7 @@ const pElem = document.querySelectorAll("p");
 const mailsElem = document.querySelectorAll(".hoverover");
 const linksElem = document.querySelectorAll(".linkvari");
 const courseElem = document.querySelectorAll(".courseElem");
+const flowCharts = document.querySelectorAll(".flowcharts");
 
 
 
@@ -53,6 +54,7 @@ pElem.forEach((el) => observer.observe(el));
 mailsElem.forEach((el) => observer.observe(el));
 linksElem.forEach((el) => observer.observe(el));
 courseElem.forEach((el) => observer.observe(el));
+flowCharts.forEach((el) => observer.observe(el));
 
 // Add coping on hover
 

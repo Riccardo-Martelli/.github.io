@@ -40,7 +40,9 @@ background-color: linear-gradient(red,white);
       float: center;
       height:100%;
       width:93vw;
-     
+      filter: blur(5px);
+      transform: translateX(-100%);
+      transition: all 1.5s;
     
     }
     
@@ -408,7 +410,9 @@ background-color: linear-gradient(red,white);
   margin:5px;
   height:80vh;
   width:50%;
-  transition: background-image 2s
+  filter: blur(5px);
+  transform: translateX(-100%);
+  transition: all 1.5s;
 
 }
 
