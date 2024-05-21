@@ -1,10 +1,10 @@
-/*::-webkit-scrollbar{
-  width: auto;
-  height: auto;
-
+::-webkit-scrollbar {
+    display: none;
+   /*width: auto;
+  height: auto;*/
 }
 
-::-webkit-scrollbar-track{
+/*::-webkit-scrollbar-track{
   background:transparent;
   border-radius: 20px ;
 
