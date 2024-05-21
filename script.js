@@ -11,6 +11,9 @@ document.documentElement.style.setProperty('--vw', `${vw}px`);
 let planet = document.getElementById('planet');
 let Welcome = document.getElementById('Welcome');
 
+const sect = document.querySelectorAll('section');
+const navElem = document.querySelectorAll('nav ul li');
+
 window.addEventListener('scroll',() => {
   let value = window.scrollY;
    /*Welcome.style.left= value * 2.5 +'px';
@@ -19,6 +22,24 @@ window.addEventListener('scroll',() => {
     
 
   /* whiteDwarf.style.left = value * -5.5 +'px';*/
+  /*Highlight section */
+  let current ='';
+
+  sect.forEach(elem =>{
+    const sectionTop = elem.offsetTop;
+    const sectionHeight = elem.clientHeight;
+
+    if(scrollY > (sectionTop-sectionHeight-0.05)){
+      current = elem.getAttribute('id');
+    }
+  })
+
+  navElem.forEach( li => {
+    li.classList.remove('active');
+    if(li.classList.contains(current)){
+        li.classList.add('active');
+    }
+  })
 
 });
 
@@ -54,7 +75,19 @@ pElem.forEach((el) => observer.observe(el));
 mailsElem.forEach((el) => observer.observe(el));
 linksElem.forEach((el) => observer.observe(el));
 courseElem.forEach((el) => observer.observe(el));
-flowCharts.forEach((el) => observer.observe(el));
+
+const blurrin = new IntersectionObserver((entries) => {
+	entries.forEach((entry)=>{
+		console.log(entry)
+		if (entry.isIntersecting){
+			entry.target.classList.add('blurEff');
+		}else{
+			entry.target.classList.remove('blurEff');
+		}
+	});
+});
+
+flowCharts.forEach((el) => blurrin.observe(el));
 
 // Add coping on hover
 
@@ -124,20 +157,4 @@ for (var i of nums) {
 
 //Function click cell phone
 
-let redFont = document.querySelectorAll('.sections');
-let effect = document.querySelectorAll('.sections a span');
 
-function onClickPhone(){
-  if(screen.width <768){
-
-   document.querySelectorAll('.sections a span').forEach( el =>{
-    el.style.transform="scale(1)"
-    el.style.opacity="1";
- 
-
-
-  });
-
-  }
-
-}

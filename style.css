@@ -26,6 +26,9 @@ background-color: linear-gradient(red,white);
 
 
 @media only screen and (max-width: 767px) {
+  html{
+    scroll-behavior: smooth;
+  }
     	.main-img{/* class for profile picture*/
 
     display: block;
@@ -38,11 +41,11 @@ background-color: linear-gradient(red,white);
       margin: 12.5px;
       display: block;
       float: center;
-      height:100%;
+      height:calc(93vh/2);
       width:93vw;
-      filter: blur(5px);
-      transform: translateX(-100%);
-      transition: all 1.5s;
+      opacity: 1;
+      filter: blur(10px);
+      transition: all 2.2s;
     
     }
     
@@ -239,6 +242,25 @@ background-color: linear-gradient(red,white);
       /*display: inline;*/
       
     }
+
+    nav ul li.active a{
+      transform: scale(1);
+      color: rgba(177, 0, 0, 0.773);
+      z-index: 2;
+    }
+    
+    nav ul li.active a span{
+      transform: scale(1);
+      opacity: 1;
+      color: rgba(177, 0, 0, 0.773);
+      width: 106%;
+      height: 100%;
+      border-radius: 4px;
+      background-color: #fff;
+      transition: 1.0s ease-out;
+      left: -1px;
+    
+    }
     
     .sections{
       position: fixed;
@@ -310,7 +332,7 @@ background-color: linear-gradient(red,white);
       opacity: 0;
       filter: blur(5px);
       transform: translateX(-100%);
-      transition: all 1.3s;
+      transition: all 0.3s;
 
     }
     .hoverover{
@@ -332,6 +354,11 @@ background-color: linear-gradient(red,white);
        opacity: 1;
        filter: blur(0);
        transform: translate(0);
+    }
+
+   .blurEff{
+      opacity: 1;
+      filter: blur(0);
     }
     
     /*Tooltip*/
@@ -395,6 +422,9 @@ background-color: linear-gradient(red,white);
 
 /* for pc */
 @media only screen and (min-width: 767px) {
+  html{
+    scroll-behavior: smooth;
+  }
 .main-img{/* class for profile picture*/
   
   float:left;
@@ -410,9 +440,9 @@ background-color: linear-gradient(red,white);
   margin:5px;
   height:80vh;
   width:50%;
-  filter: blur(5px);
-  transform: translateX(-100%);
-  transition: all 1.5s;
+  opacity: 0;
+  filter: blur(10px);
+  transition: all 1.7s;
 
 }
 
@@ -470,9 +500,9 @@ header h1 {
   position: fixed;
   top: 30%;
   left: 15%;
-  text-shadow: rgb(255, 0, 0) 1px 0 10px;/*Adds the neon effetct*/
+  text-shadow: rgb(255, 0, 0) 5px 0 15px;/*Adds the neon effetct*/
   text-align:inline;
- 
+ z-index: 1;
 }
 
 .parrallax1{
@@ -483,7 +513,7 @@ header h1 {
   align-items: center;
   /*---------*/
 
-  background: url("bkg1.png") no-repeat;
+  background: black/*url("planet.png") no-repeat*/;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -493,27 +523,28 @@ header h1 {
 
 .parrallax1 img{
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 0;
   width: 100%;
   right:10%;
-
+  background-color: black;
   pointer-events: none ;
-
 }
+
 .parrallax1 img#planet{
 transform: translateX(600%);
 transform: translateY(-30%);
-height: 50%;
-width: 25%;
+height: 100%;
+width: 75%;
 z-index: 0;
+bottom: -70%;
 }
 
 
-.parrallax1 img#check{
+.parrallax1 img#mountains{
 
-  transform: translateY(-28.8%);
-  width: 100vw;
+  
+  width: 100%;
   height: auto;
   }
   
@@ -644,7 +675,7 @@ nav ul li a {
   left: -2.5px;
   width: 106%;
   height: 115%;
-  border-radius: 15px;
+  border-radius: 10px;
   transform: scale(0);
   opacity: 0;
   z-index: -1;
@@ -655,6 +686,23 @@ nav ul li a {
 .sections a:hover span{
   transform: scale(1);
   opacity: 1;
+
+}
+nav ul li.active a{
+  transform: scale(1);
+  color: rgba(177, 0, 0, 0.773);
+  z-index: 2;
+}
+
+nav ul li.active a span{
+  transform: scale(1);
+  opacity: 1;
+  color: rgba(177, 0, 0, 0.773);
+  width: 106%;
+  height: 100%;
+  border-radius: 10px;
+  background-color: #fff;
+  transition: 1.0s ease-out;
 
 }
 
@@ -712,6 +760,10 @@ nav ul li a {
    opacity: 1;
    filter: blur(0);
    transform: translate(0);
+}
+.blurEff{
+  opacity: 1;
+  filter: blur(0);
 }
 
 /*Tooltip*/
