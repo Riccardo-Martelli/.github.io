@@ -18,7 +18,7 @@ background-color: linear-gradient(red,white);
 @supports (scrollbar-color: red white){
   *{
   scrollbar-color: red hsla(120, 100%, 50%, 0);
-  scrollbar-width: none;
+  scrollbar-width: auto;
   /*First is the thumb the second is the bkg*/  
   }
 /*this code is needed because firefox doesn't support the above code*/
