@@ -122,21 +122,21 @@ function protoHover2() {
 
 
 function copyResetFunc() {
-  if(window.screen.width<=767){
+  if(window.screen.width>=767){
   var tooltip = document.getElementById("myTooltip");
   tooltip.style.width = '200px';
   tooltip.innerHTML = "Copy to clipboard";
   }
 }
 function copyResetFunc2() {
-  if(window.screen.width<=767){
+  if(window.screen.width>=767){
   var tooltip = document.getElementById("myTooltip2");
   tooltip.style.width = '200px';
   tooltip.innerHTML = "Copy to clipboard";
   }
 }
 function copyResetFunc3() {
-  if(window.screen.width<=767){
+  if(window.screen.width>=767){
   var tooltip = document.getElementById("myTooltip3");
   tooltip.style.width = '200px';
   tooltip.innerHTML = "Copy to clipboard";
