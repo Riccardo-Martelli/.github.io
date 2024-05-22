@@ -96,7 +96,6 @@ function protoHover1() {
   
     var tooltip = document.getElementById("myTooltip");
     tooltip.style.width = '150px';
-    tooltip.style.visibility="visible";
     tooltip.innerHTML = "Mail Copied " +"&#x2713";
 }
 
@@ -105,7 +104,6 @@ function protoHover2() {
 
     var tooltip = document.getElementById("myTooltip2");
     tooltip.style.width = '150px';
-    tooltip.style.visibility="visible";
 
     tooltip.innerHTML = "Mail Copied "+"&#x2713";
   }
@@ -117,7 +115,6 @@ function protoHover2() {
     navigator.clipboard.writeText("+39 3472847968");
     
     var tooltip = document.getElementById("myTooltip3");
-    tooltip.style.visibility="visible";
     tooltip.style.width = '250px';
     tooltip.innerHTML = "Phone number copied "+"&#x2713";
 
