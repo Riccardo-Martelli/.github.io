@@ -389,9 +389,9 @@ background-color: linear-gradient(red,white);
     
     }
     
-    /*.tooltip:hover .tooltiptext {
+    .tooltip:hover .tooltiptext {
       visibility: visible;
-    }*/
+    }
 
     /*bottom arrow*/
     .tooltip .tooltiptext::after {
