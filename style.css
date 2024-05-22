@@ -113,7 +113,7 @@ background-color: linear-gradient(red,white);
     }
     
     .parrallax1{
-      background-image: url("bkg1.png");
+      background: black/*url("planet.png") no-repeat*/;
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
@@ -150,6 +150,9 @@ background-color: linear-gradient(red,white);
       filter: blur(5px);
       transform: translateX(-100%);
       transition: all 1.5s;
+    }
+    #Status{
+      color: rgb(3, 218, 3);
     }
     p a{
       font-size: calc(var(--var,1vh)*11*15/75);
@@ -416,7 +419,21 @@ background-color: linear-gradient(red,white);
       background-color: rgba(255, 255, 255, 1);
     
     }
-   
+    table{
+      color: #fff;
+      display:block;
+      position: relative;
+      text-align: center;
+      border:0px solid red;
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+      border-collapse: collapse;
+    
+    }
+    th,td{
+      border:2px solid red;
+    }
 
     }
 
@@ -513,7 +530,7 @@ header h1 {
   align-items: center;
   /*---------*/
 
-  background: black/*url("planet.png") no-repeat*/;
+  background: black /*url("starysky.jpeg") no-repeat*/;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -564,7 +581,9 @@ h3{
   transform: translateX(-100%);
   transition: all 1.1s;
 }
-
+#Status{
+  color: rgb(3, 218, 3);
+}
 
 p {
   font-size: calc(var(--var,1vh)*11*20/75);
@@ -819,6 +838,20 @@ button.hoverover:hover{
 
 }
 
+table{
+  color: #fff;
+  display:block;
+  position: relative;
+  text-align: center;
+  border:0px solid red;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: collapse;
 
+}
+th,td{
+  border:2.5px solid red;
+}
 
 }
