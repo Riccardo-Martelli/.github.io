@@ -94,18 +94,29 @@ flowCharts.forEach((el) => blurrin.observe(el));
 function protoHover1() {
     navigator.clipboard.writeText("riccardomartelli97@gmail.com");
   
+    if(document.documentElement.lang==="en"){
     var tooltip = document.getElementById("myTooltip");
     tooltip.style.width = '150px';
     tooltip.innerHTML = "Mail Copied " +"&#x2713";
+    }else{
+      var tooltip = document.getElementById("myTooltip");
+      tooltip.style.width = '150px';
+      tooltip.innerHTML = "Mail Copiata " +"&#x2713";
+    }
 }
 
 function protoHover2() {
     navigator.clipboard.writeText("riccardo.martelli@studenti.unimi.it");
 
-    var tooltip = document.getElementById("myTooltip2");
-    tooltip.style.width = '150px';
-
-    tooltip.innerHTML = "Mail Copied "+"&#x2713";
+    if(document.documentElement.lang==="en"){
+      var tooltip = document.getElementById("myTooltip2");
+      tooltip.style.width = '150px';
+      tooltip.innerHTML = "Mail Copied " +"&#x2713";
+      }else{
+        var tooltip = document.getElementById("myTooltip2");
+        tooltip.style.width = '150px';
+        tooltip.innerHTML = "Mail Copiata " +"&#x2713";
+      }
   }
 
 
@@ -113,33 +124,55 @@ function protoHover2() {
   function protoHover3() {
 
     navigator.clipboard.writeText("+39 3472847968");
-    
-    var tooltip = document.getElementById("myTooltip3");
-    tooltip.style.width = '250px';
-    tooltip.innerHTML = "Phone number copied "+"&#x2713";
-
+    if(document.documentElement.lang==="en"){
+      var tooltip = document.getElementById("myTooltip3");
+      tooltip.style.width = '250px';
+      tooltip.innerHTML = "Phone number copied " +"&#x2713";
+      }else{
+        var tooltip = document.getElementById("myTooltip3");
+        tooltip.style.width = '200px';
+        tooltip.innerHTML = "Numero Copiato " +"&#x2713";
+      }
   }
 
 
 function copyResetFunc() {
   if(window.screen.width>=767){
+    if(document.documentElement.lang==="en"){
   var tooltip = document.getElementById("myTooltip");
   tooltip.style.width = '200px';
   tooltip.innerHTML = "Copy to clipboard";
+    }else{
+      var tooltip = document.getElementById("myTooltip");
+  tooltip.style.width = '100px';
+  tooltip.innerHTML = "Copia";
+    }
   }
 }
 function copyResetFunc2() {
   if(window.screen.width>=767){
-  var tooltip = document.getElementById("myTooltip2");
-  tooltip.style.width = '200px';
-  tooltip.innerHTML = "Copy to clipboard";
+    if(document.documentElement.lang==="en"){
+      var tooltip = document.getElementById("myTooltip2");
+      tooltip.style.width = '200px';
+      tooltip.innerHTML = "Copy to clipboard";
+        }else{
+          var tooltip = document.getElementById("myTooltip2");
+      tooltip.style.width = '100px';
+      tooltip.innerHTML = "Copia";
+        }
   }
 }
 function copyResetFunc3() {
   if(window.screen.width>=767){
-  var tooltip = document.getElementById("myTooltip3");
-  tooltip.style.width = '200px';
-  tooltip.innerHTML = "Copy to clipboard";
+    if(document.documentElement.lang==="en"){
+      var tooltip = document.getElementById("myTooltip3");
+      tooltip.style.width = '200px';
+      tooltip.innerHTML = "Copy to clipboard";
+        }else{
+          var tooltip = document.getElementById("myTooltip3");
+      tooltip.style.width = '100px';
+      tooltip.innerHTML = "Copia";
+        }
   }
 }
 
@@ -163,4 +196,15 @@ for (var i of nums) {
 
 //Function click cell phone
 
+function clickPriceHighschool(element){
+
+  const highschool = element.children;
+  highschool[0].style.visibility="visible";
+
+}
+function clickPriceHighschoolOnMouseOut(element){
+
+  const highschool = element.children;
+  highschool[0].style.visibility="hidden";
+}
 

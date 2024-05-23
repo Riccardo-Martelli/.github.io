@@ -150,6 +150,8 @@ background-color: linear-gradient(red,white);
       filter: blur(5px);
       transform: translateX(-100%);
       transition: all 1.5s;
+      line-height: 25px;
+
     }
     #Status{
       color: rgb(3, 218, 3);
@@ -405,6 +407,35 @@ background-color: linear-gradient(red,white);
       border-color: gray transparent transparent transparent;
     }
     
+    #highschooltip {
+
+      content: "30€";
+      visibility: hidden;
+      width: 60px;
+      background-color: gray;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 0px;
+      position: absolute;
+      z-index: 1;
+      bottom: 110%;
+      left:50%;
+      transform: translate(-50%);
+    
+    }
+    
+    #highschooltip::after{
+      content: " ";
+      position: absolute;
+      top: 100%; /* At the bottom of the tooltip */
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: gray transparent transparent transparent;
+    }
+
     button{
       background-color: transparent;
       border-radius: 8px;
@@ -593,6 +624,7 @@ p {
   filter: blur(5px);
   transform: translateX(-100%);
   transition: all 1.5s;
+  line-height: 30px;
 }
 p a{
   font-size: calc(var(--var,1vh)*11*20/75);
@@ -815,6 +847,35 @@ nav ul li.active a span{
 /*bottom arrow*/
 .tooltip .tooltiptext::after {
   content: "";
+  position: absolute;
+  top: 100%; /* At the bottom of the tooltip */
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: gray transparent transparent transparent;
+}
+
+#highschooltip {
+
+  content: "30€";
+  visibility: hidden;
+  width: 60px;
+  background-color: gray;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 0px;
+  position: absolute;
+  z-index: 1;
+  bottom: 110%;
+  left:50%;
+  transform: translate(-50%);
+
+}
+
+#highschooltip::after{
+  content: " ";
   position: absolute;
   top: 100%; /* At the bottom of the tooltip */
   left: 50%;
