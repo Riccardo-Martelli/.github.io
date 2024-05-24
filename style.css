@@ -367,11 +367,29 @@ background-color: linear-gradient(red,white);
     }
     
     /*Tooltip*/
+    @keyframes jiggle {
+      0%, 100% {
+          transform: rotate(0) translate(-50%);
+    
+      }
+      25% {
+          transform: rotate(-12.5deg) translate(-50%);
+        
+      }
+      50% {
+          transform: rotate(0) translate(-50%);
+    
+        }
+      75% {
+          transform: rotate(12.5deg) translate(-50%);
+    
+      }
+    }
+
     .tooltip {
       position: relative;
       display: inline-block;
       border-bottom: 1px black;
-    
     }
     
     .tooltip .tooltiptext {
@@ -381,23 +399,26 @@ background-color: linear-gradient(red,white);
       color: #fff;
       text-align: center;
       border-radius: 6px;
-      padding: 5px 0;
+      padding: 0px;
       position: absolute;
       z-index: 1;
       bottom: 110%;
-     /* left: 12.5%;*/
       left:50%;
       transform: translate(-50%);
-    
+      transform-origin: 0 0;
     }
     
     .tooltip:hover .tooltiptext {
       visibility: visible;
+      animation: jiggle 0.5s ;
+      bottom: 110%;
+      left:50%;
+    
     }
-
+    
     /*bottom arrow*/
     .tooltip .tooltiptext::after {
-      content: " ";
+      content: "";
       position: absolute;
       top: 100%; /* At the bottom of the tooltip */
       left: 50%;
@@ -412,7 +433,7 @@ background-color: linear-gradient(red,white);
       content: "30€";
       visibility: hidden;
       width: 60px;
-      background-color: gray;
+      background-color: black;
       color: #fff;
       text-align: center;
       border-radius: 6px;
@@ -424,6 +445,10 @@ background-color: linear-gradient(red,white);
       transform: translate(-50%);
     
     }
+    #highschooltip:active{
+      animation: jiggle 0.5s ;
+
+    }
     
     #highschooltip::after{
       content: " ";
@@ -433,8 +458,9 @@ background-color: linear-gradient(red,white);
       margin-left: -5px;
       border-width: 5px;
       border-style: solid;
-      border-color: gray transparent transparent transparent;
+      border-color: black transparent transparent transparent;
     }
+
 
     button{
       background-color: transparent;
@@ -818,6 +844,43 @@ nav ul li.active a span{
 }
 
 /*Tooltip*/
+@keyframes jiggle {
+  0%, 100% {
+      transform: rotate(0) translate(-50%);
+
+  }
+  12.5%{
+    transform: rotate(-6.75deg) translate(-50%);
+  }
+  25% {
+      transform: rotate(-12.5deg) translate(-50%);
+    
+  }
+  37.5%{
+    transform: rotate(-6.75deg) translate(-50%);
+  }
+  50% {
+      transform: rotate(0) translate(-50%);
+
+    }
+    62.5%{
+      transform: rotate(6.75deg) translate(-50%);
+
+    }
+  75% {
+      transform: rotate(12.5deg) translate(-50%);
+
+  }
+  87.5%{
+    transform: rotate(6.75deg) translate(-50%);
+
+  }
+}
+
+.jiggle {
+  animation: jiggle 0.3s ease-in-out;
+}
+
 .tooltip {
   position: relative;
   display: inline-block;
@@ -837,11 +900,15 @@ nav ul li.active a span{
   bottom: 110%;
   left:50%;
   transform: translate(-50%);
-
+  transform-origin: 0 0;
 }
 
 .tooltip:hover .tooltiptext {
   visibility: visible;
+  animation: jiggle 0.5s ;
+  bottom: 110%;
+  left:50%;
+
 }
 
 /*bottom arrow*/
@@ -861,7 +928,7 @@ nav ul li.active a span{
   content: "30€";
   visibility: hidden;
   width: 60px;
-  background-color: gray;
+  background-color: black;
   color: #fff;
   text-align: center;
   border-radius: 6px;
@@ -882,7 +949,41 @@ nav ul li.active a span{
   margin-left: -5px;
   border-width: 5px;
   border-style: solid;
+  border-color: black transparent transparent transparent;
+
+}
+
+.tooltip-par {
+  content: "30€";
+  width: 60px;
+  background-color: gray;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 0px;
+  position: absolute;
+  z-index: 1;
+  transform: rotate(-45deg);
+
+}
+
+.tooltip-par::after{
+  content: " ";
+  position: absolute;
+  top: 100%; /* At the bottom of the tooltip */
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
   border-color: gray transparent transparent transparent;
+}
+
+.tooltip-trigger {
+  color: white;
+  cursor: pointer;
+  position: relative;
+  transform: rotate(-45deg);
+
 }
 
 button{

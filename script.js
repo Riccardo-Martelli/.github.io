@@ -97,10 +97,12 @@ function protoHover1() {
     if(document.documentElement.lang==="en"){
     var tooltip = document.getElementById("myTooltip");
     tooltip.style.width = '150px';
+    tooltip.style.animation= "jiggle 0.5s"; 
     tooltip.innerHTML = "Mail Copied " +"&#x2713";
     }else{
       var tooltip = document.getElementById("myTooltip");
       tooltip.style.width = '150px';
+      tooltip.style.animation= "jiggle 0.5s"; 
       tooltip.innerHTML = "Mail Copiata " +"&#x2713";
     }
 }
@@ -111,10 +113,12 @@ function protoHover2() {
     if(document.documentElement.lang==="en"){
       var tooltip = document.getElementById("myTooltip2");
       tooltip.style.width = '150px';
+      tooltip.style.animation= "jiggle 0.5s"; 
       tooltip.innerHTML = "Mail Copied " +"&#x2713";
       }else{
         var tooltip = document.getElementById("myTooltip2");
         tooltip.style.width = '150px';
+        tooltip.style.animation= "jiggle 0.5s"; 
         tooltip.innerHTML = "Mail Copiata " +"&#x2713";
       }
   }
@@ -127,10 +131,12 @@ function protoHover2() {
     if(document.documentElement.lang==="en"){
       var tooltip = document.getElementById("myTooltip3");
       tooltip.style.width = '250px';
+      tooltip.style.animation = 'jiggle 0.5s';
       tooltip.innerHTML = "Phone number copied " +"&#x2713";
       }else{
         var tooltip = document.getElementById("myTooltip3");
         tooltip.style.width = '200px';
+        tooltip.style.animation = 'jiggle 0.5s';
         tooltip.innerHTML = "Numero Copiato " +"&#x2713";
       }
   }
@@ -208,3 +214,84 @@ function clickPriceHighschoolOnMouseOut(element){
   highschool[0].style.visibility="hidden";
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+  const paragraphs = document.querySelectorAll('.tooltip-paragraph');
+
+  paragraphs.forEach((paragraph, paraIndex) => {
+      const sentences = paragraph.innerHTML.split(', ');
+
+      const tooltipData = {
+          0: '1', // Sentence one
+          1: '2', // Sentence two
+          2: '3', // Sentence three
+          // Add more mappings as needed
+      };
+
+      // Clear the paragraph
+      paragraph.innerHTML = '';
+
+      sentences.forEach((sentence, index) => {
+          const sentenceElement = document.createElement('span');
+          sentenceElement.className = 'tooltip-trigger';
+          sentenceElement.textContent = sentence;
+
+          if (index < sentences.length - 1) {
+              sentenceElement.textContent += ', ';
+          }
+
+          sentenceElement.dataset.number = tooltipData[index + (paraIndex * sentences.length)] || '';
+          paragraph.appendChild(sentenceElement);
+      });
+  });
+
+  document.querySelectorAll('.tooltip-trigger').forEach(trigger => {
+      trigger.addEventListener('click', function(event) {
+          // Remove existing tooltips
+          let existingTooltip = document.querySelector('.tooltip-par');
+          if (existingTooltip) {
+              existingTooltip.remove();
+          }
+
+          // Create a new tooltip
+          const number = this.getAttribute('data-number');
+          const tooltip = document.createElement('div');
+          tooltip.className = 'tooltip-par jiggle';
+          tooltip.textContent = `Number: ${number}`;
+
+          document.body.appendChild(tooltip);
+
+          // Position the tooltip
+          const range = document.createRange();
+          range.setStart(this.firstChild, 0);
+          range.setEnd(this.firstChild, 1);
+          const rect = range.getBoundingClientRect();
+          const tooltipRect = tooltip.getBoundingClientRect();
+          const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+          const top = rect.top + scrollTop - tooltipRect.height - 5;
+          const left = rect.left + scrollLeft;
+
+          tooltip.style.left = `${left}px`;
+          tooltip.style.top = `${top}px`;
+
+          // Show the tooltip
+          tooltip.style.display = 'block';
+
+          // Remove the jiggle class after the animation ends
+          tooltip.addEventListener('animationend', () => {
+              tooltip.classList.remove('jiggle');
+          });
+
+          // Hide the tooltip when clicking outside
+          const handleClickOutside = (event) => {
+              if (!trigger.contains(event.target) && !tooltip.contains(event.target)) {
+                  tooltip.remove();
+                  document.removeEventListener('click', handleClickOutside);
+              }
+          };
+
+          document.addEventListener('click', handleClickOutside);
+      });
+  });
+});
