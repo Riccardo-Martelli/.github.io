@@ -372,19 +372,38 @@ background-color: linear-gradient(red,white);
           transform: rotate(0) translate(-50%);
     
       }
+      12.5%{
+        transform: rotate(-6.75deg) translate(-50%);
+      }
       25% {
           transform: rotate(-12.5deg) translate(-50%);
         
       }
+      37.5%{
+        transform: rotate(-6.75deg) translate(-50%);
+      }
       50% {
           transform: rotate(0) translate(-50%);
+    
+        }
+        62.5%{
+          transform: rotate(6.75deg) translate(-50%);
     
         }
       75% {
           transform: rotate(12.5deg) translate(-50%);
     
       }
+      87.5%{
+        transform: rotate(6.75deg) translate(-50%);
+    
+      }
     }
+    
+    .jiggle {
+      animation: jiggle 0.3s ease-in-out;
+    }
+    
 
     .tooltip {
       position: relative;

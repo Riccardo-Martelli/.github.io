@@ -214,7 +214,7 @@ function clickPriceHighschoolOnMouseOut(element){
   highschool[0].style.visibility="hidden";
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+/*document.addEventListener('DOMContentLoaded', () => {
   const paragraphs = document.querySelectorAll('.tooltip-paragraph');
 
   paragraphs.forEach((paragraph, paraIndex) => {
@@ -294,4 +294,4 @@ document.addEventListener('DOMContentLoaded', () => {
           document.addEventListener('click', handleClickOutside);
       });
   });
-});
+});*/
