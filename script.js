@@ -97,12 +97,10 @@ function protoHover1() {
     if(document.documentElement.lang==="en"){
     var tooltip = document.getElementById("myTooltip");
     tooltip.style.width = '150px';
-    tooltip.style.animation= "jiggle 0.5s"; 
     tooltip.innerHTML = "Mail Copied " +"&#x2713";
     }else{
       var tooltip = document.getElementById("myTooltip");
       tooltip.style.width = '150px';
-      tooltip.style.animation= "jiggle 0.5s"; 
       tooltip.innerHTML = "Mail Copiata " +"&#x2713";
     }
 }
@@ -113,12 +111,10 @@ function protoHover2() {
     if(document.documentElement.lang==="en"){
       var tooltip = document.getElementById("myTooltip2");
       tooltip.style.width = '150px';
-      tooltip.style.animation= "jiggle 0.5s"; 
       tooltip.innerHTML = "Mail Copied " +"&#x2713";
       }else{
         var tooltip = document.getElementById("myTooltip2");
         tooltip.style.width = '150px';
-        tooltip.style.animation= "jiggle 0.5s"; 
         tooltip.innerHTML = "Mail Copiata " +"&#x2713";
       }
   }
@@ -131,12 +127,10 @@ function protoHover2() {
     if(document.documentElement.lang==="en"){
       var tooltip = document.getElementById("myTooltip3");
       tooltip.style.width = '250px';
-      tooltip.style.animation = 'jiggle 0.5s';
       tooltip.innerHTML = "Phone number copied " +"&#x2713";
       }else{
         var tooltip = document.getElementById("myTooltip3");
         tooltip.style.width = '200px';
-        tooltip.style.animation = 'jiggle 0.5s';
         tooltip.innerHTML = "Numero Copiato " +"&#x2713";
       }
   }
@@ -182,24 +176,6 @@ function copyResetFunc3() {
   }
 }
 
-
-// User visits 
-var n = localStorage.getItem('on_load_counter');
-
-if (n === null) {
-  n = 0;
-}
-n++;
-
-localStorage.setItem("on_load_counter", n);
-
-nums = n.toString().split('').map(Number);
-
-document.getElementById('CounterVisitor').innerHTML = 'Your visits: ';
-for (var i of nums) {
-  document.getElementById('CounterVisitor').innerHTML += '<span class="counter-item">' + i + '</span>';
-}
-
 //Function click cell phone
 
 function clickPriceHighschool(element){
@@ -214,84 +190,110 @@ function clickPriceHighschoolOnMouseOut(element){
   highschool[0].style.visibility="hidden";
 }
 
-/*document.addEventListener('DOMContentLoaded', () => {
-  const paragraphs = document.querySelectorAll('.tooltip-paragraph');
+document.addEventListener("DOMContentLoaded", function() {
+  var paragraphs = document.querySelectorAll(".paragraph");
 
-  paragraphs.forEach((paragraph, paraIndex) => {
-      const sentences = paragraph.innerHTML.split(', ');
-
-      const tooltipData = {
-          0: '1', // Sentence one
-          1: '2', // Sentence two
-          2: '3', // Sentence three
-          // Add more mappings as needed
-      };
-
-      // Clear the paragraph
+  paragraphs.forEach(function(paragraph) {
+      var text = paragraph.textContent;
+      var sentences = text.split(',');
       paragraph.innerHTML = '';
 
-      sentences.forEach((sentence, index) => {
-          const sentenceElement = document.createElement('span');
-          sentenceElement.className = 'tooltip-trigger';
-          sentenceElement.textContent = sentence;
+      sentences.forEach(function(sentence, index) {
+          var trimmedSentence = sentence.trim();
 
-          if (index < sentences.length - 1) {
-              sentenceElement.textContent += ', ';
-          }
-
-          sentenceElement.dataset.number = tooltipData[index + (paraIndex * sentences.length)] || '';
-          paragraph.appendChild(sentenceElement);
-      });
-  });
-
-  document.querySelectorAll('.tooltip-trigger').forEach(trigger => {
-      trigger.addEventListener('click', function(event) {
-          // Remove existing tooltips
-          let existingTooltip = document.querySelector('.tooltip-par');
-          if (existingTooltip) {
-              existingTooltip.remove();
-          }
-
-          // Create a new tooltip
-          const number = this.getAttribute('data-number');
-          const tooltip = document.createElement('div');
-          tooltip.className = 'tooltip-par jiggle';
-          tooltip.textContent = `Number: ${number}`;
-
+          var tooltip = document.createElement('div');
+          tooltip.className = 'tooltip-par';
+          tooltip.textContent = getPrice(trimmedSentence);
           document.body.appendChild(tooltip);
 
-          // Position the tooltip
-          const range = document.createRange();
-          range.setStart(this.firstChild, 0);
-          range.setEnd(this.firstChild, 1);
-          const rect = range.getBoundingClientRect();
-          const tooltipRect = tooltip.getBoundingClientRect();
-          const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
-          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+          var textNode = document.createElement('span');
+          textNode.textContent = trimmedSentence;
+          const toolOffSetWidth =60;/*Corresponding to the CSS value */
 
-          const top = rect.top + scrollTop - tooltipRect.height - 5;
-          const left = rect.left + scrollLeft;
+          textNode.addEventListener('click', function(event) {
+              var rect = textNode.getBoundingClientRect();
+              var lineHeight = parseFloat(window.getComputedStyle(textNode).lineHeight);
+              var tooltipHeight = tooltip.offsetHeight;
 
-          tooltip.style.left = `${left}px`;
-          tooltip.style.top = `${top}px`;
+             /* // Calculate the top position of the tooltip
+              var topPosition = rect.bottom + window.scrollY;
 
-          // Show the tooltip
-          tooltip.style.display = 'block';
+              // Adjust the top position if the text spans multiple lines
+              if (rect.height > lineHeight) {
+                  topPosition -= tooltipHeight + lineHeight +60;
+              } else {
+                  topPosition -= tooltipHeight+60;
+              }*/
+              var isMultiline = rect.height >= lineHeight;
 
-          // Remove the jiggle class after the animation ends
-          tooltip.addEventListener('animationend', () => {
-              tooltip.classList.remove('jiggle');
+              if (isMultiline) {
+                //Multiline positioning
+                tooltip.style.left = (rect.left + rect.width - toolOffSetWidth) + 'px';
+                tooltip.style.top = (rect.bottom + window.scrollY - 60-lineHeight) + 'px';
+
+              } else if(!isMultiline) {
+                  // Inline positioning
+                  tooltip.style.left = (rect.left) + 'px';
+                  tooltip.style.top = (rect.bottom + window.scrollY -60) + 'px';
+              }
+
+              /*// Position the tooltip
+              tooltip.style.left = (rect.left + window.scrollX) + 'px';
+              tooltip.style.top = topPosition + 'px';*/
+              tooltip.style.display = 'block';
+
+              // Hide other tooltips
+              document.querySelectorAll('.tooltip-par').forEach(function(element) {
+                  if (element !== tooltip) {
+                      element.style.display = 'none';
+                  }
+              });
+
+              // Prevent click propagation
+              event.stopPropagation();
           });
 
-          // Hide the tooltip when clicking outside
-          const handleClickOutside = (event) => {
-              if (!trigger.contains(event.target) && !tooltip.contains(event.target)) {
-                  tooltip.remove();
-                  document.removeEventListener('click', handleClickOutside);
-              }
-          };
+          paragraph.appendChild(textNode);
 
-          document.addEventListener('click', handleClickOutside);
+          if (index < sentences.length - 1) {
+              paragraph.appendChild(document.createTextNode(', '));
+          }
       });
   });
-});*/
+
+  // Event listener to hide tooltips when clicking outside
+  document.addEventListener('click', function(event) {
+      document.querySelectorAll('.tooltip-par').forEach(function(element) {
+          element.style.display = 'none';
+      });
+  });
+
+  function getPrice(sentence) {
+      switch (sentence.trim()) {
+          case "Linear Algebra":
+          case "Many Body Theory":
+              return '50€';
+          case "Calculus 1":
+          case "Differential Geometry":
+          case "Fluid Dynamics":
+              return '40€';
+          case "Calculus 2":
+          case "Calculus 3":
+          case "Mathematical Methods for Physics or Engineering":
+          case "Lagrangian and Hamiltonian formulations":
+          case "Classical Mechanics":
+          case "Thermodynamics":
+          case "Discrete Mathematics":
+          case "Laurent Series":
+              return '30€';
+          case "Calculus 4":
+              return '10$';
+          case "Lie Groups and Lie algebras":
+              return '70$';
+          case "Complex Analysis":
+              return '80$';
+          default:
+              return '';
+      }
+  }
+});
