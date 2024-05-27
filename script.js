@@ -91,6 +91,19 @@ flowCharts.forEach((el) => blurrin.observe(el));
 
 // Add coping on hover
 
+function addPulseAnimation(tooltip) {
+  tooltip.classList.add('pulse');
+  
+  // Remove jiggle animation after it completes
+  setTimeout(function() {
+      removePulseAnimation(tooltip);
+  }, 500); 
+}
+
+function removePulseAnimation(tooltip) {
+  tooltip.classList.remove('pulse');
+}
+
 function protoHover1() {
     navigator.clipboard.writeText("riccardomartelli97@gmail.com");
   
@@ -132,6 +145,12 @@ function protoHover2() {
         var tooltip = document.getElementById("myTooltip3");
         tooltip.style.width = '200px';
         tooltip.innerHTML = "Numero Copiato " +"&#x2713";
+
+        tooltip.classList.add('pulse');
+        setTimeout(function() {
+          tooltip.classList.remove('pulse');
+      }, 500);
+          
       }
   }
 
@@ -169,7 +188,7 @@ function copyResetFunc3() {
       tooltip.style.width = '200px';
       tooltip.innerHTML = "Copy to clipboard";
         }else{
-          var tooltip = document.getElementById("myTooltip3");
+      var tooltip = document.getElementById("myTooltip3");
       tooltip.style.width = '100px';
       tooltip.innerHTML = "Copia";
         }
@@ -177,11 +196,25 @@ function copyResetFunc3() {
 }
 
 //Function click cell phone
+function addHighAnimation(tooltip) {
+  tooltip.classList.add('jiggle');
+  
+  // Remove jiggle animation after it completes
+  setTimeout(function() {
+      removeHighAnimation(tooltip);
+  }, 500); 
+}
+
+function removeHighAnimation(tooltip) {
+  tooltip.classList.remove('jiggle');
+}
+
 
 function clickPriceHighschool(element){
 
   const highschool = element.children;
   highschool[0].style.visibility="visible";
+  addHighAnimation(highschool[0]);
 
 }
 function clickPriceHighschoolOnMouseOut(element){
@@ -190,6 +223,8 @@ function clickPriceHighschoolOnMouseOut(element){
   highschool[0].style.visibility="hidden";
 }
 
+
+//Paragraphs
 document.addEventListener("DOMContentLoaded", function() {
   var paragraphs = document.querySelectorAll(".paragraph");
 
@@ -215,15 +250,6 @@ document.addEventListener("DOMContentLoaded", function() {
               var lineHeight = parseFloat(window.getComputedStyle(textNode).lineHeight);
               var tooltipHeight = tooltip.offsetHeight;
 
-             /* // Calculate the top position of the tooltip
-              var topPosition = rect.bottom + window.scrollY;
-
-              // Adjust the top position if the text spans multiple lines
-              if (rect.height > lineHeight) {
-                  topPosition -= tooltipHeight + lineHeight +60;
-              } else {
-                  topPosition -= tooltipHeight+60;
-              }*/
               var isMultiline = rect.height >= lineHeight;
 
               if (isMultiline) {
@@ -233,21 +259,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
               } else if(!isMultiline) {
                   // Inline positioning
-                  tooltip.style.left = (rect.left) + 'px';
+                  tooltip.style.left = (rect.left +rect.width/2 - toolOffSetWidth/2) + 'px';
                   tooltip.style.top = (rect.bottom + window.scrollY -60) + 'px';
               }
 
-              /*// Position the tooltip
-              tooltip.style.left = (rect.left + window.scrollX) + 'px';
-              tooltip.style.top = topPosition + 'px';*/
               tooltip.style.display = 'block';
 
-              // Hide other tooltips
-              document.querySelectorAll('.tooltip-par').forEach(function(element) {
+              document.querySelectorAll('.tooltip-par').forEach(function(element) {/*Handles other tooltips */
                   if (element !== tooltip) {
                       element.style.display = 'none';
                   }
               });
+              addAnimation(tooltip);
 
               // Prevent click propagation
               event.stopPropagation();
@@ -258,8 +281,23 @@ document.addEventListener("DOMContentLoaded", function() {
           if (index < sentences.length - 1) {
               paragraph.appendChild(document.createTextNode(', '));
           }
+
       });
   });
+   
+    
+    function addAnimation(tooltip) {
+      tooltip.classList.add('jiggles');
+      
+      // Remove jiggle animation after it completes
+      setTimeout(function() {
+          removeAnimation(tooltip);
+      }, 500); 
+  }
+ 
+  function removeAnimation(tooltip) {
+      tooltip.classList.remove('jiggles');
+  }
 
   // Event listener to hide tooltips when clicking outside
   document.addEventListener('click', function(event) {
@@ -270,28 +308,34 @@ document.addEventListener("DOMContentLoaded", function() {
 
   function getPrice(sentence) {
       switch (sentence.trim()) {
-          case "Linear Algebra":
-          case "Many Body Theory":
-              return '50€';
+          case "Machine learning":case "Deep Learning":case "Numerical Simulation":
+          case "Many Body Theory": case"Meccanica Quantistica Relativistica e Teoria dei Campi":case "Simulazione Numerica":
           case "Calculus 1":
-          case "Differential Geometry":
-          case "Fluid Dynamics":
-              return '40€';
           case "Calculus 2":
-          case "Calculus 3":
-          case "Mathematical Methods for Physics or Engineering":
-          case "Lagrangian and Hamiltonian formulations":
-          case "Classical Mechanics":
-          case "Thermodynamics":
-          case "Discrete Mathematics":
-          case "Laurent Series":
-              return '30€';
+          case "Calculus 3":            
           case "Calculus 4":
-              return '10$';
-          case "Lie Groups and Lie algebras":
-              return '70$';
-          case "Complex Analysis":
-              return '80$';
+          case "Analisi 1":
+          case "Analisi 2":
+          case "Analisi 3":
+          case "Analisi 4": case "Relativistic Quantum Mechanics and Field Theory":
+              return '50€';
+          case "Geometria Differenziale":case "Metodi Matematici per la Meccanica Classica":case "Gruppi di Lie e Algebre di Lie":case "Analisi Funzionale":case "Serie di Fourier":
+          case "Fourier Series":case "Mathematical Method for Classical Mechanics":case "Relatività Generale":case "Teoria dei Grouppi per Modelli matematici":
+          case "Differential Geometry": case "Lie Groups and Lie algebras": case "Functional Analysis":
+          case "Fluid Dynamics": case"Fluidodinamica": case"General Relativity": case "Group Theory for Mathematical Modeling":
+              return '40€';
+          case "Linear Algebra":case "Algebra Lineare":case"Termodinamica":case"Meccanica Classica":
+          case "C++":case "C":case "Python":case "HTML":case "CSS":case "JavaScript":case "Mathematica":case "Tensorflow":case "Keras":case "Scikit-learn":case "SQL":case "Bash":case "Cuda":case "Sed":case "Awk":case "Data Analysis":
+          case "Mathematical Methods for Physics or Engineering":case "Meccanica Quantistica":case "Metodi Matematici per la Fisica e l'Ingegneria":case "":
+          case "Lagrangian and Hamiltonian formulations": case"Formulazioni Lagrangiane e Hamiltoniane della Meccanica":
+          case "Classical Mechanics": case"Fourier Transform":
+          case "Thermodynamics":case "Data Representation":case "Probability and statistics":case "Measure Theory":case "Bayesian Probability":case "Probability Distributions":case "Sampling":case "Discrete Distributions":case "Statistical Tests":
+          case "Discrete Mathematics": case "Padè approximations":case"Probabilità e Statistica":case"Teoria della Misura":case"Probabilità Bayesiana":case"Distribuzioni di Probabilità":case"Distribuzioni Discrete":case"Tests Statistici":case"Serie di Taylor":case"Serie di Laurent":
+          case "Laurent Series":  case "Complex Analysis": case"Analisi Complessa":case "Elettromagnetismo":case "Elettrodinamica": case"Trasformate di Laplace": case"Trasformate di Fourier":case"Trasformate Integrali":case"Aprossimazioni di Padè":case"Matematica del Discreto":
+          case "Algebra Lineare":case "Quantum Mechanics":case "Electromagnetism":case "Electrodynamics":case "p-values":case "Data Analysis":case "Integral Transformations":case "Laplace Transform":
+          case"Fisica 1":case"Fisica 2":case"Physics 1":case"Physics 2":
+              return '30€';
+
           default:
               return '';
       }
