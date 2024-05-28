@@ -114,7 +114,6 @@ background-color: linear-gradient( red,#F5EDED);
       top: 30%;
       left:0%;
       text-shadow: rgb(255, 0, 0) 1px 0 10px;/*Adds the neon effetct*/
-      text-align: inline;
       z-index: 1;
 
     }
