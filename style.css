@@ -28,13 +28,16 @@ background-color: linear-gradient( red,#F5EDED);
 @media only screen and (max-width: 767px) {
   html{
     scroll-behavior: smooth;
+
   }
-    	.main-img{/* class for profile picture*/
+  .main-img{/* class for profile picture*/
 
     display: block;
     margin-bottom:10px;
     height:450px;
     width:95vw;
+    transition: all 1s;
+
     }
 
   .flowcharts{
@@ -60,7 +63,6 @@ background-color: linear-gradient( red,#F5EDED);
       background-color: #333;
       text-align: center;
       overflow-x: hidden;
-   
      
     }
 
@@ -107,39 +109,36 @@ background-color: linear-gradient( red,#F5EDED);
     
     .welcome{
       color: #F5EDED;
-      font-size: calc(var(--vw,1vw)*11*45/75);
+      font-size: calc(var(--vw,1vw)*11*40/75);
       text-align:center;
       position: fixed;
       top: 30%;
       left:0%;
       text-shadow: rgb(255, 0, 0) 1px 0 10px;/*Adds the neon effetct*/
-     
+
     }
 
-   /* .welcome::before{
-      content: "";
-      background: red;
-      position: absolute;
-      top: 120%;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      transform: perspective(3em) rotateX(45deg);/*perspective HAS TO COME FIRST*/
-     /* filter: blur(1em);
-    
-    }*/
     .welcome::before{
       content: "";
       background: red;
       position: absolute;
-      top: 100%;
-      left: -20%;
-      width: 140%;
-      height: 100%;
-      transform: perspective(3em) rotateX(45deg);/*perspective HAS TO COME FIRST*/
-      filter: blur(1em);
+      top: 90%;
+      left: 10%;
+      width: 80%;
+      height: 120%;
+      transform: perspective(3.0em) rotateX(20deg);/*perspective HAS TO COME FIRST*/
+      filter: blur(0.7em);
     
     }
+   /*
+    position: absolute;
+    top: 120%;
+    left: -10%;
+    width: 120%;
+    height: 100%;
+    transform: perspective(1em) rotateX(10deg);
+    filter: blur(0.5em);*/
+
     .parrallax1{
       background: black/*url("planet.png") no-repeat*/;
       background-size: cover;
@@ -306,7 +305,7 @@ background-color: linear-gradient( red,#F5EDED);
     
     .sections a{
       position: relative;
-      font-size: small ;
+      font-size:calc(var(--var,1vw)*11*25/75) ;
     }
     
     /*.sections a:hover{  
@@ -362,10 +361,10 @@ background-color: linear-gradient( red,#F5EDED);
     .section {
       padding: 50px 0;
       font-size: calc(var(--var,1vh)*11*30/75)px;
-      opacity: 0;
-      filter: blur(5px);
-      transform: translateX(-100%);
-      transition: all 0.3s;
+      opacity: 1;
+      filter: blur(0px);
+      /*transform: translateX(-100%);*/
+      transition: all 1s;
 
     }
     .hoverover{
@@ -911,9 +910,9 @@ nav ul li.active a span{
 .section {
   padding: 50px 0;
   font-size: calc(var(--var,1vh)*11*30/75);
-  opacity: 0;
-  filter: blur(5px);
-  transform: translateX(-100%);
+  opacity: 1;
+  filter: blur(0px);
+  /*transform: translateX(-100%);*/
   transition: all 1s;
 }
 

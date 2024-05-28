@@ -92,8 +92,8 @@ flowCharts.forEach((el) => blurrin.observe(el));
 // Add coping on hover
 
 function addPulseAnimation(tooltip) {
-  tooltip.classList.add('pulse');
-  
+  tooltip.children[0].classList.add('pulse');
+ 
   // Remove jiggle animation after it completes
   setTimeout(function() {
       removePulseAnimation(tooltip);
@@ -115,6 +115,7 @@ function protoHover1() {
       var tooltip = document.getElementById("myTooltip");
       tooltip.style.width = '150px';
       tooltip.innerHTML = "Mail Copiata " +"&#x2713";
+
     }
 }
 
@@ -146,11 +147,6 @@ function protoHover2() {
         tooltip.style.width = '200px';
         tooltip.innerHTML = "Numero Copiato " +"&#x2713";
 
-        tooltip.classList.add('pulse');
-        setTimeout(function() {
-          tooltip.classList.remove('pulse');
-      }, 500);
-          
       }
   }
 
@@ -175,7 +171,7 @@ function copyResetFunc2() {
       tooltip.style.width = '200px';
       tooltip.innerHTML = "Copy to clipboard";
         }else{
-          var tooltip = document.getElementById("myTooltip2");
+      var tooltip = document.getElementById("myTooltip2");
       tooltip.style.width = '100px';
       tooltip.innerHTML = "Copia";
         }
@@ -243,7 +239,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
           var textNode = document.createElement('span');
           textNode.textContent = trimmedSentence;
-          const toolOffSetWidth =60;/*Corresponding to the CSS value */
+          const toolOffSetWidth = 60;/*Corresponding to the CSS value */
 
           textNode.addEventListener('click', function(event) {
               var rect = textNode.getBoundingClientRect();
