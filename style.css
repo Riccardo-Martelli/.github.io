@@ -118,7 +118,7 @@ background-color: linear-gradient( red,#F5EDED);
 
     }
 
-    .welcome::before{
+   /* .welcome::before{
       content: "";
       background: red;
       position: absolute;
@@ -127,9 +127,9 @@ background-color: linear-gradient( red,#F5EDED);
       width: 80%;
       height: 120%;
       transform: perspective(3.0em) rotateX(20deg);/*perspective HAS TO COME FIRST*/
-      filter: blur(0.7em);
+     /* filter: blur(0.7em);
     
-    }
+    }*/
    /*
     position: absolute;
     top: 120%;
