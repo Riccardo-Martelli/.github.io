@@ -99,13 +99,13 @@ background-color: linear-gradient( red,#F5EDED);
     }
     
     
-    header h1 {
+    /*header h1 {
       margin: -5%;
       font-size: calc(var(--vw,1vw)*11*20/75);
       position: sticky;
       top:-5%;
       left: 2.5%;
-    }
+    }*/
     
     .welcome{
       color: #F5EDED;
@@ -130,14 +130,6 @@ background-color: linear-gradient( red,#F5EDED);
      /* filter: blur(0.7em);
     
     }*/
-   /*
-    position: absolute;
-    top: 120%;
-    left: -10%;
-    width: 120%;
-    height: 100%;
-    transform: perspective(1em) rotateX(10deg);
-    filter: blur(0.5em);*/
 
     .parrallax1{
       background: black/*url("planet.png") no-repeat*/;
