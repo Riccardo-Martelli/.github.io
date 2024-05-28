@@ -18,11 +18,8 @@ window.addEventListener('scroll',() => {
   let value = window.scrollY;
    /*Welcome.style.left= value * 2.5 +'px';*/
    /*Welcome.style.marginRight= value * -2.5 +'px';*/
-   /*Welcome.style.opacity = Math.abs(1 - 8.5*value/document.documentElement.scrollHeight);
-   if((1 - 8.5*value/document.documentElement.scrollHeight) ===0){
-    Welcome.style.display="none";
-   }
-   */
+   Welcome.style.opacity = Math.abs(1 - 8.5*value/document.documentElement.scrollHeight);
+ 
     
 
   /* whiteDwarf.style.left = value * -5.5 +'px';*/
