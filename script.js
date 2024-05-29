@@ -108,16 +108,23 @@ function removePulseAnimation(tooltip) {
 function protoHover1() {
     navigator.clipboard.writeText("riccardomartelli97@gmail.com");
   
-    if(document.documentElement.lang==="en"){
     var tooltip = document.getElementById("myTooltip");
+
+    if(document.documentElement.lang==="en"){
     tooltip.style.width = '150px';
     tooltip.innerHTML = "Mail Copied " +"&#x2713";
     }else{
-      var tooltip = document.getElementById("myTooltip");
       tooltip.style.width = '150px';
       tooltip.innerHTML = "Mail Copiata " +"&#x2713";
 
     }
+        // Add pulse class to tooltip
+        tooltip.classList.add("pulse");
+
+        // Remove the pulse class after the animation is complete
+        tooltip.addEventListener('animationend', function() {
+            tooltip.classList.remove("pulse");
+        }, { once: true })
 }
 
 function protoHover2() {
@@ -137,8 +144,8 @@ function protoHover2() {
 
 
   function protoHover3() {
-
     navigator.clipboard.writeText("+39 3472847968");
+
     if(document.documentElement.lang==="en"){
       var tooltip = document.getElementById("myTooltip3");
       tooltip.style.width = '250px';
@@ -327,7 +334,7 @@ document.addEventListener("DOMContentLoaded", function() {
           case "Lagrangian and Hamiltonian formulations": case"Formulazioni Lagrangiane e Hamiltoniane della Meccanica":
           case "Classical Mechanics": case"Fourier Transform":
           case "Thermodynamics":case "Data Representation":case "Probability and statistics":case "Measure Theory":case "Bayesian Probability":case "Probability Distributions":case "Sampling":case "Discrete Distributions":case "Statistical Tests":
-          case "Discrete Mathematics": case "Padè approximations":case"Probabilità e Statistica":case"Teoria della Misura":case"Probabilità Bayesiana":case"Distribuzioni di Probabilità":case"Distribuzioni Discrete":case"Tests Statistici":case"Serie di Taylor":case"Serie di Laurent":
+          case "Discrete Mathematics": case "Padè approximations":case"Probabilità e Statistica":case"Teoria della Misura":case"Probabilità Bayesiana":case"Distribuzioni di Probabilità":case"Distribuzioni Discrete":case"Tests Statistici":case"Serie di Taylor":case"Serie di Laurent":case"Taylor Series":
           case "Laurent Series":  case "Complex Analysis": case"Analisi Complessa":case "Elettromagnetismo":case "Elettrodinamica": case"Trasformate di Laplace": case"Trasformate di Fourier":case"Trasformate Integrali":case"Aprossimazioni di Padè":case"Matematica del Discreto":
           case "Algebra Lineare":case "Quantum Mechanics":case "Electromagnetism":case "Electrodynamics":case "p-values":case "Data Analysis":case "Integral Transformations":case "Laplace Transform":
           case"Fisica 1":case"Fisica 2":case"Physics 1":case"Physics 2":
