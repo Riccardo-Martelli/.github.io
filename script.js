@@ -92,24 +92,11 @@ flowCharts.forEach((el) => blurrin.observe(el));
 
 // Add coping on hover
 
-function addPulseAnimation(tooltip) {
-  tooltip.children[0].classList.add('pulse');
- 
-  // Remove jiggle animation after it completes
-  setTimeout(function() {
-      removePulseAnimation(tooltip);
-  }, 500); 
-}
-
-function removePulseAnimation(tooltip) {
-  tooltip.classList.remove('pulse');
-}
-
 function protoHover1() {
     navigator.clipboard.writeText("riccardomartelli97@gmail.com");
   
     var tooltip = document.getElementById("myTooltip");
-
+              
     if(document.documentElement.lang==="en"){
     tooltip.style.width = '150px';
     tooltip.innerHTML = "Mail Copied " +"&#x2713";
@@ -118,14 +105,7 @@ function protoHover1() {
       tooltip.innerHTML = "Mail Copiata " +"&#x2713";
 
     }
-        // Add pulse class to tooltip
-        tooltip.classList.add("pulse");
-
-        // Remove the pulse class after the animation is complete
-        tooltip.addEventListener('animationend', function() {
-            tooltip.classList.remove("pulse");
-        }, { once: true })
-}
+  }
 
 function protoHover2() {
     navigator.clipboard.writeText("riccardo.martelli@studenti.unimi.it");
