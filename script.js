@@ -325,3 +325,6 @@ document.addEventListener("DOMContentLoaded", function() {
       }
   }
 });
+
+//screen orientation locked on potrait
+screen.orientation.lock("natural");
