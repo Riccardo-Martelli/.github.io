@@ -1144,6 +1144,10 @@ th,td{
 
 }
 
-/*@media only screen  and (min-width:667, max-width:767){
+/*@media only screen and (orientation: landscape) {
+  body {
+    background-color: lightblue;
+  }
+}){
   
 }*/

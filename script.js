@@ -30,7 +30,7 @@ window.addEventListener('scroll',() => {
     const sectionTop = elem.offsetTop;
     const sectionHeight = elem.clientHeight;
 
-    if(scrollY > (sectionTop-sectionHeight-0.05)){
+    if(scrollY > (sectionTop-sectionHeight/3)){
       current = elem.getAttribute('id');
     }
   })
@@ -327,5 +327,3 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 });
 
-var screenOrientation = window.screen.orientation;
-screenOrientation.lock("portrait");
