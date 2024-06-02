@@ -210,6 +210,7 @@ function clickPriceHighschoolOnMouseOut(element){
 
 //Paragraphs
 document.addEventListener("DOMContentLoaded", function() {
+
   var paragraphs = document.querySelectorAll(".paragraph");
 
   paragraphs.forEach(function(paragraph) {
@@ -326,5 +327,5 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 });
 
-//screen orientation locked on potrait
-screen.orientation.lock("natural");
+var screenOrientation = window.screen.orientation;
+screenOrientation.lock("portrait");
