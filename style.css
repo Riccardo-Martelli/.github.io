@@ -1222,10 +1222,8 @@ header h1 {
 .welcome{
   color: #F5EDED;
   font-size: calc(var(--var,1vh)*11*75/75);
-  position: fixed;
-  padding: 15% 0; 
+  top:5%;
   text-shadow: rgb(255, 0, 0) 5px 0 15px;/*Adds the neon effetct*/
-  text-align:center;
   z-index: 1;
 }
 
