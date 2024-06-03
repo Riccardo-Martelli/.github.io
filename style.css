@@ -1408,11 +1408,11 @@ nav ul li a {
   position: relative;
 }
 
-.sections a:hover{  
+/*.sections a:hover{  
   transform: scale(1);
   color: rgba(177, 0, 0, 0.773);
 
-}
+}*/
 
 .sections a span{
   position: absolute;
