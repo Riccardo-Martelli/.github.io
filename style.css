@@ -481,7 +481,7 @@ background-color: linear-gradient( red,#F5EDED);
       position: absolute;
       background-color: black;
       color: #F5EDED;
-      padding-top: 3px;
+      padding-top: 7.5px;
       border-radius: 6px;
       display: none;
       z-index: 1;
@@ -1227,7 +1227,7 @@ header h1 {
   left: 8%;
   text-shadow: rgb(255, 0, 0) 5px 0 15px;/*Adds the neon effetct*/
   text-align:inline;
- z-index: 1;
+  z-index: 1;
 }
 
 /*.welcome::before{
@@ -1313,7 +1313,7 @@ p {
   filter: blur(5px);
   transform: translateX(-100%);
   transition: all 1.5s;
-  line-height: 30px;
+  line-height: 20px;
 }
 p a{
   font-size: calc(var(--var,1vh)*11*20/75);
