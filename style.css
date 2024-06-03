@@ -25,7 +25,7 @@ background-color: linear-gradient( red,#F5EDED);
 }
 
 
-@media only screen and (max-width: 667px) {
+@media only screen and (max-width: 467px) {
   html{
     scroll-behavior: smooth;
 
@@ -1141,7 +1141,7 @@ th,td{
 
 }
 
-@media only screen and (min-width:667px) and (max-width:867px) {
+@media only screen and (min-width:467px) and (max-width:867px) {
   html{
     scroll-behavior: smooth;
   }
@@ -1223,8 +1223,8 @@ header h1 {
   color: #F5EDED;
   font-size: calc(var(--var,1vh)*11*75/75);
   position: fixed;
-  top: 30%;
-  left: 8%;
+  top:25%;
+  left: 10%;
   text-shadow: rgb(255, 0, 0) 5px 0 15px;/*Adds the neon effetct*/
   text-align:inline;
   z-index: 1;
