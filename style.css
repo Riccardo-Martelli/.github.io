@@ -1223,10 +1223,9 @@ header h1 {
   color: #F5EDED;
   font-size: calc(var(--var,1vh)*11*75/75);
   position: fixed;
-  top:25%;
-  left: 10%;
+  padding: 15% 0; 
   text-shadow: rgb(255, 0, 0) 5px 0 15px;/*Adds the neon effetct*/
-  text-align:inline;
+  text-align:center;
   z-index: 1;
 }
 
