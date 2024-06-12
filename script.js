@@ -327,3 +327,17 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 });
 
+/*Banner interaction*/
+document.addEventListener('DOMContentLoaded', function () {
+  const banner = document.getElementById('cookie-consent-banner');
+  const closeButton = document.getElementById('close-banner');
+
+  closeButton.addEventListener('click', function () {
+    banner.style.display = 'none';
+    localStorage.setItem('analyticsNoticeClosed', 'true');
+  });
+
+  if (!localStorage.getItem('analyticsNoticeClosed')) {
+    banner.style.display = 'block';
+  }
+});

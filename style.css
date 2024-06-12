@@ -1189,6 +1189,23 @@ th,td{
   border:2.5px solid  red;
 }
 
+#cookie-consent-banner {
+  position: fixed;
+  bottom: 0;
+  width: 98.5%;
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+  text-align: center;
+}
+
+
 }
 
 @media only screen and (min-width:467px) and (max-width:867px) {
