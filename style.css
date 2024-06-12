@@ -15,6 +15,56 @@ background-color: linear-gradient( red,#F5EDED);
   
 }*/
 
+/* General style for the cookie banner */
+#cookie-consent-banner {
+  position: fixed;
+  bottom: 0;
+  width: 94.7%;
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+  text-align: center;
+}
+
+#cookie-consent-banner p {
+  margin: 0;
+  flex: 1;
+  color: black;
+}
+
+#cookie-consent-banner a {
+  color: rgb(3, 218, 3);
+  text-decoration: none;
+}
+
+
+#cookie-consent-banner a:hover {
+  text-decoration: underline;
+}
+
+#cookie-consent-banner button {
+  /*margin-right: 60px;*/
+  margin-left: 10px;
+  padding: 5px 10px;
+  border: none;
+  background-color:red;
+  color: #fff;
+  cursor: pointer;
+
+}
+
+#cookie-consent-banner button:hover {
+  background-color:rgb(185, 0, 0);
+}
+
+
+
 @supports (scrollbar-color:  red #F5EDED){
   *{
   scrollbar-color:  red hsla(120, 100%, 50%, 0);
