@@ -710,18 +710,6 @@ header h1 {
  z-index: 1;
 }
 
-/*.welcome::before{
-  content: "";
-  background: red;
-  position: absolute;
-  top: 120%;
-  left: -10%;
-  width: 120%;
-  height: 100%;
-  transform: perspective(1em) rotateX(10deg);/*perspective HAS TO COME FIRST*/
- /* filter: blur(0.5em);
-
-}*/
 
 .parrallax1{
   /*--new stuff--*/

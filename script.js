@@ -303,12 +303,12 @@ document.addEventListener("DOMContentLoaded", function() {
           case "Analisi 2":
           case "Analisi 3":
           case "Analisi 4": case "Relativistic Quantum Mechanics and Field Theory":
-              return '50€';
+              return '45€';
           case "Geometria Differenziale":case "Metodi Matematici per la Meccanica Classica":case "Gruppi di Lie e Algebre di Lie":case "Analisi Funzionale":case "Serie di Fourier":
           case "Fourier Series":case "Mathematical Method for Classical Mechanics":case "Relatività Generale":case "Teoria dei Grouppi per Modelli matematici":
           case "Differential Geometry": case "Lie Groups and Lie algebras": case "Functional Analysis":
           case "Fluid Dynamics": case"Fluidodinamica": case"General Relativity": case "Group Theory for Mathematical Modeling":
-              return '30€';
+              return '25€';
           case "Linear Algebra":case "Algebra Lineare":case"Termodinamica":case"Meccanica Classica":
           case "C++":case "C":case "Python":case "HTML":case "CSS":case "JavaScript":case "Mathematica":case "Tensorflow":case "Keras":case "Scikit-learn":case "SQL":case "Bash":case "Cuda":case "Sed":case "Awk":case "Data Analysis":
           case "Mathematical Methods for Physics or Engineering":case "Meccanica Quantistica":case "Metodi Matematici per la Fisica e l'Ingegneria":case "":
@@ -319,7 +319,7 @@ document.addEventListener("DOMContentLoaded", function() {
           case "Laurent Series":  case "Complex Analysis": case"Analisi Complessa":case "Elettromagnetismo":case "Elettrodinamica": case"Trasformate di Laplace": case"Trasformate di Fourier":case"Trasformate Integrali":case"Aprossimazioni di Padè":case"Matematica del Discreto":
           case "Algebra Lineare":case "Quantum Mechanics":case "Electromagnetism":case "Electrodynamics":case "p-values":case "Data Analysis":case "Integral Transformations":case "Laplace Transform":
           case"Fisica 1":case"Fisica 2":case"Physics 1":case"Physics 2":case"Stochastic Calculus":case"Analisi Stocastica":
-              return '30€';
+              return '25€';
 
           default:
               return '';
