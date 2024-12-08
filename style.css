@@ -85,10 +85,12 @@ background-color: linear-gradient( red,#F5EDED);
   .main-img{/* class for profile picture*/
 
     display: block;
+    margin-left: -0.5%;
     margin-bottom:10px;
     height:450px;
     width:95vw;
     transition: all 1s;
+    border-radius: 15px;
 
     }
 
@@ -635,7 +637,8 @@ background-color: linear-gradient( red,#F5EDED);
   margin:5px;
   height:450px;
   width:350px;
-  transition: background-image 2s
+  transition: background-image 2s;
+  border-radius: 20px;
   }
 
 .flowcharts{
