@@ -602,6 +602,7 @@ background-color: linear-gradient( red,#F5EDED);
       bottom: 110%;
       left:50%;
       transform: translate(-50%);
+      transform-origin: 0 25px;
       opacity: 100;
     
     }
@@ -1167,7 +1168,7 @@ nav ul li.active a span{
   bottom: 110%;
   left:50%;
   transform: translate(-50%);
-  transform-origin: 0 25px;
+  transform-origin: 0 20px;
   opacity: 100;
 
 }

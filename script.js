@@ -207,7 +207,7 @@ function clickPriceHighschoolOnMouseOut(element){
 
   const highschool = element.children;
   highschool[0].style.opacity=0;
-  highschool[0].style.transition='opacity 5s';
+  highschool[0].style.transition='opacity 3s';
 
 }
 /*function scrollPriceHighschool(element){
