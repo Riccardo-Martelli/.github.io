@@ -20,7 +20,6 @@ window.addEventListener('scroll',() => {
    /*Welcome.style.marginRight= value * -2.5 +'px';*/
    Welcome.style.opacity = Math.abs(1 - 8.5*value/document.documentElement.scrollHeight);
  
-    
 
   /* whiteDwarf.style.left = value * -5.5 +'px';*/
   /*Highlight section */
@@ -179,7 +178,7 @@ function copyResetFunc3() {
   }
 }
 
-//Function click cell phone
+//Function click 
 function addHighAnimation(tooltip) {
   tooltip.classList.add('jiggle');
   
@@ -194,19 +193,39 @@ function removeHighAnimation(tooltip) {
 }
 
 
+
 function clickPriceHighschool(element){
 
   const highschool = element.children;
-  highschool[0].style.visibility="visible";
+  highschool[0].style.visibility = "visible";
+  highschool[0].style.opacity = 100;
+  highschool[0].style.transition='opacity 0.5s';
   addHighAnimation(highschool[0]);
 
 }
 function clickPriceHighschoolOnMouseOut(element){
 
   const highschool = element.children;
-  highschool[0].style.visibility="hidden";
-}
+  highschool[0].style.opacity=0;
+  highschool[0].style.transition='opacity 5s';
 
+}
+/*function scrollPriceHighschool(element){
+  const highschoolTip = element.querySelector("#highschooltip");
+  
+  // Detect if the element is visible in the viewport during scroll
+  const rect = element.getBoundingClientRect();
+  const isVisible = rect.top >= 0 && rect.bottom <= window.innerHeight;
+  
+  if (isVisible) {
+    highschoolTip.style.opacity = 1; 
+    highschoolTip.style.visibility = "visible";
+  } else {
+    highschoolTip.style.opacity = 0; 
+    highschoolTip.style.visibility = "hidden";
+  }
+  highschoolTip.style.transition = "opacity 2s";
+}*/
 
 //Paragraphs
 document.addEventListener("DOMContentLoaded", function() {
@@ -229,8 +248,33 @@ document.addEventListener("DOMContentLoaded", function() {
           var textNode = document.createElement('span');
           textNode.textContent = trimmedSentence;
           const toolOffSetWidth = 60;/*Corresponding to the CSS value */
+          
+          document.addEventListener('scroll',function (event) {
+            if(tooltip.style.opacity > 0 && tooltip.style.opacity <= 100){
+          
+            // Start fading out over 0.5 seconds
+            const duration = 500; // 0.5 seconds
+            const startTime = Date.now();
 
+            function fade() {
+              const elapsed = Date.now() - startTime;
+              const progress = Math.min(elapsed / duration, 1);
+              tooltip.style.opacity = 1 - progress;
+
+              // Continue the animation if not complete
+              if (progress < 1) {
+                requestAnimationFrame(fade);
+              }
+            }
+
+            requestAnimationFrame(fade);
+          }
+
+          });
+          
           textNode.addEventListener('click', function(event) {
+              tooltip.style.opacity = 100;
+
               var rect = textNode.getBoundingClientRect();
               var lineHeight = parseFloat(window.getComputedStyle(textNode).lineHeight);
               var tooltipHeight = tooltip.offsetHeight;
@@ -284,12 +328,26 @@ document.addEventListener("DOMContentLoaded", function() {
       tooltip.classList.remove('jiggles');
   }
 
+  //Function scroll 
+function addFadeOut(tooltip) {
+  tooltip.classList.add('animation-fadeout');
+  
+  // Remove jiggle animation after it completes
+  setTimeout(function() {
+      removeFadeOut(tooltip);
+  }, 500); 
+}
+
+function removeFadeOut(tooltip) {
+  tooltip.classList.remove('animation-fadeout');
+}
+
   // Event listener to hide tooltips when clicking outside
-  document.addEventListener('click', function(event) {
-      document.querySelectorAll('.tooltip-par').forEach(function(element) {
-          element.style.display = 'none';
-      });
-  });
+document.addEventListener('click', function(event) {
+    document.querySelectorAll('.tooltip-par').forEach(function(element) {
+        element.style.display = 'none';
+    });
+});
 
   function getPrice(sentence) {
       switch (sentence.trim()) {
@@ -322,7 +380,7 @@ document.addEventListener("DOMContentLoaded", function() {
               return '25€';
 
           default:
-              return '';
+              return 'Contact me';
       }
   }
 });

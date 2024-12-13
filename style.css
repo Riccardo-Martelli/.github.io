@@ -74,8 +74,30 @@ background-color: linear-gradient( red,#F5EDED);
 /*this code is needed because firefox doesn't support the above code*/
 }
 
+.courseBullets{
+  cursor: pointer;
+}
 
-
+@keyframes fadeout {
+  0%{
+    opacity: 80;
+  }
+  25%{
+    opacity: 60;
+  }
+ 50%{
+    opacity: 40;
+  }
+  75%{
+    opacity: 20;
+  }
+  100%{
+    opacity: 0;
+  }
+}
+.animation-fadeout {
+  animation: fadeout 1s ease-in-out;
+}
 
 @media only screen and (max-width: 467px) {
   html{
@@ -429,7 +451,12 @@ background-color: linear-gradient( red,#F5EDED);
       opacity: 1;
       filter: blur(0);
     }
-    
+
+    /*another cool effect*/
+    /*@keyframes rollingout {
+
+    }*/
+
     /*Tooltip*/
     @keyframes jiggle {
 
@@ -575,6 +602,7 @@ background-color: linear-gradient( red,#F5EDED);
       bottom: 110%;
       left:50%;
       transform: translate(-50%);
+      opacity: 100;
     
     }
     #highschooltip:active{
@@ -613,17 +641,21 @@ background-color: linear-gradient( red,#F5EDED);
       display:block;
       position: relative;
       text-align: center;
-      border:0px solid  red;
+      border:2.5px solid  red;
       width: fit-content;
       margin-left: auto;
       margin-right: auto;
       border-collapse: collapse;
-    
+      border-radius: 10px;
     }
-    th,td{
-      border:2px solid  red;
+    th{
+      border:0px solid  red;
+      border-bottom-left-radius: 10px;
+      padding: 0 10px;
     }
-
+    td {
+     
+    }
     }
 
 /* for pc */
@@ -1136,6 +1168,7 @@ nav ul li.active a span{
   left:50%;
   transform: translate(-50%);
   transform-origin: 0 25px;
+  opacity: 100;
 
 }
 
@@ -1171,15 +1204,23 @@ table{
   display:block;
   position: relative;
   text-align: center;
-  border:0px solid  red;
+  border:2.5px solid  red;
   width: fit-content;
   margin-left: auto;
   margin-right: auto;
   border-collapse: collapse;
+  border-radius: 10px;
 
 }
-th,td{
-  border:2.5px solid  red;
+
+
+th{
+  border:0px solid  red;
+  border-bottom-left-radius: 10px;
+  padding: 0 10px;
+}
+td {
+ 
 }
 
 #cookie-consent-banner {
@@ -1365,16 +1406,16 @@ h3{
 p {
   font-size: calc(var(--var,1vw)*11*15/75);
   margin:0px;
-  color: #ffffff;
+  color: #F5EDED;
+  text-align: center;
   margin-inline: auto;
   filter: blur(5px);
   transform: translateX(-100%);
   transition: all 1.5s;
-  line-height: 20px;
+  line-height: 15px;
 }
 p a{
-  font-size: calc(var(--var,1vh)*11*20/75);
-
+  font-size: calc(var(--var,1vw)*11*15/75);
 }
 .courseBullets{
   text-align: center;
@@ -1388,7 +1429,7 @@ p a{
 }
 
 a {
-  font-size: calc(var(--var,1vw)*11*15/75);
+  font-size: calc(var(--var,1vw)*11*22.5/75);
 }
 
 ul {
@@ -1780,15 +1821,20 @@ table{
   display:block;
   position: relative;
   text-align: center;
-  border:0px solid  red;
+  border:2.5px solid  red;
   width: fit-content;
   margin-left: auto;
   margin-right: auto;
   border-collapse: collapse;
-
+  border-radius: 10px;
 }
-th,td{
-  border:2.5px solid  red;
+th{
+  border:0px solid  red;
+  border-bottom-left-radius: 10px;
+  padding: 0 10px;
+}
+td {
+ 
 }
 
 }
