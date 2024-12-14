@@ -273,8 +273,20 @@ document.addEventListener("DOMContentLoaded", function() {
           });
           
           textNode.addEventListener('click', function(event) {
-              tooltip.style.opacity = 100;
+                  /* ADD vibration on click*/
+                  if ('vibrate' in navigator) {// Check if the Vibration API is supported
+                        // Vibrate for 100 ms when clicked//It can be modified with an array [vibrate, pause, vibrate]
+                        navigator.vibrate(100);  
+                } else {
+                    console.log("Vibration API not supported on this device.");
+                }
 
+              tooltip.style.opacity = 100;
+              if(trimmedSentence==='...'){
+                  tooltip.style.width='175px'
+                  tooltip.style.height='62.5px'
+                  
+              }
               var rect = textNode.getBoundingClientRect();
               var lineHeight = parseFloat(window.getComputedStyle(textNode).lineHeight);
               var tooltipHeight = tooltip.offsetHeight;
@@ -380,7 +392,12 @@ document.addEventListener('click', function(event) {
               return '25€';
 
           default:
-              return 'Contact me';
+            if(document.documentElement.lang==="en"){
+                  return 'Contact me for more';
+                }else{
+                  return 'Contattatami per altri corsi';
+                }
+             
       }
   }
 });
