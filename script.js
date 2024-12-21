@@ -210,22 +210,6 @@ function clickPriceHighschoolOnMouseOut(element){
   highschool[0].style.transition='opacity 3s';
 
 }
-/*function scrollPriceHighschool(element){
-  const highschoolTip = element.querySelector("#highschooltip");
-  
-  // Detect if the element is visible in the viewport during scroll
-  const rect = element.getBoundingClientRect();
-  const isVisible = rect.top >= 0 && rect.bottom <= window.innerHeight;
-  
-  if (isVisible) {
-    highschoolTip.style.opacity = 1; 
-    highschoolTip.style.visibility = "visible";
-  } else {
-    highschoolTip.style.opacity = 0; 
-    highschoolTip.style.visibility = "hidden";
-  }
-  highschoolTip.style.transition = "opacity 2s";
-}*/
 
 //Paragraphs
 document.addEventListener("DOMContentLoaded", function() {
@@ -282,26 +266,53 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
 
               tooltip.style.opacity = 100;
-              if(trimmedSentence==='...'){
-                  tooltip.style.width='175px'
-                  tooltip.style.height='62.5px'
-                  
-              }
+            
               var rect = textNode.getBoundingClientRect();
               var lineHeight = parseFloat(window.getComputedStyle(textNode).lineHeight);
               var tooltipHeight = tooltip.offsetHeight;
 
               var isMultiline = rect.height >= lineHeight;
 
-              if (isMultiline) {
+              if(trimmedSentence==='...'){
+                tooltip.style.width='175px';
+                tooltip.style.height='62.5px';
+
+                }
+              document.documentElement.style.setProperty("--visibility",'visible'); // hides the tooltip tip
+
+
+              if (isMultiline) {//For when it crosses the line (eol)
                 //Multiline positioning
                 tooltip.style.left = (rect.left + rect.width - toolOffSetWidth) + 'px';
-                tooltip.style.top = (rect.bottom + window.scrollY - 60-lineHeight) + 'px';
+                tooltip.style.top = (rect.bottom + window.scrollY - 60 -lineHeight) + 'px';
 
               } else if(!isMultiline) {
                   // Inline positioning
                   tooltip.style.left = (rect.left +rect.width/2 - toolOffSetWidth/2) + 'px';
                   tooltip.style.top = (rect.bottom + window.scrollY -60) + 'px';
+
+                  if(trimmedSentence==='...'){
+
+                    tooltip.style.top = (rect.bottom + window.scrollY - 175/2) + 'px';
+
+                    if(screen.width>468){
+                      tooltip.style.left = (rect.left +rect.width/2 - toolOffSetWidth/2 - 58) + 'px'; 
+                    }
+                    else{
+                      tooltip.style.height='57.5px';
+                      document.documentElement.style.setProperty("--visibility",'hidden'); // hides the tooltip tip
+
+                      if(rect.left>screen.width/1.5){
+                        tooltip.style.left = (rect.left  - Math.abs(toolOffSetWidth/screen.width)/2 - 130) + 'px'; 
+
+                      }else if(rect.left<=screen.width/1.5){
+                        tooltip.style.left = (rect.left - Math.abs(toolOffSetWidth/screen.width)/2-75) + 'px'; 
+                      }else{
+                        tooltip.style.left = (rect.left  - Math.abs(toolOffSetWidth/screen.width)/2 - 100) + 'px'; 
+                      }
+
+                    }
+                  }
               }
 
               tooltip.style.display = 'block';
@@ -393,7 +404,8 @@ document.addEventListener('click', function(event) {
 
           default:
             if(document.documentElement.lang==="en"){
-                  return 'Contact me for more';
+                  return 'Contact me for more info';
+
                 }else{
                   return 'Contattatami per altri corsi';
                 }

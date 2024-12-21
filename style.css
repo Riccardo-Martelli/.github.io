@@ -63,6 +63,12 @@ background-color: linear-gradient( red,#F5EDED);
   background-color:rgb(185, 0, 0);
 }
 
+:root{
+
+  /*Varibles*/
+
+    --visibility: visible;
+}
 
 
 @supports (scrollbar-color:  red #F5EDED){
@@ -294,7 +300,7 @@ background-color: linear-gradient( red,#F5EDED);
     ul p{
       margin-left: -20.3%;
       text-align: center;
-
+      
     }
     
     #publicationss li{
@@ -568,12 +574,12 @@ background-color: linear-gradient( red,#F5EDED);
       z-index: 1;
       width: 60px;
       height: 30px;
-      font-size: calc(var(--var,1vh)*11*20/75);
+      font-size: 20px;
       text-align: center;
     
     }
     
-    .tooltip-par::after{
+    .tooltip-par::after{ /*Actual tip of the tooltip*/
       content: " ";
       position: absolute;
       top: 100%; /* At the bottom of the tooltip */
@@ -582,7 +588,8 @@ background-color: linear-gradient( red,#F5EDED);
       border-width: 5px;
       border-style: solid;
       border-color: black transparent transparent transparent;
-    
+      visibility: var(--visibility);
+
     }    
 
     #highschooltip {
@@ -591,7 +598,7 @@ background-color: linear-gradient( red,#F5EDED);
       visibility: hidden;
       height: 30px;
       width: 60px;
-      font-size: calc(var(--var,1vh)*11*20/75);
+      font-size: 20px;
       background-color: black;
       color: #F5EDED;
       text-align: center;
@@ -1140,7 +1147,7 @@ nav ul li.active a span{
 
 }
 
-.tooltip-par::after{
+.tooltip-par::after{/*Actual tip of the tooltip*/
   content: " ";
   position: absolute;
   top: 100%; /* At the bottom of the tooltip */
@@ -1755,7 +1762,7 @@ nav ul li.active a span{
 
 }
 
-.tooltip-par::after{
+.tooltip-par::after{/*Actual tip of the tooltip*/
   content: " ";
   position: absolute;
   top: 100%; /* At the bottom of the tooltip */
