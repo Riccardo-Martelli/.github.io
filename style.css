@@ -139,6 +139,16 @@ canvas {
 /*************/
 
 @media only screen and (max-width: 467px) {
+  canvas { 
+    display: block; 
+    position: relative; /* Ensure it stays in place */
+    top: 0; 
+    left: 0; 
+    width: 100vw; 
+    height: 85vh; /* fix the viewport height */
+    pointer-events: none; /* Ensure interactions pass through */
+  }
+
   html{
     scroll-behavior: smooth;
 
