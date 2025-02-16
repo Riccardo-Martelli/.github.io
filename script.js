@@ -16,13 +16,8 @@ const navElem = document.querySelectorAll('nav ul li');
 
 window.addEventListener('scroll',() => {
   let value = window.scrollY;
-   /*Welcome.style.left= value * 2.5 +'px';*/
-   /*Welcome.style.marginRight= value * -2.5 +'px';*/
    Welcome.style.opacity = Math.abs(1 - 8.5*value/document.documentElement.scrollHeight);
  
-
-  /* whiteDwarf.style.left = value * -5.5 +'px';*/
-  /*Highlight section */
   let current ='';
 
   sect.forEach(elem =>{
@@ -120,7 +115,19 @@ function protoHover2() {
       }
   }
 
+  function protoHover4() {
+    navigator.clipboard.writeText("riccardo.martelli@studenti.unimi.it");
 
+    if(document.documentElement.lang==="en"){
+      var tooltip = document.getElementById("myTooltip4");
+      tooltip.style.width = '150px';
+      tooltip.innerHTML = "Mail Copied " +"&#x2713";
+      }else{
+        var tooltip = document.getElementById("myTooltip4");
+        tooltip.style.width = '150px';
+        tooltip.innerHTML = "Mail Copiata " +"&#x2713";
+      }
+  }
 
   function protoHover3() {
     navigator.clipboard.writeText("+39 3472847968");
@@ -164,6 +171,20 @@ function copyResetFunc2() {
         }
   }
 }
+function copyResetFunc4() {
+  if(window.screen.width>=767){
+    if(document.documentElement.lang==="en"){
+      var tooltip = document.getElementById("myTooltip4");
+      tooltip.style.width = '200px';
+      tooltip.innerHTML = "Copy to clipboard";
+        }else{
+      var tooltip = document.getElementById("myTooltip4");
+      tooltip.style.width = '100px';
+      tooltip.innerHTML = "Copia";
+        }
+  }
+}
+
 function copyResetFunc3() {
   if(window.screen.width>=767){
     if(document.documentElement.lang==="en"){
@@ -386,7 +407,7 @@ document.addEventListener('click', function(event) {
           case "Analisi 4": case "Relativistic Quantum Mechanics and Field Theory":
               return '45€';
           case "Geometria Differenziale":case "Metodi Matematici per la Meccanica Classica":case "Gruppi di Lie e Algebre di Lie":case "Analisi Funzionale":case "Serie di Fourier":
-          case "Fourier Series":case "Mathematical Method for Classical Mechanics":case "Relatività Generale":case "Teoria dei Grouppi per Modelli matematici":
+          case "Fourier Series":case "Mathematical Method for Classical Mechanics":case "Relatività Generale":case "Teoria dei Grouppi per Modelli Matematici":
           case "Differential Geometry": case "Lie Groups and Lie algebras": case "Functional Analysis":
           case "R": case "MATLAB": case "Fluid Dynamics": case"Fluidodinamica": case"General Relativity": case "Group Theory for Mathematical Modeling":
               return '25€';
@@ -397,10 +418,16 @@ document.addEventListener('click', function(event) {
           case "Classical Mechanics": case"Fourier Transform":
           case "Thermodynamics":case "Data Representation":case "Probability and statistics":case "Measure Theory":case "Bayesian Probability":case "Probability Distributions":case "Sampling":case "Discrete Distributions":case "Statistical Tests":
           case "Discrete Mathematics": case "Padè approximations":case"Probabilità e Statistica":case"Teoria della Misura":case"Probabilità Bayesiana":case"Distribuzioni di Probabilità":case"Distribuzioni Discrete":case"Tests Statistici":case"Serie di Taylor":case"Serie di Laurent":case"Taylor Series":
-          case "Laurent Series":  case "Complex Analysis": case"Analisi Complessa":case "Elettromagnetismo":case "Elettrodinamica": case"Trasformate di Laplace": case"Trasformate di Fourier":case"Trasformate Integrali":case"Aprossimazioni di Padè":case"Matematica del Discreto":
+          case "Laurent Series":  case "Complex Analysis": case"Analisi Complessa":case "Elettromagnetismo":case "Elettrodinamica": case"Trasformate di Laplace": case"Trasformate di Fourier":case"Trasformate Integrali":case"Aprossimazioni di Padè":case"Matematica del Discreto":case"Monte Carlo Simulation":
           case "Algebra Lineare":case "Quantum Mechanics":case "Electromagnetism":case "Electrodynamics":case "p-values":case "Data Analysis":case "Integral Transformations":case "Laplace Transform":
           case"Fisica 1":case"Fisica 2":case"Physics 1":case"Physics 2":case"Stochastic Calculus":case"Analisi Stocastica":
-              return '25€';
+          case "Econometrics": case "Black & Scholes Equations": case "Pricing of Derivatives": case "Portfolio Management": case "Modern Portfolio Theory": case "Monte Carlo Simulation in Finance": case "Investment Decisions": case "Portfolio Selection": case "Risk-based Strategies": case "Risk Parity": case "Maximum Diversification Portfolio": case "Trading (Equity-Commodities-Forex-Futures)": case "Risk Management": case "Alternative Assets (Real Estate-Private Equity-Hedge Funds)": case "Credit":
+          case "Currency": case "Commodities": case "Asset Allocation": case "Dynamic Portfolio Management": case "Quantitative Risk Management": case "Machine Learning for Finance": case "Statistical Arbitrage": case "High-Frequency Trading (HFT)": case "Market Making": case "Asset Pricing Models": case "Value at Risk (VaR)": case "Expected Shortfall": case "Portfolio Optimization": case "Multi-Asset Strategies": case "Derivatives Pricing": case "Quantitative Trading Strategies":
+          case "Entropy Based Allocation and Advanced Allocation": case "Econometria": case "Equazioni di Black-Scholes": case "Valutazione dei derivati": case "Gestione del portafoglio": case "Teoria moderna del portafoglio": case "Simulazione Monte Carlo in finanza": case "Decisioni di investimento": case "Selezione del portafoglio": case "Strategie basate sul rischio": case "Risk Parity": case "Portafoglio di massima diversificazione": case "Allocazione basata sull'entropia": case "Allocazione avanzata": 
+          case "Gestione del rischio": case "Assets Alternativi (Real Estate-Private Equity-Hedge Funds)": case "Credit": case "FX": case "Commodities": 
+          case "Asset Allocation": case "Gestione dinamica del portafoglio": case "Gestione quantitativa del rischio": case "Machine Learning per la finanza": case "Arbitraggio statistico": case "High-Frequency Trading (HFT)": case "Market Making": case "Modelli per la valutazione degli Assets": case "Value at Risk (VaR)": case "Expected Shortfall": case "Ottimizzazione del portafoglio": case "Strategie multi-asset": case "Valutazione dei derivati": case "Strategie di trading quantitativo":
+          case "Modelli Stocastici per la Finanza": case "Stochastic Models for Finance":
+           return '25€';
 
           default:
             if(document.documentElement.lang==="en"){
@@ -428,3 +455,192 @@ document.addEventListener('DOMContentLoaded', function () {
     banner.style.display = 'block';
   }
 });
+
+/////////////////////////////////////////////
+////////////MOVING TITLE
+/////////////////////////////////////////////
+
+let titleText = "Riccardo Martelli - Math, Physics, Computer Science & Quantitative Finance ";
+let position = 0;
+let interval;
+
+function moveTitle() {
+    document.title = titleText.substring(position) + titleText.substring(0, position);
+    position = (position + 1) % titleText.length;
+}
+
+function startMoving() {
+  interval = setInterval(moveTitle, 200); //Set vel
+  setTimeout(stopMoving, 15400); // Moves for 5 sec
+  position = 0;
+}
+
+function stopMoving() {
+  clearInterval(interval);
+  setTimeout(startMoving, 5000); // Stops for 5 sec, then starts again
+}
+
+startMoving();
+
+/////////////////////////////////////////////
+////////////SHOOTING STARS
+/////////////////////////////////////////////
+
+const canvas = document.getElementById("starCanvas");
+const ctx = canvas.getContext("2d");
+
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+resizeCanvas(); // Set initial size
+
+class Star {
+    constructor() {
+        this.reset();
+    }
+
+    reset() {//Data
+        this.x = -Math.random() * canvas.width * 0.5;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 2 + 1;
+        this.speed = Math.random() * 4 + 2;
+        this.trail = [];
+        this.trailLength = Math.random() * 30 + 10;
+    }
+
+    update() {//Dynamics
+        this.trail.push({ x: this.x, y: this.y });
+
+        if (this.trail.length > this.trailLength) {
+            this.trail.shift();
+        }
+
+        this.x += this.speed;
+
+        if (this.x > canvas.width) {
+            this.reset();
+        }
+    }
+
+    draw() {
+        ctx.beginPath();
+        ctx.fillStyle = "rgb(200,100,10)";
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+
+        for (let i = 0; i < this.trail.length; i++) {
+            const alpha = i / this.trail.length;
+            ctx.fillStyle = `rgba(255, 255, 255, ${alpha})`;
+            ctx.beginPath();
+            ctx.arc(this.trail[i].x, this.trail[i].y, this.size / 2, 0, Math.PI * 2);
+            ctx.fill();
+        }
+    }
+}
+
+const stars = [];//Creates the stars
+for (let i = 0; i < 30; i++) {
+    stars.push(new Star());
+}
+
+function animate() {//Defines the animation
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    for (const star of stars) {
+        star.update();
+        star.draw();
+    }
+
+    requestAnimationFrame(animate);
+}
+
+animate();
+
+window.addEventListener("resize", resizeCanvas);
+
+
+/////////////////////////////////////////////
+////////////SLIDE BUTTON DM
+/////////////////////////////////////////////
+
+// Load dark mode preference from localStorage
+let isDarkMode = localStorage.getItem("darkMode") === "enabled";
+const slider = document.querySelector(".slider");
+
+// Set initial mode
+if (isDarkMode) {
+      document.body.classList.add("dark-mode");/*in case I want to add some class for dark mode */
+      document.documentElement.style.setProperty('--dark-modeBkg', 'white');
+      document.documentElement.style.setProperty('--text-color', 'black');
+      document.querySelectorAll('.GitHub').forEach(img => {
+        img.src = 'github-mark/github-mark.svg';
+    }); 
+      slider.setAttribute("data-tooltip", "Dark Mode");
+
+  
+      
+}else {
+      document.documentElement.style.setProperty('--dark-modeBkg', '#333');
+      document.documentElement.style.setProperty('--text-color', 'white');
+      document.querySelectorAll('.GitHub').forEach(img => {
+    img.src = 'github-mark/github-mark-white.svg';
+}); 
+        slider.setAttribute("data-tooltip", "Light Mode" );
+        const gitHubImage = document.querySelector('.GitHub');
+        const gitHuba = document.querySelector('.git-a');
+        gitHuba.addEventListener('mouseenter', () => {
+          gitHubImage.src = 'github-mark/github-mark.svg';
+        });
+       
+          gitHuba.addEventListener('mouseleave', () => {
+            gitHubImage.src =  "github-mark/github-mark-white.svg"; // Revert image on hover out
+          });
+}
+
+const toggle = document.getElementById("modeToggle");
+toggle.addEventListener("change", () => {
+    slider.setAttribute("data-tooltip", isDarkMode ? "Light Mode" : "Dark Mode");
+    isDarkMode = !isDarkMode;
+    document.body.classList.toggle("dark-mode");
+    if (isDarkMode) {
+      localStorage.setItem("darkMode", "enabled");
+      document.documentElement.style.setProperty('--dark-modeBkg', 'white');
+      document.documentElement.style.setProperty('--text-color', 'black');
+      document.querySelectorAll('.GitHub').forEach(img => {
+        img.src = 'github-mark/github-mark.svg';
+    });  
+    // Change image on hover
+    const gitHubImage = document.querySelector('.GitHub');
+    const gitHuba = document.querySelector('.git-a');
+    gitHuba.addEventListener('mouseenter', () => {
+      gitHubImage.src = 'github-mark/github-mark.svg';
+    });
+   
+      gitHuba.addEventListener('mouseleave', () => {
+        gitHubImage.src =  "github-mark/github-mark.svg"; // Revert image on hover out
+      });
+   
+
+  } else {
+      localStorage.setItem("darkMode", "disabled");
+      document.documentElement.style.setProperty('--dark-modeBkg', '#333');
+      document.documentElement.style.setProperty('--text-color', 'white');
+      document.querySelectorAll('.GitHub').forEach(img => {
+        img.src = 'github-mark/github-mark-white.svg';
+    });    
+    const gitHubImage = document.querySelector('.GitHub');
+    const gitHuba = document.querySelector('.git-a');
+    gitHuba.addEventListener('mouseenter', () => {
+      gitHubImage.src = 'github-mark/github-mark.svg';
+    });
+   
+      gitHuba.addEventListener('mouseleave', () => {
+        gitHubImage.src =  "github-mark/github-mark-white.svg"; // Revert image on hover out
+      });
+
+  }
+});
+
+
+

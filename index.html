@@ -11,15 +11,21 @@
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
   <link rel="manifest" href="site.webmanifest">
 </head>
+
 <body>
 
 <header>
+  <!--<button id="toggleMode" class="toggle-btn">🌙 Dark Mode</button>-->
+  <label class="switch">
+    <input type="checkbox" id="modeToggle">
+    <span class="slider" data-tooltip="Dark Mode"></span>
+  </label>
 
   <div class="header-content">
     <nav>
       <ul class="sections">
-        <li><a id="name">Riccardo Martelli</a></li>
-        <li class="home"><a id="clikable" href="#">Home<span></span></a></li>
+        <li ><a id="name" href="#">Riccardo Martelli<span></span></a></li>
+       <!-- <li class="home"><a id="clikable" href="#">Home<span></span></a></li>-->
         <li class="about"><a id="clikable" href="#about">About<span></span></a></li>
         <li class="courses"><a id="clikable" href="#courses">Courses<span></span></a></li>
         <li class="publications"><a id="clikable" href="#publications">Publications<span></span></a></li>
@@ -37,8 +43,9 @@
 </div>
 
 <section id="home" class="section parrallax1">
-
+  <canvas id="starCanvas"></canvas>
   <h1 class="welcome" id="Welcome"> WELCOME TO MY WEBSITE!</h1>
+  
   <!--Place images here-->
   <!--<img src="planet.png" id="planet">-->
   <!--<img src="mountains.png" id="mountains">-->
@@ -89,36 +96,51 @@
     <p class="courseBullets paragraph"> Probability and statistics, Measure Theory, Bayesian Probability, Probability Distributions, Sampling, Discrete Distributions, Statistical Tests, p-values, Data Analysis,...</p>
     <li> Physics: </li>
     <p class="courseBullets highschool" onclick="clickPriceHighschool(this)"  onmouseout="clickPriceHighschoolOnMouseOut(this)">Physics for highschool students.<span id="highschooltip">30&#8364;</span><br></p>
-    <p class="courseBullets paragraph" id="tooltip-paragraph">Physics 1, Physics 2, Classical Mechanics, Thermodynamics, Mathematical Methods for Physics or Engineering, Lagrangian and Hamiltonian formulations, Fluid Dynamics, Quantum Mechanics, Relativistic Quantum Mechanics and Field Theory, General Relativity, Group Theory for Mathematical Modeling, Many Body Theory, Electromagnetism, Electrodynamics,...</p>
+    <p class="courseBullets paragraph" id="tooltip-paragraph"> Physics 1, Physics 2, Classical Mechanics, Thermodynamics, Mathematical Methods for Physics or Engineering, Lagrangian and Hamiltonian formulations, Fluid Dynamics, Quantum Mechanics, Relativistic Quantum Mechanics and Field Theory, General Relativity, Group Theory for Mathematical Modeling, Many Body Theory, Electromagnetism, Electrodynamics,...</p>
     <li> Computer Science: </li>
     <p class="courseBullets highschool" onclick="clickPriceHighschool(this)"  onmouseout="clickPriceHighschoolOnMouseOut(this)">Computer Science for highschool students.<span id="highschooltip">30&#8364;</span><br></p>
-    <p class="courseBullets paragraph" id="tooltip-paragraph"> C++, C, Python, HTML, CSS, JavaScript, MATLAB, Mathematica, R, Tensorflow, Keras, Scikit-learn, SQL, Bash,Cuda, Sed, Awk, Data Analysis, Data Representation, Machine learning, Deep Learning, Numerical Simulation,... <br></p>
-     </ul>
+    <p class="courseBullets paragraph" id="tooltip-paragraph"> C++, C, Python, HTML, CSS, JavaScript, MATLAB, Mathematica, R, Tensorflow, Keras, Scikit-learn, SQL, Bash,Cuda, Sed, Awk, Data Analysis, Data Representation, Machine learning, Deep Learning, Numerical Simulation, Monte Carlo Simulation,... <br></p>
+    <li> Qunatitative Finance and Econometrics: </li>
+    <p class="courseBullets paragraph" id="tooltip-paragraph">Econometrics, Black & Scholes Equations, Pricing of Derivatives, Portfolio Management, Modern Portfolio Theory, Monte Carlo Simulation in Finance, Investment Decisions, Portfolio Selection, Risk-based Strategies, Risk Parity, Maximum Diversification Portfolio, Entropy Based Allocation and Advanced Allocation, Trading (Equity-Commodities-Forex-Futures), Risk Management, Alternative Assets (Real Estate-Private Equity-Hedge Funds), Credit, Currency, Commodities, Asset Allocation, Dynamic Portfolio Management, Quantitative Risk Management, Machine Learning for Finance, Statistical Arbitrage, High-Frequency Trading (HFT), Market Making, Asset Pricing Models, Value at Risk (VaR), Expected Shortfall, Portfolio Optimization, Multi-Asset Strategies, Derivatives Pricing, Quantitative Trading Strategies, Stochastic Models for Finance,...</p>
+    </ul>
    </div>
   </section>
   <span id="publications"></span>
   
   <section id="publications" class="section" class="publications">
+   
     <div id="publicationss" class="content">
       <h2>Publications</h2>
       <p>Check out my publications and research: </p>
       <ul>
-       <li><a href="https://inspirehep.net/literature/2040113" target="_blank" style="color: red;" class="linkvari">
+       <li><a href="https://inspirehep.net/literature/2040113" target="_blank" class="linkvari">
            Bachelor Thesis</a></li>
-       <li><a href="https://arxiv.org/abs/2205.13548" target="_blank" style="color: red;" class="linkvari">
+       <li><a href="https://arxiv.org/abs/2205.13548" target="_blank" class="linkvari">
            Black Holes in a Swirling Universe</a></li>
-       <li><a href="http://inspirehep.net/record/2784392" target="_blank" style="color: red;" class="linkvari">
+       <li><a href="http://inspirehep.net/record/2784392" target="_blank" class="linkvari">
            Master Thesis</a></li>
       </ul>
-  
-      
+      <h2>Projects</h2>
+      <p> I worked on several projects.</p>
+      <p>I have conducted a statistical analysis on the inhomogeneity of billionaires' wealth distribution.</p>
+      <ul>
+        <li>
+          <a href="https://github.com/Riccardo-Martelli/Probability-and-statistics/blob/main/Esame_17_02_Riccardo_Martelli.ipynb" target="_blank" class="linkvari">
+            Billionaires' wealth analysis</a>
+        </li>
+
+      </ul>
+
     </div>
+
   </section>
+
+
   <span id="contact"></span>
   
   <section id="contact" class="section" id="contact">
     <h2>Contact Me</h2>
-    <h3>My emails are:</h3>
+    <h3>My E-Mails</h3>
   
     <div id="contacts" class="content tooltip">
       <button  class="hoverover" onclick="protoHover1()" onmouseout="copyResetFunc()">
@@ -126,8 +148,8 @@
         riccardomartelli97@gmail.com
      </button>
      </div>
+
      <br>
-  
     
     <div class="content tooltip">
       <button  class="hoverover" onclick="protoHover2()" onmouseout="copyResetFunc2()">
@@ -135,10 +157,20 @@
           riccardo.martelli@studenti.unimi.it
      </button>
      </div>
+
+     <br>
+
+     <div class="content tooltip">
+      <button  class="hoverover" onclick="protoHover4()" onmouseout="copyResetFunc4()">
+        <span class="tooltiptext" id="myTooltip4">Copy to clipboard</span>
+          riccardo.martelli@gsom.polimi.it
+     </button>
+     </div>
      
     </div>
   
-    <h3>My phone number is:</h3>
+    <h3>My Phone Number</h3>
+
   
     <div class="content tooltip">
       <button  class="hoverover" onclick="protoHover3()" onmouseout="copyResetFunc3()">
@@ -146,7 +178,24 @@
        +39 3472847968
      </button>
      </div>
-  
+
+     <h3>My Socials</h3>
+     <div>
+        
+        <a href="https://www.linkedin.com/in/riccardomartelli/" target="_blank" style="color: red; font-size: 21px;" class="contact-logos linkvari">
+          <img src="in-logo/LI-In-Bug.png" id="Icons" class="LindkedIn">
+          LindkedIn
+        </a>
+           
+        <a href="https://github.com/Riccardo-Martelli" target="_blank" style="color: red; font-size: 21px;" class="contact-logos git-a linkvari">
+          <img src="github-mark/github-mark-white.svg" id="Icons" class="GitHub">
+          <span style="padding-left:10px;">GitHub</span> 
+        </a>
+      
+
+     </div>
+
+
      <h3>Working hours</h3>
   
   <table>
@@ -164,7 +213,7 @@
 <hr>
 <footer>
   <div class="footer-content">
-    <p>&copy; 2024 Riccardo Martelli. All rights reserved.</p>
+    <p>&copy; 2025 Riccardo Martelli. All rights reserved.</p>
   </div>
 </footer>
 

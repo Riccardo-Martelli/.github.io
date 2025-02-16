@@ -1,19 +1,7 @@
 ::-webkit-scrollbar {
     display: none;
-   /*width: auto;
-  height: auto;*/
-}
-
-/*::-webkit-scrollbar-track{
-  background:transparent;
-  border-radius: 20px ;
 
 }
-
-::-webkit-scrollbar-thumb{
-background-color: linear-gradient( red,#F5EDED);
-  
-}*/
 
 /* General style for the cookie banner */
 #cookie-consent-banner {
@@ -49,7 +37,6 @@ background-color: linear-gradient( red,#F5EDED);
 }
 
 #cookie-consent-banner button {
-  /*margin-right: 60px;*/
   margin-left: 10px;
   padding: 5px 10px;
   border: none;
@@ -65,9 +52,15 @@ background-color: linear-gradient( red,#F5EDED);
 
 :root{
 
-  /*Varibles*/
+  /*Variables*/
 
     --visibility: visible;
+    /*Dark mode colors*/
+    --black:black;
+    --text-color:white;
+    --red:red;
+    --green:green;
+    --dark-modeBkg:#333;
 }
 
 
@@ -77,7 +70,7 @@ background-color: linear-gradient( red,#F5EDED);
   scrollbar-width: auto;
   /*First is the thumb the second is the bkg*/  
   }
-/*this code is needed because firefox doesn't support the above code*/
+/*this code is needed because firefox doesn't support the code above */
 }
 
 .courseBullets{
@@ -105,6 +98,46 @@ background-color: linear-gradient( red,#F5EDED);
   animation: fadeout 1s ease-in-out;
 }
 
+/* CANVA FOR SHOOTING STARS*/
+canvas { 
+  display: block; 
+  position: relative; /* Ensure it stays in place */
+  top: 0; 
+  left: 0; 
+  width: 100vw; 
+  height: 85vh; /* fix the viewport height */
+  pointer-events: none; /* Ensure interactions pass through */
+}
+/**************/
+
+
+/*Social Icons*/
+#Icons{
+
+  width: calc(1.175*50) px;
+  height: 50px;
+
+}
+.contact-logos {
+  
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: transparent;
+  border: 2px solid transparent; /* Initially no border */
+  border-radius: 8px; /* Rounded corners */
+  transition: background-color 0.3s ease, border-color 0.3s ease; /* Smooth transition */
+  cursor: pointer; /* Makes the button appear clickable */
+}
+
+.contact-logos:hover {
+  background-color: white; 
+
+}
+
+
+/*************/
+
 @media only screen and (max-width: 467px) {
   html{
     scroll-behavior: smooth;
@@ -131,6 +164,7 @@ background-color: linear-gradient( red,#F5EDED);
       opacity: 1;
       filter: blur(10px);
       transition: all 2.2s;
+      border-radius: 5px;
     
     }
 
@@ -142,7 +176,7 @@ background-color: linear-gradient( red,#F5EDED);
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #333;
+      background-color: var(--dark-modeBkg);
       text-align: center;
       overflow-x: hidden;
      
@@ -180,29 +214,18 @@ background-color: linear-gradient( red,#F5EDED);
       color: #F5EDED;
     }
 
+
     
     .welcome{
       color: #F5EDED;
       font-size: calc(var(--vw,1vw)*11*50/75);
-      padding: 35% 0;
-      top: 30%;
+      position: fixed;
+      padding: 15% 0;
+      top: 10%;
       left:0%;
       text-shadow: rgb(255, 0, 0) 1px 0 10px;/*Adds the neon effetct*/
    
     }
-
-   /* .welcome::before{
-      content: "";
-      background: red;
-      position: absolute;
-      top: 90%;
-      left: 10%;
-      width: 80%;
-      height: 120%;
-      transform: perspective(3.0em) rotateX(20deg);/*perspective HAS TO COME FIRST*/
-     /* filter: blur(0.7em);
-    
-    }*/
 
     .parrallax1{
       background: black/*url("planet.png") no-repeat*/;
@@ -275,9 +298,9 @@ background-color: linear-gradient( red,#F5EDED);
     filter: blur(5px);
     transform: translateX(-100%);
     transition: all 1.3s;
+    color:red;
 
     }
-
     ul {
       list-style:none;
       text-align:center;
@@ -286,6 +309,7 @@ background-color: linear-gradient( red,#F5EDED);
     li{
       color: #F5EDED;
     }
+
 
     #coursesList li{
       font-size: calc(var(--vw,1vw)*11*20/75);
@@ -372,12 +396,7 @@ background-color: linear-gradient( red,#F5EDED);
       position: relative;
       font-size:calc(var(--var,1vw)*11*25/75) ;
     }
-    
-    /*.sections a:hover{  
-      transform: scale(1);
-      color: rgba(177, 0, 0, 0.773);
-    
-    }*/
+  
     
     .sections a span{
       position: absolute;
@@ -393,12 +412,6 @@ background-color: linear-gradient( red,#F5EDED);
       transition: 0.7s;
 
     }
-    
-   /*.sections a:hover span{
-      transform: scale(1);
-      opacity: 1;
-    
-    }*/
     
     .american-flag{
       position: fixed;
@@ -457,11 +470,6 @@ background-color: linear-gradient( red,#F5EDED);
       opacity: 1;
       filter: blur(0);
     }
-
-    /*another cool effect*/
-    /*@keyframes rollingout {
-
-    }*/
 
     /*Tooltip*/
     @keyframes jiggle {
@@ -661,9 +669,6 @@ background-color: linear-gradient( red,#F5EDED);
       border-bottom-left-radius: 10px;
       padding: 0 10px;
     }
-    td {
-     
-    }
     }
 
 /* for pc */
@@ -690,6 +695,7 @@ background-color: linear-gradient( red,#F5EDED);
   opacity: 0;
   filter: blur(10px);
   transition: all 1.7s;
+  border-radius: 5px;
 
 }
 
@@ -698,7 +704,7 @@ body {
   margin: 0;
   padding: 0;
   text-align:center;
-  background-color: #333;
+  background-color: var(--dark-modeBkg);
   overflow-x: hidden;
 }
     
@@ -719,7 +725,7 @@ header {
 }
 
 .header-content {
-  background-color: #333;
+  background-color: var(--dark-modeBkg);
   width: auto;
   margin: auto;
   display: flex;
@@ -734,6 +740,26 @@ header {
   left: 5%;
   top:2%;
   color: #F5EDED;
+ }
+
+#name.active li a span{
+    transform: scale(1);
+    opacity: 1;
+    color: red;
+    width: 106%;
+    height: 100%;
+    border-radius: 10px;
+    background-color: #F5EDED;
+    transition: 1.0s ease-out;
+}
+
+#name:hover{
+  color:rgba(177, 0, 0, 0.773);
+}
+#name:hover span{
+  width: 102%;
+  height: 101%;
+
 }
 
 header h1 {
@@ -747,13 +773,81 @@ header h1 {
 .welcome{
   color: #F5EDED;
   font-size: calc(var(--var,1vh)*11*75/75);
-  
+  position: fixed;
   top: 30%;
   left: 12.5%;
   text-shadow: rgb(255, 0, 0) 5px 0 15px;/*Adds the neon effetct*/
   text-align:inline;
  z-index: 1;
 }
+
+/****SLIDER****/
+.switch {
+  position: fixed;
+  top: 7%;
+  right: 4.5%;
+  display: inline-block;
+  width: 75px;
+  height: 25px;
+}
+.switch input { display: none; }
+.slider {
+  position: absolute;
+  cursor: pointer;
+  background: #ccc;
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+  transition: 0.4s;
+  
+}
+.slider::before {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: white;
+  border-radius: 10%;
+  top: 3px;
+  left: 4px;
+  transition: 0.4s;
+}
+
+/* Tooltip */
+.slider::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  background-color: rgba(255, 255, 255,1);
+  color: red;
+  padding: 5px 8px;
+  border-radius: 5px;
+  font-size: 14px;
+  bottom: -120%;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Show tooltip on hover */
+.slider:hover::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+input:checked + .slider { 
+ 
+  background: #222;
+}
+input:checked + .slider:before {
+  
+  transform: translateX(48px); 
+}
+
+
+/***********************/
 
 
 .parrallax1{
@@ -764,7 +858,7 @@ header h1 {
   align-items: center;
   /*---------*/
 
-  background: black /*url("starysky.jpeg") no-repeat*/;
+  background: black ;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -803,13 +897,13 @@ bottom: -70%;
 h2 {
   font-size: calc(var(--var,1vh)*11*50/75);
   text-align:center;
-  color: #ffffff;
+  color: var(--text-color);
   filter: blur(5px);
   transform: translateX(-100%);
   transition: all 1s;
 }
 h3{
-  color:#F5EDED;
+  color: var(--text-color);
   filter: blur(5px);
   transform: translateX(-100%);
   transition: all 1.1s;
@@ -821,7 +915,7 @@ h3{
 p {
   font-size: calc(var(--var,1vh)*11*20/75);
   margin:20px;
-  color: #ffffff;
+  color: var(--text-color);
   margin-inline: auto;
   filter: blur(5px);
   transform: translateX(-100%);
@@ -857,6 +951,14 @@ li{
   color: #F5EDED;
 }
 
+#bkg-span{
+  background-color: black;
+  border-radius: 10px;
+  visibility: visible;
+  z-index: 1000;
+  opacity: 1;
+}
+
 #coursesList li{
   float:center;
   color:  red;
@@ -866,12 +968,26 @@ li{
   width:90vw;
 }
 
+/* Makes the local bkg for the section
+#publicationss{
+  background-color: black;
+  border-radius: 10px;
+  opacity: 1;
+  margin-right: 150px;
+  margin-left: 150px;
+  padding-bottom: 30px;
+  padding-top: 30px;
+}*/
+
 #publicationss li{
-  float:center;
+  
+  display: block;
   list-style-type:none;
   margin: 0px;
-  padding: 0px; 
-  width:97vw;
+  padding: auto; 
+ /* width:97vw;*/
+ 
+
 }
 
 #contacts li{
@@ -941,16 +1057,16 @@ nav ul li a {
 }
 nav ul li.active a{
   transform: scale(1);
-  color: rgba(177, 0, 0, 0.773);
+  color: red;
   z-index: 2;
 }
 
 nav ul li.active a span{
   transform: scale(1);
   opacity: 1;
-  color: rgba(177, 0, 0, 0.773);
+  color: red;
   width: 106%;
-  height: 100%;
+  height: 115%;
   border-radius: 10px;
   background-color: #F5EDED;
   transition: 1.0s ease-out;
@@ -991,8 +1107,14 @@ nav ul li.active a span{
   opacity: 0;
   filter: blur(5px);
   transform: translateX(-100%);
-  transition: all 1.3s;
+  transition: all 0.7s;
+  color:red;
 
+  }
+  .linkvari:hover{  
+    transform: scale(1);
+    color: rgba(177, 0, 0, 0.773);
+  
   }
 
 .courseElem{
@@ -1000,8 +1122,8 @@ nav ul li.active a span{
   filter: blur(5px);
   transform: translateX(-100%);
   transition: all 1.3s;
-  
-  }
+
+}
 
 
 .show{
@@ -1208,7 +1330,7 @@ button.hoverover:hover{
 }
 
 table{
-  color: #F5EDED;
+  color: var(--text-color);
   display:block;
   position: relative;
   text-align: center;
@@ -1227,9 +1349,6 @@ th{
   border-bottom-left-radius: 10px;
   padding: 0 10px;
 }
-td {
- 
-}
 
 #cookie-consent-banner {
   position: fixed;
@@ -1243,7 +1362,7 @@ td {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  z-index: 1000;
+  z-index: 100;
   text-align: center;
 }
 
@@ -1272,6 +1391,7 @@ td {
   opacity: 0;
   filter: blur(10px);
   transition: all 1.7s;
+  border-radius: 5px;
 
 }
 
@@ -1280,7 +1400,7 @@ body {
   margin: 0;
   padding: 0;
   text-align:center;
-  background-color: #333;
+  background-color: var(--dark-modeBkg);
   overflow-x: hidden;
 }
     
@@ -1303,7 +1423,7 @@ header {
 }
 
 .header-content {
-  background-color: #333;
+  background-color: var(--dark-modeBkg);
   width: auto;
   margin: auto;
   display: flex;
@@ -1335,19 +1455,6 @@ header h1 {
   text-shadow: rgb(255, 0, 0) 5px 0 15px;/*Adds the neon effetct*/
   z-index: 1;
 }
-
-/*.welcome::before{
-  content: "";
-  background: red;
-  position: absolute;
-  top: 120%;
-  left: -10%;
-  width: 120%;
-  height: 100%;
-  transform: perspective(1em) rotateX(10deg);/*perspective HAS TO COME FIRST*/
- /* filter: blur(0.5em);
-
-}*/
 
 .parrallax1{
   /*new stuff--*/
@@ -1602,8 +1709,9 @@ nav ul li.active a span{
   filter: blur(5px);
   transform: translateX(-100%);
   transition: all 1.3s;
+  color: red;
 
-  }
+  } 
 
 .courseElem{
   opacity: 0;
@@ -1840,9 +1948,6 @@ th{
   border:0px solid  red;
   border-bottom-left-radius: 10px;
   padding: 0 10px;
-}
-td {
- 
 }
 
 }

@@ -14,12 +14,18 @@
 <body>
 
 <header>
+  <!--<button id="toggleMode" class="toggle-btn">🌙 Dark Mode</button>-->
+  <label class="switch">
+    <input type="checkbox" id="modeToggle">
+    <span class="slider"></span>
+</label>
+
 
   <div class="header-content">
     <nav>
       <ul class="sections">
-        <li><a id="name">Riccardo Martelli</a></li>
-        <li class="home"><a id="clikable" href="#">Home<span></span></a></li>
+        <li><a id="name" href="#">Riccardo Martelli<span></span></a></li>
+        <!--<li class="home"><a id="clikable" href="#">Home<span></span></a></li>-->
         <li class="about"><a id="clikable" href="#about">About<span></span></a></li>
         <li class="courses"><a id="clikable" href="#courses">Corsi<span></span></a></li>
         <li class="publications"><a id="clikable" href="#publications">Pubblicazioni<span></span></a></li>
@@ -29,14 +35,16 @@
       </ul>
     </nav>
 </header>
+
 <!--Banner-->
 <div id="cookie-consent-banner">
   <p>We use Simple Analytics to analyze the traffic on our website. Simple Analytics is a privacy-friendly analytics tool that does not use cookies or track individual users. You can learn more about Simple Analytics <a href="https://simpleanalytics.com/privacy" target="_blank">HERE</a>.</p>
   <button id="close-banner">Close</button>
 </div>
 <section id="home" class="section parrallax1">
-
+<canvas id="starCanvas"></canvas>
 <h1 class="welcome" id="Welcome">BENVENUTI SUL MIO SITO!</h1>
+
 <!--Place images here-->
 <!--<img src="galaxy-night-view.png" id="whitedwarf"> </img>-->
 <!--<img src="icon-checkmark.png" id="check"> </img>-->
@@ -56,7 +64,6 @@
     In questa pagina potete trovare I corsi che offro, una lista delle mie pubblicazioni e i miei contatti.
     <p>Numero di studenti: 6</p>
     <p id="Status">Status: Disponibile</p>
-
   </div>
 </section>
 
@@ -86,11 +93,12 @@
   <p class="courseBullets paragraph"> Probabilità e Statistica, Teoria della Misura, Probabilità Bayesiana, Distribuzioni di Probabilità, Sampling, Distribuzioni Discrete, Tests Statistici, p-values, Data Analysis,...</p>
 	<li> Fisica: </li>
   <p class="courseBullets highschool" onclick="clickPriceHighschool(this)" onmouseout="clickPriceHighschoolOnMouseOut(this)">Fisica per studenti del liceo.<span id="highschooltip">30&#8364;</span><br></p>
-  <p class="courseBullets paragraph">Fisica 1, Fisica 2,Meccanica Classica, Termodinamica, Metodi Matematici per la Fisica e l'Ingegneria, Formulazioni Lagrangiane e Hamiltoniane della Meccanica, Fluidodinamica, Meccanica Quantistica, Meccanica Quantistica Relativistica e Teoria dei Campi, Relatività Generale, Teoria dei Grouppi per Modelli matematici, Many Body Theory, Elettromagnetismo, Elettrodinamica,...</p>
+  <p class="courseBullets paragraph">Fisica 1, Fisica 2,Meccanica Classica, Termodinamica, Metodi Matematici per la Fisica e l'Ingegneria, Formulazioni Lagrangiane e Hamiltoniane della Meccanica, Fluidodinamica, Meccanica Quantistica, Meccanica Quantistica Relativistica e Teoria dei Campi, Relatività Generale, Teoria dei Grouppi per Modelli Matematici, Many Body Theory, Elettromagnetismo, Elettrodinamica,...</p>
 	<li> Informatica: </li>
   <p class="courseBullets highschool" onclick="clickPriceHighschool(this)" onmouseout="clickPriceHighschoolOnMouseOut(this)">Informatica per studenti del liceo.<span id="highschooltip">30&#8364;</span><br></p>
-  <p class="courseBullets paragraph"> C++, C, Python, HTML, CSS, JavaScript, MATLAB, Mathematica, R, Tensorflow, Keras, Scikit-learn, SQL, Bash,Cuda, Sed, Awk, Data Analysis, Data Representation, Machine learning, Deep Learning, Simulazione Numerica,... </br></p>
-
+  <p class="courseBullets paragraph"> C++, C, Python, HTML, CSS, JavaScript, MATLAB, Mathematica, R, Tensorflow, Keras, Scikit-learn, SQL, Bash,Cuda, Sed, Awk, Data Analysis, Data Representation, Machine learning, Deep Learning, Simulazione Numerica,...</p>
+  <li> Finanza Quantitativa ed Econometria: </li>  
+  <p class="courseBullets paragraph" id="tooltip-paragraph"> Econometria, Equazioni di Black-Scholes, Valutazione dei derivati, Gestione del portafoglio, Teoria moderna del portafoglio, Simulazione Monte Carlo in finanza, Decisioni di investimento, Selezione del portafoglio, Strategie basate sul rischio, Risk Parity, Portafoglio di massima diversificazione, Allocazione basata sull'entropia, Allocazione avanzata, Trading (Equity-Commodities-Forex-Futures), Gestione del rischio, Assets Alternativi (Real Estate-Private Equity-Hedge Funds), Credit, Commodities, FX, Asset Allocation, Gestione dinamica del portafoglio, Gestione quantitativa del rischio, Machine Learning per la finanza, Arbitraggio statistico, High-Frequency Trading (HFT), Market Making, Modelli per la valutazione degli Assets, Value at Risk (VaR), Expected Shortfall, Ottimizzazione del portafoglio, Strategie multi-asset, Valutazione dei derivati, Strategie di trading quantitativo, Modelli Stocastici per la Finanza, ...</p>
 	
   </ul>
   </div>
@@ -109,7 +117,16 @@
 		 <li><a href="http://inspirehep.net/record/2784392" target="_blank" style="color: red;" class="linkvari">
 				 Tesi magistrale</a></li>
     </ul>
+ <h2>Progetti</h2>
+      <p> Ho lavorato a svariati progetti.</p>
+      <p>Ho condotto un'analisi statistica sull'eterogeneità della distribuzione della ricchezza dei miliardari. </p>
+      <ul>
+        <li>
+          <a href="https://github.com/Riccardo-Martelli/Probability-and-statistics/blob/main/Esame_17_02_Riccardo_Martelli.ipynb" target="_blank" class="linkvari">
+            Billionaires' wealth analysis</a>
+        </li>
 
+      </ul>
     
   </div>
 </section>
@@ -117,7 +134,7 @@
 
 <section id="contact" class="section">
   <h2>Contatti</h2>
-  <h3>Le mie e-mail:</h3>
+  <h3>Le mie e-mail</h3>
 
   <div id="contacts" class="content tooltip">
     <button  class="hoverover" onclick="protoHover1()" onmouseout="copyResetFunc()">
@@ -125,23 +142,50 @@
       riccardomartelli97@gmail.com
    </button>
    </div>
+
   <br>
+  
   <div class="content tooltip">
     <button  class="hoverover" onclick="protoHover2()" onmouseout="copyResetFunc2()">
       <span class="tooltiptext" id="myTooltip2" style="width: 100px;">Copia</span>
         riccardo.martelli@studenti.unimi.it
    </button>
    </div>
+
+   <br>
+
+   <div class="content tooltip">
+    <button  class="hoverover" onclick="protoHover4()" onmouseout="copyResetFunc4()">
+      <span class="tooltiptext" id="myTooltip4">Copy to clipboard</span>
+        riccardo.martelli@gsom.polimi.it
+   </button>
+   </div>
    
   </div>
 
-  <h3>Numero di telefono:</h3>
+  <h3>Numero di telefono</h3>
 
   <div class="content tooltip">
     <button  class="hoverover" onclick="protoHover3()" onmouseout="copyResetFunc3()">
       <span class="tooltiptext" id="myTooltip3"  style="width: 100px;">Copia</span>
      +39 3472847968
    </button>
+   </div>
+
+   <h3>I Miei Socials</h3>
+   <div>
+      
+      <a href="https://www.linkedin.com/in/riccardomartelli/" target="_blank" style="color: red; font-size: 21px;" class="contact-logos linkvari">
+        <img src="in-logo/LI-In-Bug.png" id="Icons" class="LindkedIn">
+        LindkedIn
+      </a>
+         
+      <a href="https://github.com/Riccardo-Martelli" target="_blank" style="color: red; font-size: 21px;" class="contact-logos git-a linkvari">
+        <img src="github-mark/github-mark-white.svg" id="Icons" class="GitHub">
+        <span style="padding-left:10px;">GitHub</span> 
+      </a>
+    
+
    </div>
 
    <h3>Orari</h3>
@@ -165,7 +209,7 @@
 
 <footer>
   <div class="footer-content">
-    <p>&copy; 2024 Riccardo Martelli. All rights reserved.</p>
+    <p>&copy; 2025 Riccardo Martelli. All rights reserved.</p>
   </div>
 </footer>
 
