@@ -316,8 +316,8 @@ canvas {
     }
 
 
-    #coursesList li{
-      font-size: calc(var(--vw,1vw)*11*20/75);
+    .courseElem li{
+      font-size: calc(var(--vw,1vw)*15*20/75);
       color:  red;
       text-align: center;
       list-style-type:none;
