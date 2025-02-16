@@ -223,7 +223,8 @@ canvas {
     .welcome{
       color: #F5EDED;
       font-size: calc(var(--vw,1vw)*11*50/75);
-      position: fixed;
+      position: absolute;
+      padding-top: 10%;
       top: 10%;
       left:0%;
       text-shadow: rgb(255, 0, 0) 1px 0 10px;/*Adds the neon effetct*/
@@ -791,7 +792,7 @@ header h1 {
   top: 7%;
   right: 4.5%;
   display: inline-block;
-  width: 75px;
+  width: 82px;
   height: 25px;
 }
 .switch input { display: none; }
@@ -847,7 +848,7 @@ input:checked + .slider {
 }
 input:checked + .slider:before {
   
-  transform: translateX(48px); 
+  transform: translateX(55px); 
 }
 
 

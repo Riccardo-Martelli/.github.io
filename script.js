@@ -28,6 +28,7 @@ window.addEventListener('scroll',() => {
       current = elem.getAttribute('id');
     }
   })
+    
 
   navElem.forEach( li => {
     li.classList.remove('active');
