@@ -195,7 +195,7 @@ canvas {
     header {
       background-color: black;
       color: #F5EDED;
-      padding:  3.0% ;
+      padding:  3.0vh ;
       margin: auto;
       font-size: calc(var(--var,1vw)*11*40/75);
       position: sticky;
@@ -219,7 +219,7 @@ canvas {
 
     #name{
       position: fixed;
-      font-size: calc(var(--var,1vw)*11*40/75);
+      font-size: calc(var(--var,1vw)*11*50/75);
       left: 4%;
       top: 2%;
       color: #F5EDED;
@@ -229,7 +229,6 @@ canvas {
       visibility: hidden;
 
     }
-
     
     .welcome{
       color: #F5EDED;
@@ -238,13 +237,13 @@ canvas {
       padding-top: 10%;
       top: 10%;
       left:0%;
-      text-shadow: rgb(255, 0, 0) 1px 0 10px;/*Adds the neon effetct*/
+      text-shadow: rgb(255, 0, 0) 1px 0 10px;/*Adds the neon effect*/
       text-align: inline;
    
     }
 
     .parrallax1{
-      background: black/*url("planet.png") no-repeat*/;
+      background: black;
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
@@ -264,7 +263,6 @@ canvas {
     }
 
     h3{
-      /*font-size: calc(var(--vw,1vw)*11*30/75)px;*/
       color:#F5EDED;
       filter: blur(5px);
       transform: translateX(-100%);
@@ -272,7 +270,6 @@ canvas {
     }
 
     p {
-      /*font-size: calc(var(--vw,1vw)*11*20/75)px;*/
       margin-top:20px;
       color:#F5EDED;
       text-align: center;
@@ -284,9 +281,11 @@ canvas {
       line-height: 25px;
 
     }
+
     #Status{
       color: rgb(3, 218, 3);
     }
+    
     p a{
       font-size: calc(var(--var,1vh)*11*15/75);
     }
@@ -316,6 +315,7 @@ canvas {
     color:red;
 
     }
+
     ul {
       list-style:none;
       text-align:center;
@@ -374,7 +374,7 @@ canvas {
       list-style: none;
       text-decoration: none;
       color: #F5EDED;
-      left: -6%; 
+      left: -7.5%; 
       
     }
 
@@ -445,7 +445,7 @@ canvas {
     }
 
     #itflag{
-      height:18px ;
+      height: 18px;
       width: 18px;
     }   
     
@@ -457,6 +457,7 @@ canvas {
       transition: all 1s;
 
     }
+
     .hoverover{
       opacity: 0;
       filter: blur(5px);
@@ -476,11 +477,13 @@ canvas {
        opacity: 1;
        filter: blur(0);
        transform: translate(0);
+
     }
 
    .blurEff{
       opacity: 1;
       filter: blur(0);
+
     }
 
     /*Tooltip*/
@@ -675,7 +678,9 @@ canvas {
       margin-right: auto;
       border-collapse: collapse;
       border-radius: 10px;
+
     }
+    
     th{
       border:0px solid  red;
       border-bottom-left-radius: 10px;
