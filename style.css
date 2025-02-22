@@ -368,7 +368,7 @@ canvas {
       list-style: none;
       display: inline;
       margin-right: calc(var(--var,1vw)*11*10/75);
-      position: fixed;
+      position: relative;
     }
     
     nav ul li a {
@@ -569,6 +569,7 @@ canvas {
       transform: translate(-50%);
       transform-origin: 0 0;
     }
+
     .tooltip:hover .tooltiptext {
       visibility: visible;
       /*animation: jiggle 0.5s ;*/
@@ -730,6 +731,7 @@ body {
 hr{
   border: 1px solid black;
 }
+
 header {
   background-color:black;
   color: #F5EDED;
