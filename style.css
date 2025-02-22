@@ -195,7 +195,7 @@ canvas {
     header {
       background-color: black;
       color: #F5EDED;
-      padding:  5vh ;
+      padding:  3.0vh ;
       margin: auto;
       font-size: calc(var(--var,1vw)*11*40/75);
       position: sticky;
@@ -215,6 +215,7 @@ canvas {
       position: sticky;
       opacity: 1;
     }
+ 
 
     #name{
       position: fixed;
@@ -1115,6 +1116,7 @@ nav ul li.active a span{
   filter: blur(5px);
   transform: translateX(-100%);
   transition: all 1.3s;
+  cursor: pointer;
 
 }
 
@@ -1445,6 +1447,11 @@ header {
   position: sticky;
   opacity: 1;
  
+}
+
+.switch{
+  visibility: hidden;
+
 }
 
 #name{

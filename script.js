@@ -410,8 +410,9 @@ document.addEventListener('click', function(event) {
           case "Geometria Differenziale":case "Metodi Matematici per la Meccanica Classica":case "Gruppi di Lie e Algebre di Lie":case "Analisi Funzionale":case "Serie di Fourier":
           case "Fourier Series":case "Mathematical Method for Classical Mechanics":case "Relatività Generale":case "Teoria dei Grouppi per Modelli Matematici":
           case "Differential Geometry": case "Lie Groups and Lie algebras": case "Functional Analysis":
-          case "R": case "MATLAB": case "Fluid Dynamics": case"Fluidodinamica": case"General Relativity": case "Group Theory for Mathematical Modeling":
-              return '25€';
+          case "R": case "MATLAB": case "Fluid Dynamics": case"Fluidodinamica": case"General Relativity": case "Group Theory for Mathematical Modeling": case "Genetic Algorithms": case "Algoritmi Genetici": case "Simulated Annealing": case "Reinforcement Learning":
+          case"Metropolis Algorithm": case "Algoritmo Metropolis":
+            return '30€';
           case "Linear Algebra":case "Algebra Lineare":case"Termodinamica":case"Meccanica Classica":
           case "C++":case "C":case "Python":case "HTML":case "CSS":case "JavaScript":case "Mathematica":case "Tensorflow":case "Keras":case "Scikit-learn":case "SQL":case "Bash":case "Cuda":case "Sed":case "Awk":case "Data Analysis":
           case "Mathematical Methods for Physics or Engineering":case "Meccanica Quantistica":case "Metodi Matematici per la Fisica e l'Ingegneria":case "":
