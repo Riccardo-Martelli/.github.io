@@ -375,6 +375,7 @@ canvas {
       text-decoration: none;
       color: #F5EDED;
       left: -7.5%; 
+      position: relative;
       
     }
 
