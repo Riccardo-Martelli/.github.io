@@ -195,7 +195,7 @@ canvas {
     header {
       background-color: black;
       color: #F5EDED;
-      padding:  3.0vh ;
+      padding:  3.0% ;
       margin: auto;
       font-size: calc(var(--var,1vw)*11*40/75);
       position: sticky;
@@ -289,7 +289,6 @@ canvas {
     }
     p a{
       font-size: calc(var(--var,1vh)*11*15/75);
-    
     }
     
     .intro{
@@ -376,7 +375,6 @@ canvas {
       text-decoration: none;
       color: #F5EDED;
       left: -6%; 
-      /*display: inline;*/
       
     }
 
@@ -404,7 +402,6 @@ canvas {
       left:8.5%;
       top:6%; 
       opacity:1;
-   
     
     }
     
@@ -457,7 +454,6 @@ canvas {
       font-size: calc(var(--var,1vh)*11*30/75)px;
       opacity: 1;
       filter: blur(0px);
-      /*transform: translateX(-100%);*/
       transition: all 1s;
 
     }
