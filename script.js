@@ -579,7 +579,15 @@ if (isDarkMode) {
         img.src = 'github-mark/github-mark.svg';
     }); 
       slider.setAttribute("data-tooltip", "Dark Mode");
-
+      const gitHubImage = document.querySelector('.GitHub');
+      const gitHuba = document.querySelector('.git-a');
+      gitHuba.addEventListener('mouseenter', () => {
+        gitHubImage.src = 'github-mark/github-mark-white.svg';
+      });
+     
+        gitHuba.addEventListener('mouseleave', () => {
+          gitHubImage.src =  "github-mark/github-mark.svg"; // Revert image on hover out
+        });
   
       
 }else {
@@ -616,7 +624,7 @@ toggle.addEventListener("change", () => {
     const gitHubImage = document.querySelector('.GitHub');
     const gitHuba = document.querySelector('.git-a');
     gitHuba.addEventListener('mouseenter', () => {
-      gitHubImage.src = 'github-mark/github-mark.svg';
+      gitHubImage.src = 'github-mark/github-mark-white.svg';
     });
    
       gitHuba.addEventListener('mouseleave', () => {
