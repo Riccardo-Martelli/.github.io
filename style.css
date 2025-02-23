@@ -797,7 +797,7 @@ header {
   margin: auto;
   position: sticky;
   top:0px;
-  text-align:center;
+  text-align: center;
   opacity:1; 
   z-index:5;
  box-shadow: 5px 10px 10px black, -5px 10px 10px black;
@@ -1574,12 +1574,13 @@ header h1 {
 
 .welcome{
   color: #F5EDED;
-  position: absolute;
+  position: fixed;
   font-size: calc(var(--var,1vh)*11*75/75);
   padding: 5% 0;
   text-shadow: rgb(255, 0, 0) 5px 0 15px;/*Adds the neon effetct*/
   z-index: 1;
 }
+
 
 .parrallax1{
   /*new stuff--*/
