@@ -863,11 +863,12 @@ header h1 {
 /****SLIDER****/
 .switch {
   position: fixed;
-  top: 7%;
-  right: 4.5%;
+  top: 3%;
+  right: 72.5px;
   display: inline-block;
   width: 82px;
   height: 25px;
+  visibility: hidden;
 }
 .switch input { display: none; }
 .slider {
