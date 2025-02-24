@@ -154,6 +154,11 @@ canvas {
     scroll-behavior: smooth;
 
   }
+
+  .pToAlign{
+    padding-left: 3.0%;
+  }
+
   .main-img{/* class for profile picture*/
 
     display: block;
@@ -857,7 +862,7 @@ header h1 {
   left: 12.5%;
   text-shadow: rgb(255, 0, 0) 5px 0 15px;/*Adds the neon effetct*/
   text-align:inline;
- z-index: 1;
+  z-index: 1;
 }
 
 /****SLIDER****/
@@ -1528,8 +1533,6 @@ input:checked + .slider:before {
   
   transform: translateX(55px); 
 }
-
-
 
 header {
   background-color: black;
