@@ -1441,7 +1441,9 @@ th{
   margin:5px;
   height:450px;
   width:350px;
-  transition: background-image 2s
+  transition: background-image 2s;
+  border-radius: 20px;
+
   }
 
 .flowcharts{
@@ -1580,7 +1582,7 @@ header h1 {
 .welcome{
   color: #F5EDED;
   position: static;
-  font-size: calc(var(--var,1vh)*11*65/75);
+  font-size: calc(var(--var,1vh)*11*85/75);
   white-space: nowrap;
   margin-right: 00vw;
   text-shadow: rgb(255, 0, 0) 5px 0 15px;/*Adds the neon effetct*/
