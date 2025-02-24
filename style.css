@@ -754,7 +754,7 @@ input:checked + .slider:before {
 
     }
 
-/* for pc */
+/* for PC */
 @media only screen and (min-width: 927px) {
   html{
     scroll-behavior: smooth;
@@ -1430,9 +1430,11 @@ th{
 
 /*for tablet*/
 @media only screen and (min-width:467px) and (max-width:927px) {
+
   html{
     scroll-behavior: smooth;
   }
+
 .main-img{
   
   float:left;
@@ -1577,13 +1579,23 @@ header h1 {
 
 .welcome{
   color: #F5EDED;
-  position: fixed;
-  font-size: calc(var(--var,1vh)*11*75/75);
-  padding: 5% 0;
+  position: static;
+  font-size: calc(var(--var,1vh)*11*65/75);
+  white-space: nowrap;
+  margin-right: 00vw;
   text-shadow: rgb(255, 0, 0) 5px 0 15px;/*Adds the neon effetct*/
+  text-align: center;
   z-index: 1;
 }
-
+canvas { 
+  display: block; 
+  position: absolute; /* Ensure it stays in place */
+  top: 0; 
+  left: 0; 
+  width: 100vw; 
+  height: 85vh; /* fix the viewport height */
+  pointer-events: none; /* Ensure interactions pass through */
+}
 
 .parrallax1{
   /*new stuff--*/
@@ -1604,7 +1616,7 @@ header h1 {
 
 h2 {
   font-size: calc(var(--var,1vh)*11*50/75);
-  text-align:center;
+  text-align :center;
   color: var(--text-color);
   filter: blur(5px);
   transform: translateX(-100%);
