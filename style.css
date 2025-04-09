@@ -2,6 +2,11 @@
     display: none;
 
 }
+::selection{
+  background: red;
+  color: black;
+}
+
 
 /* General style for the cookie banner */
 #cookie-consent-banner {
@@ -1442,7 +1447,7 @@ th{
   height:450px;
   width:350px;
   transition: background-image 2s;
-  border-radius: 20px;
+  border-radius: 10px;
 
   }
 
@@ -1450,7 +1455,7 @@ th{
 
   float: center;
   margin:5px;
-  height:80vh;
+  height:50vh;
   width:50%;
   opacity: 0;
   filter: blur(10px);
@@ -1475,8 +1480,9 @@ hr{
 /****SLIDER****/
 .switch {
   position: fixed;
-  right: 62.5px;
-  top:9%;
+  right: 75px;
+  top:2%;
+  padding: 5px;
   display: inline-block;
   width: 42px;
   height: 15px;
@@ -1541,7 +1547,7 @@ input:checked + .slider:before {
 header {
   background-color: black;
   color: #F5EDED;
-  padding:  10vh ;
+  padding:  7% ;
   margin: auto;
   font-size: calc(var(--var,1vw)*11*40/75);
   position: sticky;
@@ -1635,15 +1641,15 @@ h3{
 }
 
 p {
-  font-size: calc(var(--var,1vw)*11*15/75);
-  margin:0px;
+  font-size: calc(var(--var,1vw)*11*17/75);
+  margin:10px;
   color: var(--text-color);
   text-align: center;
   margin-inline: auto;
   filter: blur(5px);
   transform: translateX(-100%);
   transition: all 1.5s;
-  line-height: 15px;
+  /*line-height: 15px;*/
 }
 p a{
   font-size: calc(var(--var,1vw)*11*15/75);
@@ -1737,11 +1743,6 @@ nav ul li a {
   position: relative;
 }
 
-/*.sections a:hover{  
-  transform: scale(1);
-  color: rgba(177, 0, 0, 0.773);
-
-}*/
 
 .sections a span{
   position: absolute;
