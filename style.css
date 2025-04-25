@@ -3,10 +3,15 @@
 
 }
 ::selection{
-  background: red;
+  background: rgba(225, 10, 0, 1.00);
   color: black;
+  
 }
-
+a::selection{
+  background: rgba(0, 0,0 , 1);
+  color: red;
+  text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.5);
+}
 
 /* General style for the cookie banner */
 #cookie-consent-banner {
@@ -66,6 +71,7 @@
     --red:red;
     --green:green;
     --dark-modeBkg:#333;
+    --margin-PC: 100px;
 }
 
 
@@ -142,6 +148,13 @@ canvas {
 
 
 /*************/
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0%;
+  overflow-x: hidden;
+} 
 
 /*for phone*/
 @media only screen and (max-width: 467px) {
@@ -764,6 +777,8 @@ input:checked + .slider:before {
   html{
     scroll-behavior: smooth;
   }
+ 
+
 .main-img{/* class for profile picture*/
   
   float:left;
@@ -789,8 +804,7 @@ input:checked + .slider:before {
 
 body {
   font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
+  /*margin: var(--margin-PC);*/
   text-align:center;
   background-color: var(--dark-modeBkg);
   overflow-x: hidden;
@@ -980,6 +994,8 @@ p {
   margin:20px;
   color: var(--text-color);
   margin-inline: auto;
+  padding-left: 75px; /*FIXES MARGINS*/
+  padding-right: 75px; /*FIXES MARGINS*/
   filter: blur(5px);
   transform: translateX(-100%);
   transition: all 1.5s;
@@ -1588,9 +1604,8 @@ header h1 {
 .welcome{
   color: #F5EDED;
   position: static;
-  font-size: calc(var(--var,1vh)*11*85/75);
-  white-space: nowrap;
-  margin-right: 00vw;
+  font-size: calc(var(--var,1vw)*11*65/75);
+  /*white-space: nowrap;*/
   text-shadow: rgb(255, 0, 0) 5px 0 15px;/*Adds the neon effetct*/
   text-align: center;
   z-index: 1;
