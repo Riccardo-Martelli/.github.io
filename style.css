@@ -72,6 +72,7 @@ a::selection{
     --green:green;
     --dark-modeBkg:#333;
     --margin-PC: 100px;
+   
 }
 
 
@@ -253,7 +254,7 @@ body {
       color: #F5EDED;
       font-size: calc(var(--vw,1vw)*11*50/75);
       position: absolute;
-      padding-top: 10%;
+      padding-top: 15%;
       top: 20%;
       left:0%;
       text-shadow: rgb(255, 0, 0) 1px 0 10px;/*Adds the neon effect*/
@@ -711,11 +712,12 @@ body {
 /****SLIDER****/
 .switch {
   position: fixed;
-  top: 5.5%;
-  right: 9.5%;
+  top: 6.5%;
+  right: 10.0%;
   display: inline-block;
-  width: 40px;
-  height: 10px;
+  width: 10px;
+  height: 8px;
+  visibility: hidden;
 }
 .switch input { display: none; }
 .slider {
@@ -731,12 +733,12 @@ body {
 .slider::before {
   content: "";
   position: absolute;
-  width: 13px;
-  height: 8px;
+  width: 15px;
+  height: 15px;
   background: white;
-  border-radius: 2px;
-  top: 1px;
-  left: 2px;
+  border-radius: 8%;
+  top: 3px;
+  left: 4px;
   transition: 0.4s;
 }
 
@@ -746,9 +748,9 @@ body {
   position: absolute;
   background-color: rgba(255, 255, 255,1);
   color: red;
-  padding: 1px 3px;
+  padding: 2.5px 4px;
   border-radius: 2.5px;
-  font-size: 7px;
+  font-size: 10px;
   bottom: -120%;
   left: 50%;
   transform: translateX(-50%);
@@ -758,15 +760,20 @@ body {
   transition: opacity 0.3s ease-in-out;
 }
 
+/* Show tooltip on hover */
+.slider:hover::after {
+  opacity: 1;
+  visibility: visible;
+}
+
 input:checked + .slider { 
  
   background: #222;
 }
 input:checked + .slider:before {
   
-  transform: translateX(22px); 
+  transform: translateX(55px); 
 }
-
 
 
 
@@ -1046,17 +1053,6 @@ li{
   padding: 0px; 
   width:90vw;
 }
-
-/* Makes the local bkg for the section
-#publicationss{
-  background-color: black;
-  border-radius: 10px;
-  opacity: 1;
-  margin-right: 150px;
-  margin-left: 150px;
-  padding-bottom: 30px;
-  padding-top: 30px;
-}*/
 
 #publicationss li{
   
