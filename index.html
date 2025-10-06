@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Riccardo Martelli - Math, Physics, Computer Science</title>
+  <title>[Riccardo Martelli] Math, Physics, Computer Science & Quantitative Finance</title>
   <link rel="stylesheet" href="style.css">
   <link rel="shortcut icon" href="favicon.ico" />
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -30,25 +30,44 @@
         <li class="courses"><a href="#courses">Courses<span></span></a></li>
         <li class="publications"><a href="#publications">Publications<span></span></a></li>
         <li class="contact"><a href="#contact">Contact Me<span></span></a></li>
-        <li class= "american-flag"><a href="index.html"><img src="american-flag.png" alt="English" id="amflag"></a></li>
-        <li class = "italian-flag"><a href="index_it.html"><img src="italian-flag.png" alt="Italian"  id="itflag"></a></li>
+        <!--<li class= "american-flag"><a href="index.html"><img src="american-flag.png" alt="English" id="amflag"></a></li>
+        <li class = "italian-flag"><a href="index_it.html"><img src="italian-flag.png" alt="Italian"  id="itflag"></a></li>-->
       </ul>
     </nav>
   </div>
 </header>
+
+
+
 <!--Banner-->
 <div id="cookie-consent-banner">
   <p>We use Simple Analytics to analyze the traffic on our website. Simple Analytics is a privacy-friendly analytics tool that does not use cookies or track individual users. You can learn more about Simple Analytics <a href="https://simpleanalytics.com/privacy" target="_blank">HERE</a>.</p>
   <button id="close-banner">Close</button>
 </div>
 
+<!--
+<div id="chat-widget">
+  <div id="chat-header">Ask RickyTron 🤖</div>
+    <div id="chat-body"></div>
+      <form id="chat-form">
+        <input type="text" id="user-input" placeholder="Type a message..." autocomplete="off" required />
+        <button type="submit">Send</button>
+      </form>
+</div>
+-->
+
 <section id="home" class="section parrallax1">
   <canvas id="starCanvas"></canvas>
   <h1 class="welcome" id="Welcome"> WELCOME TO MY WEBSITE!</h1>
+
+  <div id="scroll-indicator">
+    <!--<span class="arrow">⬇</span>-->
+    <svg xmlns="http://www.w3.org/2000/svg" width="80" height="60" fill="currentColor" viewBox="2 6 20 12" class="arrow" preserveAspectRatio="xMidYMid meet">
+    <path fill-rule="evenodd" d="M12 16.5l-7-7 1.5-1.5L12 13.5l5.5-5.5L19 9.5z"/>
+  </svg>
+    <span class="text">Scroll down</span>
+  </div>
   
-  <!--Place images here-->
-  <!--<img src="planet.png" id="planet">-->
-  <!--<img src="mountains.png" id="mountains">-->
   </section>
   <span id ="about"></span>
   
@@ -56,23 +75,24 @@
     <div class="content">
       <h2> About me</h2>
       
-     <p class="intro">
+     <p class="intro">  
      <img src="Fotoprofilo.PNG" class="main-img" alt="Teacher" id="teacher-image">
-     Welcome to my website! I teach math, physics, and computer science to both high school and university students. My passion for science led me to pursue a degree in physics at the University of Milan, where I graduated with honors.
-Throughout the years, I’ve had the privilege of helping many students who struggled with scientific subjects, which inspired me to share my passion and support those in need. My teaching method is simple and straightforward: I avoid unnecessary, pompous explanations that often serve only to elevate the speaker (typically the professor) and instead focus on going straight to the point. I believe that providing a clear method is crucial for understanding the nature of a problem and approaching it in the most effective way. <br>
-Over the course of my career, I have worked with students with learning disabilities, such as DSA and ADHD, introducing precise methods and routines that make learning specific topics easier and help overcome any barriers they may face. <br>
-I graduated from an American high school and hold an IELTS C1 certification, so I can comfortably assist exchange students. <br>
-On this page, you will find the courses I offer, a list of my publications, and my contact information.</p>
-      <p><br></p>
-      <p>Current number of students: 6</p>
+     I’m Riccardo Martelli, a Master’s student in Quantitative Finance at Politecnico di Milano, with a prior Master’s degree in Theoretical Physics from the University of Milan. My academic and research background has equipped me with strong analytical and computational skills, developed through work in mathematical modeling, data-driven analysis, and artificial intelligence.
+     My professional goal is to pursue a career in quantitative research, quantitative analysis, and quantitative strategy development, applying rigorous quantitative methods to challenges in financial markets, hedge funds, and market-making environments.<br>
+     This website was originally created to support my work as a university-level tutor in mathematics, physics, computer science and quantitative finance. Over several years, I taught nearly a hundred students, refining my ability to explain complex topics clearly and effectively.
+     Today, the site has evolved into a personal portfolio, showcasing my academic background, research projects, and growing interests in quantitative finance: a bridge between my teaching origins and my current professional path. <br>
+     On this page, you’ll find the courses I have studied, taught, and conducted research on, as well as a list of my publications and my contact information.      <p><br></p>
+      <p>Current number of strategies: 2</p>
       <p id="Status">Status: Available</p>
   
     </div>
+
   </section>
+
+
   <section class="section" id="about">
     <div class="content">
-    <h2>Why this website</h2>
-    <p class="pToAlign"> One often has doubts about the expertise of the person he is referring to for help. Contrary to most other people, I've created this site to eliminate those doubts and answer some of the questions that students often ask me.  </p>
+    
     <h2>Method</h2>
     <p class="pToAlign"> My method reflects my personal inclination toward clarity and innovation. The best way to tackle a problem is to examine the theory, reformulate it in a simpler way, and then, by creating a functional method, solve the exercises easily and consolidate the acquired knowledge. To do so, I need all the necessary materials (notes, exercises, etc.) to understand the right course of action and achieve the desired result. </p>
   </div>
@@ -85,23 +105,25 @@ On this page, you will find the courses I offer, a list of my publications, and 
     <div id="coursesList" class="content">
   
     <h2>Courses</h2>
-    <p class="courseText">Here, I present <b>SOME</b> of the courses I offer. The complete list is quite long, and some subjects may be missing. If you are interested, you can contact me <a href="#contact" style="color: red;" > HERE.</a></p>
-    <p style="color: rgb(3, 218, 3);">Click on the subject to see the price/h.</p>
+    <p class="courseText">
+    Here, I present <b>some</b> of the courses I have offered. The full list is quite extensive, and a few subjects may be missing. If you would like to learn more about my hard skills, you can contact me <a href="#contact" style="color: red;">here</a>.
+    </p>
+    <p style="color: rgb(3, 218, 3);">Click on the subject to see the whether I've taught it, studied it or did research on it.</p>
     <ul>
    
     <ul class="courseElem">
     <li > Mathematics: </li> 
-    <p class="courseBullets highschool" onclick="clickPriceHighschool(this)"  onmouseout="clickPriceHighschoolOnMouseOut(this)" >Mathematics for highschool students.<span id="highschooltip">30&#8364;</span><br></p>
+    <p class="courseBullets highschool" onclick="clickPriceHighschool(this)"  onmouseout="clickPriceHighschoolOnMouseOut(this)" >Mathematics for highschool students.<span id="highschooltip">Studied & Taught</span><br></p>
     <p class="courseBullets paragraph"> Stochastic Calculus, Linear Algebra, Calculus 1, Calculus 2, Calculus 3, Calculus 4, Differential Geometry, Lie Groups and Lie algebras, Complex Analysis, Functional Analysis, Mathematical Method for Classical Mechanics,  Fourier Transform, Laplace Transform, Integral Transformations, Padè approximations, Taylor Series, Laurent Series, Fourier Series, Discrete Mathematics,...  </p>
     <p class="courseBullets paragraph"> Probability and statistics, Measure Theory, Bayesian Probability, Probability Distributions, Sampling, Discrete Distributions, Statistical Tests, p-values, Data Analysis,...</p>
     <li> Physics: </li>
-    <p class="courseBullets highschool" onclick="clickPriceHighschool(this)"  onmouseout="clickPriceHighschoolOnMouseOut(this)">Physics for highschool students.<span id="highschooltip">30&#8364;</span><br></p>
+    <p class="courseBullets highschool" onclick="clickPriceHighschool(this)"  onmouseout="clickPriceHighschoolOnMouseOut(this)">Physics for highschool students.<span id="highschooltip">Studied & Taught</span><br></p>
     <p class="courseBullets paragraph" id="tooltip-paragraph"> Physics 1, Physics 2, Classical Mechanics, Thermodynamics, Mathematical Methods for Physics or Engineering, Lagrangian and Hamiltonian formulations, Fluid Dynamics, Quantum Mechanics, Relativistic Quantum Mechanics and Field Theory, General Relativity, Group Theory for Mathematical Modeling, Many Body Theory, Electromagnetism, Electrodynamics,...</p>
     <li> Computer Science: </li>
-    <p class="courseBullets highschool" onclick="clickPriceHighschool(this)"  onmouseout="clickPriceHighschoolOnMouseOut(this)">Computer Science for highschool students.<span id="highschooltip">30&#8364;</span><br></p>
+    <p class="courseBullets highschool" onclick="clickPriceHighschool(this)"  onmouseout="clickPriceHighschoolOnMouseOut(this)">Computer Science for highschool students.<span id="highschooltip">Studied & Taught</span><br></p>
     <p class="courseBullets paragraph" id="tooltip-paragraph"> C++, C, Python, HTML, CSS, JavaScript, MATLAB, Mathematica, R, Tensorflow, Keras, Scikit-learn, SQL, Bash,Cuda, Sed, Awk, Data Analysis, Data Representation, Machine learning, Deep Learning, Numerical Simulation, Monte Carlo Simulation, Genetic Algorithms, Simulated Annealing, Reinforcement Learning, Metropolis Algorithm,... <br></p>
     <li> Quantitative Finance and Econometrics: </li>
-    <p class="courseBullets paragraph" id="tooltip-paragraph">Econometrics, Black & Scholes Equations, Pricing of Derivatives, Portfolio Management, Modern Portfolio Theory, Monte Carlo Simulation in Finance, Investment Decisions, Portfolio Selection, Risk-based Strategies, Risk Parity, Maximum Diversification Portfolio, Entropy Based Allocation and Advanced Allocation, Trading (Equity-Commodities-Forex-Futures), Risk Management, Alternative Assets (Real Estate-Private Equity-Hedge Funds), Credit, Currency, Commodities, Asset Allocation, Dynamic Portfolio Management, Quantitative Risk Management, Machine Learning for Finance, Statistical Arbitrage, High-Frequency Trading (HFT), Market Making, Asset Pricing Models, Value at Risk (VaR), Expected Shortfall, Portfolio Optimization, Multi-Asset Strategies, Derivatives Pricing, Quantitative Trading Strategies, Stochastic Models for Finance,...</p>
+    <p class="courseBullets paragraph" id="tooltip-paragraph">Econometrics, Black & Scholes Equations, Pricing of Derivatives, Portfolio Management, Modern Portfolio Theory, Monte Carlo Simulation in Finance, Investment Decisions, Portfolio Selection, Risk-based Strategies, Risk Parity, Maximum Diversification Portfolio, Entropy Based Allocation and Advanced Allocation, Trading (Equity-Commodities-Forex-Futures), Risk Management, Alternative Assets (Real Estate-Private Equity-Hedge Funds), Credit, Currency, Commodities, Asset Allocation, Dynamic Portfolio Management, Quantitative Risk Management, Machine Learning for Finance, Statistical Arbitrage, High-Frequency Trading (HFT), Market Making, Asset Pricing Models, Value at Risk (VaR), Expected Shortfall, Entropic Value at Risk (EVaR), Portfolio Optimization, Multi-Asset Strategies, Derivatives Pricing, Interest Rate Models, Quantitative Trading Strategies, Stochastic Models for Finance,...</p>
     </ul>
    </div>
   </section>
@@ -114,11 +136,11 @@ On this page, you will find the courses I offer, a list of my publications, and 
       <p>Check out my publications and research: </p>
       <ul>
        <li><a href="https://inspirehep.net/literature/2040113" target="_blank" class="linkvari">
-           Bachelor Thesis</a></li>
+           The Action of the Axisymmetric and Stationary Symmetry Group of General Relativity on a Static Black Hole</a></li>
        <li><a href="https://arxiv.org/abs/2205.13548" target="_blank" class="linkvari">
            Black Holes in a Swirling Universe</a></li>
        <li><a href="http://inspirehep.net/record/2784392" target="_blank" class="linkvari">
-           Master Thesis</a></li>
+           Charged Black hole solutions in general relativity from inverse scattering</a></li>
       </ul>
       <h2>Projects</h2>
       <p> I worked on several projects.</p>
@@ -137,7 +159,8 @@ On this page, you will find the courses I offer, a list of my publications, and 
             Monte Carlo and Numerical Simulations</a>
         </li>
       </ul>
-      
+
+      <div class="sectioner">
       <p>An analysis of asset allocation for five assets using the Markowitz model with constraints, the Capital Asset Pricing Model (CAPM), and the Black-Litterman model.</p>
       <ul>
         <li>
@@ -145,8 +168,9 @@ On this page, you will find the courses I offer, a list of my publications, and 
             Asset Management</a>
         </li>
       </ul>
+    </div>
 
-      <p>Work in progrss 🚧</p>
+      <p>Work in progress 🚧</p>
       <ul>
         <li>
           <a href="https://github.com/Riccardo-Martelli/Derivatives-Pricing-Project" target="_blank" class="linkvari">

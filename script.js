@@ -249,11 +249,18 @@ document.addEventListener("DOMContentLoaded", function() {
           var tooltip = document.createElement('div');
           tooltip.className = 'tooltip-par';
           tooltip.textContent = getPrice(trimmedSentence);
+
+          tooltip.style.position = 'absolute';
+          tooltip.style.visibility = 'hidden';
+          tooltip.style.display = 'inline-block';
+
           document.body.appendChild(tooltip);
+
+          var toolOffSetWidth = tooltip.offsetWidth; // Get the width of the tooltip
+
 
           var textNode = document.createElement('span');
           textNode.textContent = trimmedSentence;
-          const toolOffSetWidth = 60;/*Corresponding to the CSS value */
           
           document.addEventListener('scroll',function (event) {
             if(tooltip.style.opacity > 0 && tooltip.style.opacity <= 100){
@@ -279,13 +286,13 @@ document.addEventListener("DOMContentLoaded", function() {
           });
           
           textNode.addEventListener('click', function(event) {
-                  /* ADD vibration on click*/
+                  /* ADD vibration on click
                   if ('vibrate' in navigator) {// Check if the Vibration API is supported
                         // Vibrate for 100 ms when clicked//It can be modified with an array [vibrate, pause, vibrate]
                         navigator.vibrate(100);  
                 } else {
                     console.log("Vibration API not supported on this device.");
-                }
+                }*/
 
               tooltip.style.opacity = 100;
             
@@ -297,7 +304,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
               if(trimmedSentence==='...'){
                 tooltip.style.width='175px';
-                tooltip.style.height='62.5px';
+                tooltip.style.height='52.5px';
 
                 }
               document.documentElement.style.setProperty("--visibility",'visible'); // hides the tooltip tip
@@ -305,32 +312,32 @@ document.addEventListener("DOMContentLoaded", function() {
 
               if (isMultiline) {//For when it crosses the line (eol)
                 //Multiline positioning
-                tooltip.style.left = (rect.left + rect.width - toolOffSetWidth) + 'px';
-                tooltip.style.top = (rect.bottom + window.scrollY - 60 -lineHeight) + 'px';
+                tooltip.style.left = (rect.left + 0*rect.width/2 - toolOffSetWidth/3) + 'px';
+                tooltip.style.top = (rect.bottom + window.scrollY - 40 - lineHeight) + 'px';
 
               } else if(!isMultiline) {
                   // Inline positioning
-                  tooltip.style.left = (rect.left +rect.width/2 - toolOffSetWidth/2) + 'px';
-                  tooltip.style.top = (rect.bottom + window.scrollY -60) + 'px';
+                  tooltip.style.left = (rect.left + rect.width/2 - toolOffSetWidth/2) + 'px';
+                  tooltip.style.top = (rect.bottom + window.scrollY - 70) + 'px';
 
                   if(trimmedSentence==='...'){
 
-                    tooltip.style.top = (rect.bottom + window.scrollY - 175/2) + 'px';
+                    tooltip.style.top = (rect.bottom + window.scrollY - 95) + 'px';
 
                     if(screen.width>468){
-                      tooltip.style.left = (rect.left +rect.width/2 - toolOffSetWidth/2 - 58) + 'px'; 
+                      tooltip.style.left = (rect.left +rect.width/2 - toolOffSetWidth/2 + 37.5) + 'px'; 
                     }
                     else{
                       tooltip.style.height='57.5px';
                       document.documentElement.style.setProperty("--visibility",'hidden'); // hides the tooltip tip
 
                       if(rect.left>screen.width/1.5){
-                        tooltip.style.left = (rect.left  - Math.abs(toolOffSetWidth/screen.width)/2 - 130) + 'px'; 
+                        tooltip.style.left = (rect.left  - Math.abs(toolOffSetWidth/screen.width)/2 - 100) + 'px'; 
 
                       }else if(rect.left<=screen.width/1.5){
-                        tooltip.style.left = (rect.left - Math.abs(toolOffSetWidth/screen.width)/2-75) + 'px'; 
+                        tooltip.style.left = (rect.left - Math.abs(toolOffSetWidth/screen.width)/2-45) + 'px'; 
                       }else{
-                        tooltip.style.left = (rect.left  - Math.abs(toolOffSetWidth/screen.width)/2 - 100) + 'px'; 
+                        tooltip.style.left = (rect.left  - Math.abs(toolOffSetWidth/screen.width)/2 - 70) + 'px'; 
                       }
 
                     }
@@ -338,8 +345,10 @@ document.addEventListener("DOMContentLoaded", function() {
               }
 
               tooltip.style.display = 'block';
+              tooltip.style.visibility = 'visible';
 
-              document.querySelectorAll('.tooltip-par').forEach(function(element) {/*Handles other tooltips */
+
+              document.querySelectorAll('.tooltip-par').forEach(function(element) { /*Handles other tooltips */
                   if (element !== tooltip) {
                       element.style.display = 'none';
                   }
@@ -373,7 +382,7 @@ document.addEventListener("DOMContentLoaded", function() {
       tooltip.classList.remove('jiggles');
   }
 
-  //Function scroll 
+//Function scroll 
 function addFadeOut(tooltip) {
   tooltip.classList.add('animation-fadeout');
   
@@ -406,13 +415,13 @@ document.addEventListener('click', function(event) {
           case "Analisi 2":
           case "Analisi 3":
           case "Analisi 4": case "Relativistic Quantum Mechanics and Field Theory":
-              return '45€';
+              return 'Studied & Taught';
           case "Geometria Differenziale":case "Metodi Matematici per la Meccanica Classica":case "Gruppi di Lie e Algebre di Lie":case "Analisi Funzionale":case "Serie di Fourier":
           case "Fourier Series":case "Mathematical Method for Classical Mechanics":case "Relatività Generale":case "Teoria dei Grouppi per Modelli Matematici":
           case "Differential Geometry": case "Lie Groups and Lie algebras": case "Functional Analysis":
           case "R": case "MATLAB": case "Fluid Dynamics": case"Fluidodinamica": case"General Relativity": case "Group Theory for Mathematical Modeling": case "Genetic Algorithms": case "Algoritmi Genetici": case "Simulated Annealing": case "Reinforcement Learning":
           case"Metropolis Algorithm": case "Algoritmo Metropolis":
-            return '30€';
+            return 'Studied & Taught';
           case "Linear Algebra":case "Algebra Lineare":case"Termodinamica":case"Meccanica Classica":
           case "C++":case "C":case "Python":case "HTML":case "CSS":case "JavaScript":case "Mathematica":case "Tensorflow":case "Keras":case "Scikit-learn":case "SQL":case "Bash":case "Cuda":case "Sed":case "Awk":case "Data Analysis":
           case "Mathematical Methods for Physics or Engineering":case "Meccanica Quantistica":case "Metodi Matematici per la Fisica e l'Ingegneria":case "":
@@ -428,8 +437,8 @@ document.addEventListener('click', function(event) {
           case "Entropy Based Allocation and Advanced Allocation": case "Econometria": case "Equazioni di Black-Scholes": case "Valutazione dei derivati": case "Gestione del portafoglio": case "Teoria moderna del portafoglio": case "Simulazione Monte Carlo in finanza": case "Decisioni di investimento": case "Selezione del portafoglio": case "Strategie basate sul rischio": case "Risk Parity": case "Portafoglio di massima diversificazione": case "Allocazione basata sull'entropia": case "Allocazione avanzata": 
           case "Gestione del rischio": case "Assets Alternativi (Real Estate-Private Equity-Hedge Funds)": case "Credit": case "FX": case "Commodities": 
           case "Asset Allocation": case "Gestione dinamica del portafoglio": case "Gestione quantitativa del rischio": case "Machine Learning per la finanza": case "Arbitraggio statistico": case "High-Frequency Trading (HFT)": case "Market Making": case "Modelli per la valutazione degli Assets": case "Value at Risk (VaR)": case "Expected Shortfall": case "Ottimizzazione del portafoglio": case "Strategie multi-asset": case "Valutazione dei derivati": case "Strategie di trading quantitativo":
-          case "Modelli Stocastici per la Finanza": case "Stochastic Models for Finance":
-           return '25€';
+          case "Modelli Stocastici per la Finanza": case "Stochastic Models for Finance": case "Interest Rate Models": case "Modelli per i tassi di interesse": case "Entropic Value at Risk (EVaR)":
+           return 'Studied & Taught';
 
           default:
             if(document.documentElement.lang==="en"){
@@ -462,7 +471,7 @@ document.addEventListener('DOMContentLoaded', function () {
 ////////////MOVING TITLE
 /////////////////////////////////////////////
 
-let titleText = "Riccardo Martelli - Math, Physics, Computer Science & Quantitative Finance ";
+let titleText = "[Riccardo Martelli] Math, Physics, Computer Science & Quantitative Finance ";
 let position = 0;
 let interval;
 
@@ -574,10 +583,12 @@ const slider = document.querySelector(".slider");
 if (isDarkMode) {
       document.body.classList.add("dark-mode");/*in case I want to add some class for dark mode */
       document.documentElement.style.setProperty('--dark-modeBkg', 'white');
+      document.documentElement.style.setProperty('--shadow-color', 'rgba(0,0,0,0.7)');
       document.documentElement.style.setProperty('--text-color', 'black');
+
       document.querySelectorAll('.GitHub').forEach(img => {
         img.src = 'github-mark/github-mark.svg';
-    }); 
+      }); 
       slider.setAttribute("data-tooltip", "Dark Mode");
       const gitHubImage = document.querySelector('.GitHub');
       const gitHuba = document.querySelector('.git-a');
@@ -591,11 +602,13 @@ if (isDarkMode) {
   
       
 }else {
-      document.documentElement.style.setProperty('--dark-modeBkg', '#333');
+      document.documentElement.style.setProperty('--dark-modeBkg', 'black');//or #333
+      document.documentElement.style.setProperty('--shadow-color', 'rgba(255,255,255,0.7)');
       document.documentElement.style.setProperty('--text-color', 'white');
+
       document.querySelectorAll('.GitHub').forEach(img => {
-    img.src = 'github-mark/github-mark-white.svg';
-}); 
+      img.src = 'github-mark/github-mark-white.svg';
+      }); 
         slider.setAttribute("data-tooltip", "Light Mode" );
         const gitHubImage = document.querySelector('.GitHub');
         const gitHuba = document.querySelector('.git-a');
@@ -616,6 +629,7 @@ toggle.addEventListener("change", () => {
     if (isDarkMode) {
       localStorage.setItem("darkMode", "enabled");
       document.documentElement.style.setProperty('--dark-modeBkg', 'white');
+      document.documentElement.style.setProperty('--shadow-color', 'rgba(0,0,0,0.7)');
       document.documentElement.style.setProperty('--text-color', 'black');
       document.querySelectorAll('.GitHub').forEach(img => {
         img.src = 'github-mark/github-mark.svg';
@@ -630,11 +644,10 @@ toggle.addEventListener("change", () => {
       gitHuba.addEventListener('mouseleave', () => {
         gitHubImage.src =  "github-mark/github-mark.svg"; // Revert image on hover out
       });
-   
-
   } else {
       localStorage.setItem("darkMode", "disabled");
-      document.documentElement.style.setProperty('--dark-modeBkg', '#333');
+      document.documentElement.style.setProperty('--dark-modeBkg', 'black');// or #333
+      document.documentElement.style.setProperty('--shadow-color', 'rgba(255,255,255,0.7)');
       document.documentElement.style.setProperty('--text-color', 'white');
       document.querySelectorAll('.GitHub').forEach(img => {
         img.src = 'github-mark/github-mark-white.svg';
@@ -652,5 +665,76 @@ toggle.addEventListener("change", () => {
   }
 });
 
+/*************IMAGE MANIPULATIONS***********/
+  const img = document.getElementById('teacher-image');
+  let front = 'Fotoprofilo.PNG';
+  let back = 'FacePic.png';
+  let showingFront = true;
 
+  img.addEventListener('click', () => {
+    img.classList.add('flip-effect');
+
+    setTimeout(() => {
+      img.src = showingFront ? back : front;
+      showingFront = !showingFront;
+      img.classList.remove('flipping');
+    }, 650); // half of transition for smooth effect
+  });
+
+
+/**********SCROLLL BUTTON***********/
+
+  window.addEventListener("scroll", () => {
+    const text = document.querySelector("#scroll-indicator .text");
+    if (window.scrollY > 50) {
+      text.classList.add("show");
+    } else {
+      text.classList.remove("show");
+    }
+  });
+
+/*********************************/
+
+
+
+/******CHATBOT SECTION*********/
+
+const form = document.getElementById('chat-form');
+const input = document.getElementById('user-input');
+const body = document.getElementById('chat-body');
+
+form.addEventListener('submit', async e => {
+  e.preventDefault();
+  const text = input.value.trim();
+  if (!text) return;
+  addMessage(text, 'user');
+  input.value = '';
+  const typingDiv = addMessage("🤖 Typing...", "bot");
+
+  try {
+    const res = await fetch('http://127.0.0.1:5000/chat', {
+      mode: 'cors',
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: text })
+    });
+
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+
+    // Replace "typing..." with actual response
+    typingDiv.textContent = data.response;
+  } catch (err) {
+    typingDiv.textContent = `⚠️ Error: ${err.message}`;
+  }
+});
+
+function addMessage(text, sender) {
+  const div = document.createElement('div');
+  div.classList.add('message', sender);
+  div.textContent = text;
+  body.append(div);
+  body.scrollTop = body.scrollHeight;
+  return div;
+}
 
