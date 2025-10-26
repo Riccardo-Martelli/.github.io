@@ -766,13 +766,22 @@ function addMessage(text, sender) {
 }
 
 /******WELCOME MESSAGE ANIMATION*********/
-const welcome_name = document.getElementById("welcome_name");
+document.addEventListener("DOMContentLoaded", function() {
+  const welcome_name = document.getElementById("welcome_name");
+  const Welcome = document.getElementById("Welcome");
 
-welcome_name.classList.add("visible");
+  // Make sure the name starts visible
+  welcome_name.classList.add("visible");
 
-// After 2.5 seconds, fade it out and fade in the phrase
-setTimeout(() => {
-      welcome_name.classList.remove("visible");
-      welcome_name.classList.add("hidden");
+  // After 2.5 seconds, fade out name and fade in phrase
+  setTimeout(() => {
+    welcome_name.classList.remove("visible");
+    welcome_name.classList.add("hidden");
+
+    // Wait 1s for the fade-out to complete, then fade in the second line
+    setTimeout(() => {
+      Welcome.classList.remove("hidden");
       Welcome.classList.add("visible");
-    }, 2500);
+    }, 500);
+  }, 1500);
+});

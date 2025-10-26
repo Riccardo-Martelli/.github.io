@@ -1064,16 +1064,36 @@ header h1 {
   left: 50px;
 }
 
-.welcome{
+.welcome {
   color: #F5EDED;
   font-size: calc(var(--var,1vh)*11*75/75);
   position: fixed;
   top: 30%;
-  left: 7.5%;
-  /*text-shadow: rgb(255, 0, 0) 5px 0 15px;/*Adds the neon effetct*/
-  text-align:center;
-  z-index: 1;
+  left: 2.5%;
+  text-shadow: rgb(255, 0, 0) 5px 0 15px; /* Adds the neon effect */
+  text-align: center;
+  z-index: 2;
 }
+
+#welcome_name,
+#Welcome {
+  opacity: 0;
+  transition: opacity 1s ease;
+  position: fixed;
+  width: 100%;
+  text-align: center;
+  z-index: 2;
+}
+
+/* Visibility control */
+.visible {
+  opacity: 1;
+}
+
+.hidden {
+  opacity: 0;
+}
+
 
 /****SLIDER****/
 .switch {
