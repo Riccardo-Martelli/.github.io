@@ -1,0 +1,5 @@
+flask
+flask_core
+gunicorn
+gpt4all
+bs4

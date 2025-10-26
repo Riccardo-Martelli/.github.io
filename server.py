@@ -21,32 +21,35 @@ with open("index.html", "r", encoding="utf-8") as f:
             parts.append(text)
 
     website_text = " ".join(parts)
-    print(website_text)
+
+chat_history = []
 
 @app.route("/chat", methods=["POST"])
 def chat():
-    
     user_message = request.json.get("message")
+    chat_history.append(f"User: {user_message}")
 
+    # Build prompt with history
     prompt = f"""
-    our name is TerminalGPT,people can call you TG for short, you are a model that is deployed on a terminal so that the user can answer questions,
-    whether it's about the PC's hardware or software, or about the laptop they're using, or more general curiosities such as why the sky is blue.
-    You're a kind and gentle model, with a funny attitude.
+    Your name is TerminalGPT, people call you TG for short. You are kind, funny, and helpful.
+    If a "User:" is present then it follows the user has messaged you before, to evaluate the number of previous messages, count how many "User:" are in the chat history.
+    If there more than one "User:"  do not introduce your self, answer directly.
+    You are an assistant for the website of Riccardo Martelli. You will answer questions about the content of the website. Do not say stuff like "According to Riccardo Martelli's website", just answer directly.
+    Use the website content to answer the user's questions. If the answer is not in the website content, politely inform the user that you don't have that information.
+    Always answer in a concise manner. Riccardo conducts research in Theoretical Physics specifically in General Relativity, he generated new solutions of Einstein's field equations and studied their properties. Riccardo is passionate about teaching and science communication.
     Website content: {website_text}
 
-    Question: {user_message}
-    """
+    {chr(10).join(chat_history)}
+    TG:"""
 
     try:
-        print("⚡ Generating response...", flush=True)
-        with model.chat_session():
-            answer = model.generate(prompt, max_tokens=200)
-        print("✅ Generation complete")
+        with model.chat_session() as session:
+            answer = session.generate(prompt, max_tokens=200)
+        chat_history.append(f"TG: {answer}")
     except Exception as e:
         answer = f"⚠️ Model error: {str(e)}"
-        
-    print("Sending response to frontend:", answer[:100])
-    return jsonify({"response": answer})
+
+    return jsonify({"response": answer+"\n"})                                                                                      
 
 if __name__ == "__main__":
     app.run(debug=True)

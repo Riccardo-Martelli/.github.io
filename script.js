@@ -699,9 +699,25 @@ toggle.addEventListener("change", () => {
 
 /******CHATBOT SECTION*********/
 
+const chatWidget = document.getElementById('chat-widget');
+const chatTab = document.getElementById('chat-tab');
+const closeChat = document.getElementById('close-chat');
 const form = document.getElementById('chat-form');
 const input = document.getElementById('user-input');
 const body = document.getElementById('chat-body');
+
+/* Toggle open/close */
+chatTab.addEventListener('click', () => {
+  chatWidget.classList.add('open');
+  chatTab.classList.add('hidden');
+
+});
+closeChat.addEventListener('click', () => {
+  chatWidget.classList.remove('open');
+  chatTab.classList.remove('hidden')
+});
+
+/* Chat logic */
 
 form.addEventListener('submit', async e => {
   e.preventDefault();
@@ -709,7 +725,16 @@ form.addEventListener('submit', async e => {
   if (!text) return;
   addMessage(text, 'user');
   input.value = '';
-  const typingDiv = addMessage("🤖 Typing...", "bot");
+
+  // Create "typing..." message
+  const typingDiv = addMessage("", "bot");
+
+  // Typing animation
+  let dots = 0;
+  const typingInterval = setInterval(() => {
+    dots = (dots + 1) % 4; // cycle 0 → 1 → 2 → 3
+    typingDiv.textContent = "Typing" + ".".repeat(dots);
+  }, 500);
 
   try {
     const res = await fetch('http://127.0.0.1:5000/chat', {
@@ -722,9 +747,11 @@ form.addEventListener('submit', async e => {
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
 
-    // Replace "typing..." with actual response
+    // Stop typing animation and show real response
+    clearInterval(typingInterval);
     typingDiv.textContent = data.response;
   } catch (err) {
+    clearInterval(typingInterval);
     typingDiv.textContent = `⚠️ Error: ${err.message}`;
   }
 });
@@ -738,3 +765,14 @@ function addMessage(text, sender) {
   return div;
 }
 
+/******WELCOME MESSAGE ANIMATION*********/
+const welcome_name = document.getElementById("welcome_name");
+
+welcome_name.classList.add("visible");
+
+// After 2.5 seconds, fade it out and fade in the phrase
+setTimeout(() => {
+      welcome_name.classList.remove("visible");
+      welcome_name.classList.add("hidden");
+      Welcome.classList.add("visible");
+    }, 2500);
