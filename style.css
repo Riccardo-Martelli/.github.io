@@ -141,7 +141,7 @@ canvas {
   
   display: inline-flex;
   align-items: center;
-  padding: 10px 20px;
+  padding: 0px 0px;
   background-color: transparent;
   border: 25px solid transparent; /* Initially no border */
   border-radius: 8px; /* Rounded corners */
@@ -1070,12 +1070,23 @@ header h1 {
   position: fixed;
   top: 30%;
   left: 2.5%;
-  text-shadow: rgb(255, 0, 0) 5px 0 15px; /* Adds the neon effect */
+  /*text-shadow: rgb(255, 0, 0) 5px 0 15px; */
   text-align: center;
   z-index: 2;
+
 }
 
-#welcome_name,
+#welcome_name{
+  font-size: calc(var(--var,1vh)*11*95/75);
+  color: white;
+  /*text-shadow: rgb(255, 0, 0) 5px 0 20px; */
+  opacity: 1;  
+  transition: opacity 1s ease;
+  left: 20%;
+  top: 25%;
+  
+}
+
 #Welcome {
   opacity: 0;
   transition: opacity 1s ease;
@@ -1083,16 +1094,12 @@ header h1 {
   width: 100%;
   text-align: center;
   z-index: 2;
+  transition: opacity 1s ease;
+  left: 0%;
 }
 
-/* Visibility control */
-.visible {
-  opacity: 1;
-}
 
-.hidden {
-  opacity: 0;
-}
+
 
 
 /****SLIDER****/
