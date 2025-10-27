@@ -681,39 +681,37 @@ toggle.addEventListener("change", () => {
     }, 650); // half of transition for smooth effect
   });
 
-  /******WELCOME MESSAGE ANIMATION*********/
+/******WELCOME MESSAGE ANIMATION*********/
 
 document.addEventListener("DOMContentLoaded", () => {
   const welcome_name = document.getElementById("welcome_name");
   const Welcome = document.getElementById("Welcome");
 
-  // Step 1: show the name initially
+  // Show name initially
   welcome_name.classList.add("visible");
 
-  // Step 2: fade out name after 2.5s
+  // Fade out after 2.5s automatically
   setTimeout(() => {
-    welcome_name.classList.remove("visible");
-    welcome_name.classList.add("hidden");
+    welcome_name.style.transition = "opacity 1s ease";
+    welcome_name.style.opacity = 0; // fades out
+    // Fade in slogan after fade-out completes
+    setTimeout(() => {
+      Welcome.style.transition = "opacity 1s ease";
+      Welcome.style.opacity = 1;
+    }, 1000);
+  }, 1500);
 
-    // Step 3: fade in slogan
-    Welcome.classList.add("visible");
-  }, 2500);
+  // Optional: additional fade out on scroll (still works)
+  window.addEventListener("scroll", () => {
+    const scrollY = window.scrollY;
+    const newOpacity = Math.max(1 - scrollY / 100, 0);
+    welcome_name.style.opacity = Math.min(newOpacity, welcome_name.style.opacity || 1);
+    if (scrollY > 100) {
+      welcome_name.style.display = "none";
+    }
+  });
 });
 
-// Step 4: fade out welcome_name on scroll
-window.addEventListener("scroll", () => {
-  const welcome_name = document.getElementById("welcome_name");
-  
-  // Optional: fade out progressively with scroll
-  let scrollY = window.scrollY;
-  let opacity = Math.max(1 - scrollY / 100, 0); // fades out in first 200px
-  welcome_name.style.opacity = opacity;
-  
-  // Optionally hide completely after some scroll
-  if (scrollY > 100) {
-    welcome_name.style.display = "none";
-  }
-});
 
 
 
