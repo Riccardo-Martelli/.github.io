@@ -61,7 +61,7 @@ const observer = new IntersectionObserver((entries) => {
 			entry.target.classList.remove('show');
 		} */ //Uncomment if you want the animation to be removed when not intersecting so it shows again when intersecting again
 	});
-});
+}, { rootMargin: '0px 0px 200px 0px' });
 
 sectionElem.forEach((el) => observer.observe(el));
 headerElem.forEach((el) => observer.observe(el));
@@ -79,9 +79,15 @@ const blurrin = new IntersectionObserver((entries) => {
 			entry.target.classList.remove('blurEff');
 		}*/ //Uncomment if you want the blur to be removed when not intersecting so it shows again when intersecting again
 	});
-});
+}, { rootMargin: '0px 0px 200px 0px' } );
 
 flowCharts.forEach((el) => blurrin.observe(el));
+
+document.querySelectorAll('#courses *').forEach(el => {
+    el.classList.add('show')
+    el.classList.add('blurEff')
+})
+
 
 // Add coping on hover
 
