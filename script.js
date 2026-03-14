@@ -55,12 +55,11 @@ const flowCharts = document.querySelectorAll(".flowcharts");
 
 const observer = new IntersectionObserver((entries) => {
 	entries.forEach((entry)=>{
-		console.log(entry)
 		if (entry.isIntersecting){
 			entry.target.classList.add('show');
-		}else{
+		}/*else{
 			entry.target.classList.remove('show');
-		}
+		} */ //Uncomment if you want the animation to be removed when not intersecting so it shows again when intersecting again
 	});
 });
 
@@ -74,12 +73,11 @@ courseElem.forEach((el) => observer.observe(el));
 
 const blurrin = new IntersectionObserver((entries) => {
 	entries.forEach((entry)=>{
-		console.log(entry)
 		if (entry.isIntersecting){
 			entry.target.classList.add('blurEff');
-		}else{
+		}/*else{
 			entry.target.classList.remove('blurEff');
-		}
+		}*/ //Uncomment if you want the blur to be removed when not intersecting so it shows again when intersecting again
 	});
 });
 
