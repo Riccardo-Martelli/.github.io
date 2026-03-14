@@ -471,7 +471,7 @@ document.addEventListener('DOMContentLoaded', function () {
 ////////////MOVING TITLE
 /////////////////////////////////////////////
 
-let titleText = "[Riccardo Martelli] Math, Physics, Computer Science & Quantitative Finance ";
+let titleText = "[Riccardo Martelli] Math, Physics, Computer Science & Quantitative Finance.";
 let position = 0;
 let interval;
 
@@ -731,7 +731,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 /******CHATBOT SECTION*********/
-
+/*
 const chatWidget = document.getElementById('chat-widget');
 const chatTab = document.getElementById('chat-tab');
 const closeChat = document.getElementById('close-chat');
@@ -740,6 +740,7 @@ const input = document.getElementById('user-input');
 const body = document.getElementById('chat-body');
 
 /* Toggle open/close */
+/*
 chatTab.addEventListener('click', () => {
   chatWidget.classList.add('open');
   chatTab.classList.add('hidden');
@@ -751,7 +752,7 @@ closeChat.addEventListener('click', () => {
 });
 
 /* Chat logic */
-
+/*
 form.addEventListener('submit', async e => {
   e.preventDefault();
   const text = input.value.trim();
@@ -797,7 +798,7 @@ function addMessage(text, sender) {
   body.scrollTop = body.scrollHeight;
   return div;
 }
-
+ */
 
 
 
