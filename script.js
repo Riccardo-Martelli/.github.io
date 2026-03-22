@@ -475,7 +475,7 @@ document.addEventListener('DOMContentLoaded', function () {
 ////////////MOVING TITLE
 /////////////////////////////////////////////
 
-let titleText = "[Riccardo Martelli] Math, Physics, Computer Science & Quantitative Finance.";
+let titleText = "[Riccardo Martelli] Theoretical Physicist, Quant Analyst & Researcher ";
 let position = 0;
 let interval;
 
