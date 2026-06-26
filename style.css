@@ -85,7 +85,7 @@ hr{
 
 @supports (scrollbar-color:  red #F5EDED){
   *{
-  scrollbar-color:  red hsla(120, 100%, 50%, 0);
+  scrollbar-color:  red hsla(100,  0, 0, 10);
   scrollbar-width: auto;
   /*First is the thumb the second is the bkg*/  
   }
