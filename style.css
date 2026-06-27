@@ -74,7 +74,17 @@ a::selection{
     --dark-modeBkg: black; /*#333*/
     --margin-PC: 100px;
     --shadow-color: rgba(0, 0, 0, 0.7);
-   
+
+}
+#scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 0%;
+      background: red;
+      z-index: 9999;         
+      transition: width 0.05s linear;
 }
 
 hr{

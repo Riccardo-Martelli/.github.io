@@ -14,7 +14,14 @@ let Welcome = document.getElementById('Welcome');
 const sect = document.querySelectorAll('section');
 const navElem = document.querySelectorAll('nav ul li');
 
+// add progress bar on scroll
+const progressBar = document.getElementById('scroll-progress');
+
 window.addEventListener('scroll',() => {
+  const scrollTop = document.documentElement.scrollTop;
+  const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  progressBar.style.width = (scrollTop / scrollHeight) * 100 + '%';
+  
   let value = window.scrollY;
    Welcome.style.opacity = Math.abs(1 - 8.5*value/document.documentElement.scrollHeight);
  
