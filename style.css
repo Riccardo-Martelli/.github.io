@@ -270,10 +270,10 @@ body {
   .main-img{/* class for profile picture*/
 
     display: block;
-    margin-left: -0.5%;
+    margin-left: -1.5%;
     margin-bottom:10px;
     height:450px;
-    width:95vw;
+    width:75vw;
     transition: all 1s;
     border-radius: 15px;
 
@@ -679,7 +679,7 @@ body {
       transform-origin: 0 0;
     }
 
-    .tooltip:hover .tooltiptext {
+    .tooltip:hover .tooltiptext{
       visibility: visible;
       /*animation: jiggle 0.5s ;*/
       bottom: 110%;
@@ -752,6 +752,7 @@ body {
       opacity: 100;
     
     }
+
     #highschooltip:active{
       animation: jiggle 0.5s ;
 
@@ -767,7 +768,6 @@ body {
       border-style: solid;
       border-color: var(--text-color) transparent transparent transparent;
     }
-
 
     button{
       background-color: transparent;
@@ -805,7 +805,7 @@ body {
 /****SLIDER****/
 .switch {
   position: fixed;
-  top: 6.5%;
+  top: 3.0%;
   right: 10.0%;
   display: inline-block;
   width: 10px;
