@@ -90,10 +90,15 @@ const blurrin = new IntersectionObserver((entries) => {
 
 flowCharts.forEach((el) => blurrin.observe(el));
 
+/* Disabled so Courses fades in via the IntersectionObserver like the other
+   sections. This used to force every #courses element visible on load.
+   Re-enable if you want Courses shown immediately without the fade. */
+/*
 document.querySelectorAll('#courses *').forEach(el => {
     el.classList.add('show')
     el.classList.add('blurEff')
 })
+*/
 
 
 // Add coping on hover
@@ -357,6 +362,15 @@ document.addEventListener("DOMContentLoaded", function() {
 
               tooltip.style.display = 'block';
               tooltip.style.visibility = 'visible';
+
+              // Keep the tooltip within the viewport. On desktop the computed
+              // left is already in range so this is a no-op; on narrow phones it
+              // pulls an off-screen tooltip back in, replacing the old
+              // screen.width edge-nudges.
+              var tipW = tooltip.offsetWidth;
+              var rawLeft = parseFloat(tooltip.style.left) || 0;
+              var maxLeft = document.documentElement.clientWidth - tipW - 8;
+              tooltip.style.left = Math.max(8, Math.min(rawLeft, maxLeft)) + 'px';
 
 
               document.querySelectorAll('.tooltip-par').forEach(function(element) { /*Handles other tooltips */
@@ -810,7 +824,3 @@ function addMessage(text, sender) {
   return div;
 }
  */
-
-
-
-
