@@ -75,7 +75,6 @@ a::selection{
     --margin-PC: 100px;
     --shadow-color: rgba(0, 0, 0, 0.7);
 
-    /* --- Step 0: proportion system (shared by all breakpoints) --- */
     /* spacing scale: multiples of one base unit */
     --space-1: 0.5rem;
     --space-2: 1rem;
@@ -93,8 +92,10 @@ a::selection{
     --step-1: clamp(1.25rem, 1rem + 1vw, 2rem);      /* h3 */
     --step-2: clamp(1.8rem, 1.2rem + 2.5vw, 3.5rem);  /* h2 */
     --step-3: clamp(2.4rem, 1.5rem + 5vw, 5.5rem);    /* hero */
+    --name-k: calc(var(--var, 1vw) * 11 / 75);  /* the scaling unit of the name */
 
 }
+
 #scroll-progress {
       position: fixed;
       top: 0;
@@ -106,7 +107,6 @@ a::selection{
       transition: width 0.05s linear;
 }
 
-/* --- Step 0: one centered content column, symmetric gutters at every width --- */
 .content {
   max-width: var(--content-max);
   margin-inline: auto;
@@ -114,10 +114,6 @@ a::selection{
   box-sizing: border-box;
 }
 
-/* --- Step 2: frosted secondary surface behind the text.
-   :not(.tooltip) skips the small contact button wrappers so they don't
-   each become a panel. Colours derive from --text-color so the panel
-   adapts to both dark and light mode automatically. --- */
 .content:not(.tooltip) {
   width: min(var(--content-max), 100% - 2 * var(--space-3));
   padding-block: var(--space-4);
@@ -136,9 +132,6 @@ a::selection{
   backdrop-filter: blur(16px) saturate(1.3);
 }
 
-/* Step 2 fix: lists keep the browser's default left indent (~40px), which
-   shoved Courses/Projects content right inside the centered panel. Zero it
-   so centred list text sits centred in the panel. Covers nested ul>ul too. */
 .content ul {
   padding-inline-start: 0;
 }
@@ -237,8 +230,7 @@ body {
   margin: 0;
   padding: 0%;
   overflow-x: hidden;
-  /* Step 2 support: faint fixed glows so the frosted panels have something
-     to blur (a static preview; the interactive version is Step 3) */
+  /*Faint fixed glows so the frosted panels have something to blur */
   background-image:
     radial-gradient(55vw 55vw at 12% 8%, rgba(225, 10, 0, 0.10), transparent 60%),
     radial-gradient(50vw 50vw at 88% 35%, rgba(90, 110, 160, 0.08), transparent 60%);
@@ -665,7 +657,7 @@ body {
     
     .tooltip .tooltiptext {
       visibility: hidden;
-      width: 200px;
+      width: 230px;
       background-color: var(--text-color);
       color: var(--dark-modeBkg);
       text-align: center;
@@ -703,14 +695,21 @@ body {
       position: absolute;
       background-color: var(--text-color);
       color: var(--dark-modeBkg);
-      padding-top: 7.5px;
+      padding-top: 5px;
       border-radius: 6px;
       display: none;
       z-index: 1;
-      width: auto;
-      max-width: 80vw;
-      white-space: normal;
-      height: auto;
+      
+      padding: 6px 10px;
+
+      width: auto;        
+      max-width: 200px;   
+      white-space: normal;   /*nowrap = one line only*/
+
+      height: auto;          /* let the content decide */
+      max-height: 500px;     
+      /*overflow-y: auto;      scrollbar if too tall*/
+
       font-size: 20px;
       text-align: center;
     
@@ -731,25 +730,29 @@ body {
 
     #highschooltip {
 
-      content: "30€";
-      visibility: hidden;
-      height: auto;
-      width: auto;
-      max-width: 80vw;
-      white-space: normal;
-      font-size: 20px;
-      background-color: var(--text-color);
-      color: var(--dark-modeBkg);
-      text-align: center;
-      border-radius: 6px;
-      padding-top: 5px;
-      position: absolute;
-      z-index: 1;
-      bottom: 110%;
-      left:50%;
-      transform: translate(-50%);
-      transform-origin: 0 25px;
-      opacity: 100;
+    content: "30€";
+    visibility: hidden;
+    
+    width: auto;        
+    max-width: 200px;   
+    white-space: nowrap;   /*nowrap = one line only*/
+
+    height: auto;          /* let the content decide */
+    max-height: 500px;  
+
+    position: absolute;
+    background-color: var(--text-color);
+    color: var(--dark-modeBkg);
+    border-radius: 6px;
+    padding: 6px 10px;
+    z-index: 1;
+    bottom: 110%;
+    left:50%;
+    transform: translate(-50%);
+    transform-origin: 0 20px;
+    opacity: 100;
+    font-size: 20px;
+    text-align: center;
     
     }
 
@@ -1399,6 +1402,7 @@ nav ul li a {
 
 .sections a{
   position: relative;
+  font-size: clamp(1rem, calc(var(--name-k) * 14), 2.3rem);
 }
 
 .sections a:hover{  
@@ -2300,19 +2304,26 @@ nav ul li.active a span{
 }
 
 .tooltip-par {
-  position: absolute;
-  background-color: var(--text-color);
-  color: var(--dark-modeBkg);
-  padding-top: 5px;
-  border-radius: 6px;
-  display: none;
-  z-index: 1;
-  width: auto;
-  max-width: 80vw;
-  white-space: normal;
-  height: auto;
-  font-size: 20px;
-  text-align: center;
+      position: absolute;
+      background-color: var(--text-color);
+      color: var(--dark-modeBkg);
+      padding-top: 5px;
+      border-radius: 6px;
+      display: none;
+      z-index: 1;
+      
+      padding: 6px 10px;
+
+      width: auto;        
+      max-width: 200px;   
+      white-space: normal;   /*nowrap = one line only*/
+
+      height: auto;          /* let the content decide */
+      max-height: 500px;     
+      /*overflow-y: auto;      scrollbar if too tall*/
+
+      font-size: 20px;
+      text-align: center;
 
 }
 
@@ -2333,23 +2344,26 @@ nav ul li.active a span{
 
   content: "30€";
   visibility: hidden;
-  width: auto;
-  max-width: 80vw;
-  white-space: normal;
-  height: auto;
+  
+  width: auto;        
+  max-width: 2000px;   
+  white-space: normal;   /*nowrap = one line only*/
+
+  height: auto;          /* let the content decide */
+  max-height: 500px;  
+
   background-color: var(--text-color);
   color: var(--dark-modeBkg);
   text-align: center;
   border-radius: 6px;
-  padding-top: 2.5px;
- padding-bottom: 2.5px;
+  padding: 6px 10px;
   position: absolute;
   z-index: 1;
   bottom: 110%;
   left:50%;
   transform: translate(-50%);
-  transform-origin: 0 25px;
-  font-size: 20px;
+  transform-origin: 0 20px;
+  opacity: 100;
 
 }
 
