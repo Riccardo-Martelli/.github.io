@@ -322,7 +322,6 @@ body {
       opacity: 1;
     }
  
-
     #name{
       position: fixed;
       font-size: calc(var(--var,1vw)*11*50/75);
@@ -330,16 +329,28 @@ body {
       top: 2%;
       color: #F5EDED;
     }
-    
+
+    #Welcome {
+    opacity: 0;
+    transition: opacity 1s ease;
+    position: fixed;
+    width: 100%;
+    text-align: center;
+    z-index: 2;
+    transition: opacity 1s ease;
+    left: 50%;
+    }
+
     .welcome{
-      color: #F5EDED;
-      font-size: calc(var(--vw,1vw)*11*50/75);
-      position: absolute;
-      padding-top: 15%;
-      top: 20%;
-      left:0%;
+    color: #F5EDED;
+    font-size: calc(var(--vw,1vw)*11*50/75);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center; 
       /*text-shadow: rgb(255, 0, 0) 1px 0 10px;/*Adds the neon effect*/
-      text-align: inline;
    
     }
 
@@ -350,6 +361,7 @@ body {
       background-attachment: fixed;
       height:75vh;
       width:100vw;
+      position: relative;
     }
   
     
@@ -1917,14 +1929,29 @@ header h1 {
   left: 50px;
 }
 
+#Welcome {
+  opacity: 0;
+  transition: opacity 1s ease;
+  position: fixed;
+  width: 100%;
+  text-align: center;
+  z-index: 2;
+  transition: opacity 1s ease;
+  left: 50%;
+}
+
 .welcome{
   color: #F5EDED;
-  position: static;
   font-size: calc(var(--var,1vw)*11*65/75);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center;
   /*white-space: nowrap;*/
   /*text-shadow: rgb(255, 0, 0) 5px 0 15px;/*Adds the neon effetct*/
-  text-align: center;
-  z-index: 1;
+
 }
 canvas { 
   display: block; 
@@ -1943,7 +1970,7 @@ canvas {
   justify-content: center;
   align-items: center;
   /*---------*/
-
+  position: relative;
   background: black /*url("starysky.jpeg") no-repeat*/;
   background-size: cover;
   background-position: center;
