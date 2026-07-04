@@ -1,6 +1,6 @@
+/* Chrome, Edge, Safari */
 ::-webkit-scrollbar {
     display: none;
-
 }
 
 ::selection{
@@ -94,6 +94,7 @@ a::selection{
     --step-3: clamp(2.4rem, 1.5rem + 5vw, 5.5rem);    /* hero */
     --name-k: calc(var(--var, 1vw) * 11 / 75);  /* the scaling unit of the name */
 
+    scrollbar-width: none; /* Firefox */
 }
 
 #scroll-progress {
@@ -119,8 +120,7 @@ a::selection{
   padding-block: var(--space-4);
   margin-block: var(--space-3);
   border-radius: 18px;
-  background: linear-gradient(
-    180deg,
+  background: linear-gradient( 180deg,
     color-mix(in srgb, var(--text-color) 10%, transparent),
     color-mix(in srgb, var(--text-color) 4%, transparent)
   );
@@ -204,6 +204,7 @@ canvas {
   height: 50px;
 
 }
+
 .contact-logos {
   
   font-size: var(--step-1);
@@ -218,6 +219,7 @@ canvas {
 }
 
 .contact-logos:hover {
+
   background-color: var(--text-color); 
 
 }
@@ -226,6 +228,7 @@ canvas {
 /*************/
 
 body {
+
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0%;
@@ -236,7 +239,17 @@ body {
     radial-gradient(50vw 50vw at 88% 35%, rgba(90, 110, 160, 0.08), transparent 60%);
   background-attachment: fixed;
   background-repeat: no-repeat;
+
 } 
+
+#glowCanvas {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+}
 
 /*for phone*/
 @media only screen and (max-width: 467px) {
@@ -246,9 +259,14 @@ body {
     top: 0; 
     left: 0; 
     width: 100vw; 
-    height: 85vh; /* fix the viewport height */
+    height: 100%; /* fix the viewport height */
     pointer-events: none; /* Ensure interactions pass through */
   }
+
+  .notes-link {
+  
+    font-size: 1rem;   /* match the par text font size */
+ }
 
   html{
     scroll-behavior: smooth;
@@ -262,14 +280,17 @@ body {
   .main-img{/* class for profile picture*/
 
     display: block;
-    margin-left: -1.5%;
-    margin-bottom:10px;
-    height:450px;
-    width:75vw;
-    transition: all 1s;
-    border-radius: 15px;
+  margin: 0 auto 10px;         
+  width: min(75vw, 100%);
+  max-width: 320px;            /* stops it getting oversized on big phones */
+  aspect-ratio: 7 / 9;         /*no per-device stretch */
+  height: auto;
+  object-fit: cover;
+  transition: all 1s;
+  border-radius: 15px;
 
-    }
+}
+
 
   .flowcharts{
       margin: 12.5px;
@@ -898,9 +919,10 @@ html{
 .main-img{/* class for profile picture*/
   
   float:left;
-  margin:5px;
+  margin:5px 20px 10px 0;
   height:450px;
   width:350px;
+  object-fit: cover;;
   transition: background-image 2s;
   border-radius: 20px;
   transition: transform 1.3s;
@@ -1105,33 +1127,39 @@ body {
 
 
 header {
-  background-color:black;
+ background-color: black;
   color: #F5EDED;
-  padding:  3.5% ;
+  padding: 0;
   margin: auto;
   position: sticky;
-  top:0px;
-  text-align: center;
-  opacity:1; 
-  z-index:5;
- box-shadow: 5px 10px 10px black, -5px 10px 10px black;
+  top: 0;
+  z-index: 5;
+  box-shadow: 5px 10px 10px black, -5px 10px 10px black;
+  display: flex;
 }
 
 .header-content {
-  background-color: var(--dark-modeBkg);
-  width: auto;
+  flex: 1;
+  width: 100%;
   margin: auto;
   display: flex;
-  position: sticky;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: clamp(0.5rem, 2vw, 1.5rem);
+  padding: clamp(0.6rem, 1.2vw, 1.1rem) var(--gutter);
+  background: transparent;
+  box-sizing: border-box;
   opacity: 1;
  
 }
 
 #name{
-  position: fixed;
-  font-size: calc(var(--var,1vw)*11*30/75);
-  left: 5%;
-  top:2%;
+  position: relative;
+  left: auto;
+  top: auto;
+  font-size: clamp(2rem, calc(var(--name-k) * 28), 5.25rem);
+  margin-right: clamp(0.8rem, 2vw, 2rem);
+  white-space: nowrap;
   color: #F5EDED;
  }
 
@@ -1204,14 +1232,17 @@ header h1 {
 
 /****SLIDER****/
 .switch {
-  position: fixed;
-  top: 3%;
-  right: 72.5px;
+  position: relative;
+  flex: 0 0 auto;
+  align-self: center;
+  margin-left: auto;
   display: inline-block;
   width: 82px;
   height: 25px;
   visibility: hidden;
+
 }
+
 .switch input { display: none; }
 .slider {
   position: absolute;
@@ -1244,9 +1275,11 @@ header h1 {
   padding: 5px 8px;
   border-radius: 5px;
   font-size: 14px;
-  bottom: -120%;
-  left: 50%;
-  transform: translateX(-50%);
+  bottom: auto;
+  top: 50%;
+  left: auto;
+  right: 0;
+  transform: translateY(-50%);
   white-space: nowrap;
   opacity: 1;
   visibility: visible;
@@ -1268,23 +1301,18 @@ input:checked + .slider:before {
   transform: translateX(55px); 
 }
 
-
 /***********************/
 
-
 .parrallax1{
-  /*--new stuff--*/
-  position: relative;
+    position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  /*---------*/
-
   background: black ;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  height:75vh;
+  height: calc(90vh - var(--header-h, 96px));
   width:100%;
 }
 
@@ -1384,6 +1412,12 @@ li{
   width:97vw;
 }
 
+nav {
+  flex: 1 1 auto;
+  min-width: 0;
+
+}
+
 nav ul {
   list-style: none;
   padding: 0;
@@ -1404,11 +1438,23 @@ nav ul li a {
   
 }
 
+.sections li {
+  display: inline-flex;
+  margin: 0;
+
+}
+
 .sections{
-  position: fixed;
-  left:40%;
-  top: max(15.5px,6%); 
-  opacity:1;
+  position: static;
+  left: auto;
+  top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: clamp(0.5rem, 1.5vw, 1.4rem);
+  margin: 0;
+  padding: 0;
+  opacity: 1;
 
 }
 
@@ -1442,6 +1488,7 @@ nav ul li a {
   opacity: 1;
 
 }
+
 nav ul li.active a{
   transform: scale(1);
   color: red;
@@ -1792,6 +1839,7 @@ th{
   width:350px;
   transition: background-image 2s;
   border-radius: 10px;
+  aspect-ratio: 7 / 9;
 
   }
 
@@ -1823,15 +1871,17 @@ hr{
 
 /****SLIDER****/
 .switch {
-  position: fixed;
-  right: 75px;
-  top:2%;
-  padding: 5px;
+  position: relative;
+  flex: 0 0 auto;
+  align-self: center;
+  margin-left: auto;
+  padding: 0;
   display: inline-block;
   width: 42px;
   height: 15px;
   visibility: hidden;
 }
+
 .switch input { display: none; }
 .slider {
   position: absolute;
@@ -1864,9 +1914,11 @@ hr{
   padding: 3px 5px;
   border-radius: 5px;
   font-size: 12px;
-  bottom: -120%;
-  left: 50%;
-  transform: translateX(-50%);
+  left: auto;
+  right: 0;
+  top: 50%;
+  bottom: auto;
+  transform: translateY(-50%);
   white-space: nowrap;
   opacity: 1;
   visibility: visible;
@@ -1889,36 +1941,45 @@ input:checked + .slider:before {
 }
 
 header {
+
   background-color: black;
   color: #F5EDED;
-  padding:  7% ;
+  padding: 0;
   margin: auto;
-  font-size: calc(var(--var,1vw)*11*40/75);
   position: sticky;
-  top:0px;
-  text-align:center;
-  opacity:1; 
-  z-index:5;
+  top: 0;
+  z-index: 5;
   box-shadow: 5px 10px 10px black, -5px 10px 10px black;
+  display: flex;
 
 }
 
 .header-content {
-  background-color: var(--dark-modeBkg);
-  width: auto;
+
+  flex: 1;
+  width: 100%;
   margin: auto;
   display: flex;
-  position: sticky;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: clamp(0.5rem, 2vw, 1.5rem);
+  padding: clamp(0.5rem, 2vw, 1rem) var(--gutter);
+  background: transparent;
+  box-sizing: border-box;
   opacity: 1;
- 
+
 }
 
 #name{
-  position: fixed;
-  font-size: calc(var(--var,1vw)*11*30/75);
-  left: 5%;
-  top:2%;
+
+  position: relative;
+  left: auto;
+  top: auto;
+  font-size: clamp(1.8rem, calc(var(--name-k) * 31), 3rem);
+  margin-right: clamp(0.5rem, 2vw, 1.2rem);
+  white-space: nowrap;
   color: #F5EDED;
+
 }
 
 header h1 {
@@ -1958,8 +2019,8 @@ canvas {
   position: absolute; /* Ensure it stays in place */
   top: 0; 
   left: 0; 
-  width: 100vw; 
-  height: 85vh; /* fix the viewport height */
+  width: 100%; 
+  height: 95vh; /* fix the viewport height */
   pointer-events: none; /* Ensure interactions pass through */
 }
 
@@ -2067,6 +2128,11 @@ li{
   width:95%;
 }
 
+nav {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
 nav ul {
   list-style: none;
   padding: 0;
@@ -2090,15 +2156,26 @@ nav ul li a {
 }
 
 .sections{
-  position: fixed;
-  left:3.5%;
-  top: 7%; 
-  opacity:1;
+  position: static;
+  left: auto;
+  top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: clamp(0.4rem, 1.5vw, 1rem);
+  margin: 0;
+  padding: 0;
+  opacity: 1;
+}
 
+.sections li {
+  display: inline-flex;
+  margin: 0;
 }
 
 .sections a{
-  position: relative;
+  position: relative; 
+  font-size: clamp(0.95rem, calc(var(--name-k) * 13), 1.5rem);
 }
 
 

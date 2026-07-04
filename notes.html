@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Riccardo Martelli's Notes</title>
+  <link rel="stylesheet" href="notes_style.css">
+  <link rel="shortcut icon" href="favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="manifest" href="site.webmanifest">
+</head>
+
+<body>
+  <div id="scroll-progress"></div>
+
+  <header class="notes-header">
+    <a href="index.html" class="back-link">Riccardo Martelli's Portfolio</a>
+    <h1>Notes</h1>
+    <p class="notes-tagline">
+      Things I work through and write up: Physics, Mathematics, Quantitative Finance, Probability and Statistics, and the occasional detour into AI or Philosophy and society.
+      Pick a topic.
+    </p>
+
+    <label class="switch">
+      <input type="checkbox" id="modeToggle">
+      <span class="slider" data-tooltip="Dark Mode"></span>
+    </label>
+  </header>
+
+  <!-- Topic pills injected by notes_script.js -->
+  <nav id="topics" class="topic-bar" aria-label="Filter notes by topic"></nav>
+
+  <!-- Entries injected by notes_script.js -->
+  <main id="entry-list" class="notes-list"></main>
+
+  <hr>
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2026 Riccardo Martelli. <a href="index.html">Back to portfolio</a>.</p>
+    </div>
+  </footer>
+
+  <script src="notes_script.js"></script>
+</body>
+</html>

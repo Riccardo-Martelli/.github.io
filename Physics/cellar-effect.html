@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Cellar Effect</title> <!-- Change manually -->
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../notes_style.css">
+</head>
+<body>
+
+  <div id="scroll-progress"></div>
+ 
+  <header class="notes-header">
+    <a href="../index.html" class="back-link" style="position: static;">Riccardo's Portfolio</a>
+    <a href="../notes.html" class="back-link" style="position: static; margin-left: 1.5rem;"> Notes</a>
+    <h1 id = "article-title"></h1>
+    <label class="switch">
+      <input type="checkbox" id="modeToggle">
+      <span class="slider" data-tooltip="Dark Mode"></span>
+    </label>
+
+  </header>
+  
+  <script>
+    document.getElementById("article-title").textContent = document.title;
+  </script>
+  
+  <main>
+    <article class="content">
+      <!-- ===== part to modify, the rest is a template, maybe a skeleton might be more effective on the long run ===== -->
+
+    <p>
+    During this summer, an abnormal heatwave has hit Europe and in general the northern hemisphere, with temperatures in France above 46 degrees Celcius in some cases and in general temperatures above 35 degrees. Yet, one day during an especially extremely hot day I got of the elevator at floor -1, incredibly, the temperature there was cooler than the temperature outside by a long margin! This was an incredibly satisfying moment because I got of the incredible heat, but how come it was cooler? There was no air conditioning whatsoever, it was in an area where the sun did not hit directly, but trust me, even in the shadow, the temperature was hot, really hot. The answer is that I was underground and the cellar effect was in action. To analyze this phenomena we have to use the equations that describe the distribution of the temperature, the Fourier equations:
+    \begin{equation}
+    \pdv{T}{t} = \nabla\cdot(\chi \nabla T) + f(t,\mathbf{x})= \nabla\chi\cdot\nabla T  +\chi\triangle T+ f(t,\mathbf{x})\,,
+\end{equation}
+We can set $\chi = $ const. The 1-D case $\chi = \sigma\ z^2/2$ is a fun case since it reduces to a known equation; in fact, the equation becomes (with $f=0$)
+    </p>
+
+
+
+    <!-- =========================================== -->
+    </article>
+  </main> 
+  <hr>
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2026 Riccardo Martelli. <a href="../index.html">Back to the portfolio</a> or <a href="../notes.html">Back to notes</a>.</p>
+    </div>
+  </footer>
+  <!-- JavaScript -->
+  <script src="../notes_script.js"></script>
+</body>
+</html>
+
+
+

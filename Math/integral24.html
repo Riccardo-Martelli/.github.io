@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Seemengly Impossible Integral Solved with Residue Theorem</title> <!-- Change manually -->
+
+  <!-- MathJax -->
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <!-- TikZJax (fonts must load over https on an https page) -->
+  <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+  <script src="https://tikzjax.com/v1/tikzjax.js"></script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../notes_style.css">
+
+  <!-- article-only helpers, using theme tokens so they follow dark/light -->
+  <style>
+    .figure-caption {
+      font-style: italic;
+      text-align: center;
+      color: color-mix(in srgb, var(--text-color) 60%, transparent);
+      margin-top: 8px;
+      margin-bottom: 32px;
+      font-size: 0.9em;
+    }
+    .image-container, .tikz-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 32px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="scroll-progress"></div>
+
+  <header class="notes-header">
+    <a href="../index.html" class="back-link" style="position: static;">Riccardo's Portfolio</a>
+    <a href="../notes.html" class="back-link" style="position: static; margin-left: 1.5rem;"> Notes</a>
+    <h1 id="article-title"></h1>
+    <label class="switch">
+      <input type="checkbox" id="modeToggle">
+      <span class="slider" data-tooltip="Dark Mode"></span>
+    </label>
+  </header>
+
+  <script>
+    document.getElementById("article-title").textContent = document.title;
+  </script>
+
+  <main>
+    <article class="content">
+      <!-- ===== part to modify, the rest is a template ===== -->
+
+
+      <p>Have you ever looked at a seemingly impossible logarithmic integral and wondered if there's a clean, elegant way to solve it? Today, we are going to evaluate the following integral for $a > 1$:</p>
+
+      $$I=\int_{0}^{\infty}\frac{\ln x}{x^{a}+|b|^{a}}dx$$
+
+      <p>Integrating logarithms directly can often force an awkward choice of branch cuts. Instead, we can use a highly efficient contour integration technique that leverages symmetry and a parametric family of integrals.</p>
+
+      <h3>Setting Up the Contour</h3>
+
+      <p>The denominator of our integrand gives us a massive hint. It points directly to a contour adapted to the symmetry of $x^{a}$. Under the transformation $z \mapsto z e^{2\pi i/a}$, the term $z^{a}$ maps back to $z^{a}$, leaving the entire denominator $z^{a}+|b|^{a}$ completely unchanged.</p>
+
+      <p>Because of this symmetry, we can integrate over a circular sector (a "wedge") with an opening angle of $2\pi/a$.</p>
+
+      <div class="image-container">
+        <img src="contour_light.png" alt="Sector contour of opening angle 2 pi / a" style="max-width: 100%; height: auto;">
+        <div class="figure-caption">Figure 1: Sector contour of opening angle $2\pi/a.$ The single enclosed pole is $z_{p}=|b|e^{i\pi/a}$.</div>
+      </div>
+
+      <p>As seen in Figure 1, the contour traces an outgoing ray $L_{1}$ along the positive real axis $\mathbb{R}_{+}$, follows a large arc $C_{R}$, returns via a ray $L_{2}$ at angle $2\pi/a$, and closes via a small arc $C_{\epsilon}$ near the origin.</p>
+
+      <p>For this method to work, our wedge must enclose at least one pole. The zeros of our denominator occur at $z=|b|e^{i\pi(2k+1)/a}$. Exactly one of these zeros, $z_{p}=|b|e^{i\pi/a}$, lies perfectly inside our wedge.</p>
+
+      <h3>The Parametric Workaround</h3>
+
+      <p>Rather than wrangling the logarithm and its branch cuts directly, it is much cleaner to introduce a parametric family of integrals:</p>
+
+      $$K(c)=\int_{0}^{\infty}\frac{x^{c}}{x^{a}+|b|^{a}}dx$$
+
+      <p>By applying the residue theorem to the function $z^{c}/(z^{a}+|b|^{a})$ over our sector, and taking the limits as $R \rightarrow \infty$ and $\epsilon \rightarrow 0$, we can find the closed-form solution for this family:</p>
+
+      $$K(c)=\frac{\pi}{a}\frac{|b|^{c+1-a}}{\sin(\frac{\pi}{a}(c+1))}$$
+
+      <p>As a quick side note, setting $c=0$ elegantly gives us the standard integral:</p>
+
+      $$\int_{0}^{\infty}\frac{dx}{x^{a}+|b|^{a}}=\frac{\pi}{a|b|^{a-1}\sin(\pi/a)}$$
+
+      <h3>Recovering the Original Integral</h3>
+
+      <p>Because the derivative of $x^{c}$ with respect to $c$ is exactly $\partial_{c}x^{c}=x^{c}\ln x$, we can recover our original target $I$ simply by differentiating $K(c)$ with respect to $c$ and setting $c=0$:</p>
+
+      $$I=\frac{\partial K}{\partial c}\bigg|_{c=0}=\frac{\pi|b|^{1-a}}{a \sin(\pi/a)}\left[\ln|b|-\frac{\pi}{a}\cot\frac{\pi}{a}\right]$$
+
+      <h3>A Beautiful Special Case: $a=2, b=1$</h3>
+
+      <p>Let's plug some numbers in. If we set $a=2$ and $b=1$, every single term inside our bracket vanishes (since $\cot(\pi/2)=0$ and $\ln 1=0$). This means $I=0$.</p>
+
+      <p>Why does this happen visually? The integrand diverges to $-\infty$ as $x \rightarrow 0^{+}$, and it crosses the axis to vanish at $x=1$. If we make the substitution $x \mapsto 1/x$, the negative area lobe $A_{-}$ on the interval $(0, 1)$ perfectly maps onto the positive lobe $A_{+}$ on $(1, \infty)$ with the exact opposite sign, resulting in a perfect cancellation.</p>
+
+      <p>Here is the plot of $f(x) = \frac{\ln x}{x^2 + 1}$ showing the equal and opposite lobes:</p>
+      <div class="image-container">
+        <img src="Image2Int24.png" alt="Plot of the integrand for a=2, b=1" style="max-width: 100%; height: auto;">
+        <div class="figure-caption">Figure 2: The integrand for $a=2$, $b=1$. The lobes $A_{-}$ and $A_{+}$ are equal in magnitude but opposite in sign.</div>
+      </div>
+
+      <h3>The Power of Generalization</h3>
+
+      <p>The best part about this trick is that it generalizes at practically no extra cost. By differentiating our function $K$ a total of $n$ times before evaluating at $c=0$, we immediately unlock the entire family of logarithmic moments:</p>
+
+      $$\frac{\partial^{n}K}{\partial c^{n}}\bigg|_{c=0}=\int_{0}^{\infty}\frac{(\ln x)^{n}}{x^{a}+|b|^{a}}dx$$
+
+      <p>By solving one harder-looking parametric integral, we are handed the solutions to a whole class of integrals as mere derivatives.<br></p>
+
+      <p><strong>Food for thought:</strong> What if we have $\ln(x+1)$ instead of $\ln x$ in the integrand? Let me know your thoughts in the comments!</p>
+
+      <!-- =========================================== -->
+    </article>
+  </main>
+
+  <hr>
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2026 Riccardo Martelli. <a href="../index.html">Back to the portfolio</a> or <a href="../notes.html">Back to notes</a>.</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="../notes_script.js"></script>
+</body>
+</html>

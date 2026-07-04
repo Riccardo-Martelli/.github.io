@@ -7,6 +7,16 @@ document.documentElement.style.setProperty('--vh', `${vh}px`);
 let vw = window.innerHeight * 0.01;
 document.documentElement.style.setProperty('--vw', `${vw}px`);
 
+// Entry page resizing for .parallax1
+function setHeaderH() {
+  const header = document.querySelector('header');
+  if (header) {
+    document.documentElement.style.setProperty('--header-h', header.offsetHeight + 'px');
+  }
+}
+setHeaderH();
+window.addEventListener('resize', setHeaderH);
+
 //Parallaxeffect
 let planet = document.getElementById('planet');
 let Welcome = document.getElementById('Welcome');
@@ -35,7 +45,6 @@ window.addEventListener('scroll',() => {
       current = elem.getAttribute('id');
     }
   })
-    
 
   navElem.forEach( li => {
     li.classList.remove('active');
@@ -45,7 +54,6 @@ window.addEventListener('scroll',() => {
   })
 
 });
-
 
 //Add sliding effects
 /* modifing this section one can make headers p and img slide at different speeds */
@@ -57,8 +65,6 @@ const mailsElem = document.querySelectorAll(".hoverover");
 const linksElem = document.querySelectorAll(".linkvari");
 const courseElem = document.querySelectorAll(".courseElem");
 const flowCharts = document.querySelectorAll(".flowcharts");
-
-
 
 const observer = new IntersectionObserver((entries) => {
 	entries.forEach((entry)=>{
@@ -100,9 +106,7 @@ document.querySelectorAll('#courses *').forEach(el => {
 })
 */
 
-
 // Add coping on hover
-
 function protoHover1() {
     navigator.clipboard.writeText("riccardomartelli97@gmail.com");
   
@@ -160,7 +164,6 @@ function protoHover2() {
 
       }
   }
-
 
 function copyResetFunc() {
   if(window.screen.width>=767){
@@ -230,8 +233,6 @@ function removeHighAnimation(tooltip) {
   tooltip.classList.remove('jiggle');
 }
 
-
-
 function clickPriceHighschool(element){
 
   const highschool = element.children;
@@ -241,6 +242,7 @@ function clickPriceHighschool(element){
   addHighAnimation(highschool[0]);
 
 }
+
 function clickPriceHighschoolOnMouseOut(element){
 
   const highschool = element.children;
@@ -363,10 +365,9 @@ document.addEventListener("DOMContentLoaded", function() {
               tooltip.style.display = 'block';
               tooltip.style.visibility = 'visible';
 
-              // Keep the tooltip within the viewport. On desktop the computed
+              // Keep the tooltip within the viewport. On desktop the computed 
               // left is already in range so this is a no-op; on narrow phones it
-              // pulls an off-screen tooltip back in, replacing the old
-              // screen.width edge-nudges.
+              // pulls an off-screen tooltip back in, replacing the old screen.width edge-nudges.
               var tipW = tooltip.offsetWidth;
               var rawLeft = parseFloat(tooltip.style.left) || 0;
               var maxLeft = document.documentElement.clientWidth - tipW - 8;
@@ -740,8 +741,140 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+/////////////////////////////////////////////
+//////////// HEXAGON GRID GLOW
+/////////////////////////////////////////////
+(function hexGrid() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
+  const glow = document.getElementById('glowCanvas');
+  const gtx = glow.getContext('2d');
+  const hero = document.getElementById('starCanvas');
 
+  const SIZE = 34;              // hex radius in pixels
+  const GAP = 3;               // spacing between cells
+  const REACH = 200;            // how far the cursor light spreads
+  const hexW = Math.sqrt(3) * SIZE;
+  const hexH = 2 * SIZE;
+  let cells = [];
+  let mouse = { x: -9999, y: -9999 };
+
+  function build() {
+
+    glow.width = window.innerWidth;
+    glow.height = window.innerHeight;
+    cells = [];
+
+    const colStep = hexW + GAP;
+    const rowStep = (hexH * 0.75) + GAP;
+    
+    for (let row = 0, y = 0; y < glow.height + hexH; row++, y += rowStep) {
+      const offset = (row % 2) ? colStep / 2 : 0;
+    
+      for (let x = offset; x < glow.width + hexW; x += colStep) {
+        cells.push({ x, y });
+      }
+
+    }
+  }
+
+  build();
+  window.addEventListener('resize', build);
+
+  window.addEventListener('mousemove', (e) => {
+    // suppress while over the shooting-stars canvas
+    if (e.clientY <= hero.getBoundingClientRect().bottom) {
+      mouse.x = mouse.y = -9999;
+      return;
+    }
+
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
+  
+  });
+
+  /* ---- autonomous flares: random clusters that light up on their own ---- */
+    const flares = [];
+    const FLARE_R    = 120;   // cluster radius in pixels (covers a few tiles)
+    const FLARE_MS   = 1600;  // full fade-in then fade-out duration per flare
+    const FLARE_PEAK = 0.75;  // brightness at the flare's peak (0 to 1)
+    const FLARE_MAX  = 5;     // max concurrent flares
+    let nextFlare = 0;        // timestamp of the next spawn
+
+    function spawnFlare(now) {
+      // keep the centre below the hero, mirroring the mouse rule
+      const floor = Math.max(0, hero.getBoundingClientRect().bottom);
+      const x = Math.random() * glow.width;
+      const y = floor + Math.random() * Math.max(1, glow.height - floor);
+      flares.push({ x, y, born: now });
+      if (flares.length > FLARE_MAX) flares.shift();
+    }
+
+    function flareIntensity(c, now) {
+      let best = 0;
+      for (const f of flares) {
+        const age = now - f.born;
+        if (age < 0 || age > FLARE_MS) continue;
+        const env = Math.sin(Math.PI * age / FLARE_MS); // 0 to 1 to 0
+        const d = Math.hypot(c.x - f.x, c.y - f.y);
+        if (d > FLARE_R) continue;
+        const v = (1 - d / FLARE_R) * env * FLARE_PEAK;
+        if (v > best) best = v;
+      }
+      return best;
+    }
+  function hexPath(cx, cy) {
+    gtx.beginPath();
+
+    for (let i = 0; i < 6; i++) {
+      const a = Math.PI / 180 * (60 * i - 30); // "Hexagon math"
+      const px = cx + SIZE * Math.cos(a);
+      const py = cy + SIZE * Math.sin(a);
+      i === 0 ? gtx.moveTo(px, py) : gtx.lineTo(px, py);
+    }
+
+    gtx.closePath();
+  }
+
+  function frame() {
+    const now = performance.now();
+
+    // prune dead flares and schedule new ones
+    for (let i = flares.length - 1; i >= 0; i--) {
+      if (now - flares[i].born > FLARE_MS) flares.splice(i, 1);
+    }
+    if (now >= nextFlare) {
+      spawnFlare(now);
+      nextFlare = now + 700 + Math.random() * 1100; // 0.7 to 1.8 s gap
+    }
+
+    gtx.clearRect(0, 0, glow.width, glow.height);
+
+    for (const c of cells) {
+      const d = Math.hypot(c.x - mouse.x, c.y - mouse.y);
+      const cursorT = d > REACH ? 0 : 1 - d / REACH;
+      const t = Math.max(cursorT, flareIntensity(c, now)); // whichever is brighter
+      if (t <= 0.02) continue;                             // nothing to draw
+
+      hexPath(c.x, c.y);
+      gtx.fillStyle = `hsla(0, 100%, 39%, ${0.5 * t})`;
+      if (isDarkMode) {
+        gtx.strokeStyle = `hsla(0, 100%, 0%, ${0.8 * t})`;
+      } else {
+        gtx.strokeStyle = `hsla(0, 100%, 100%, ${0.8 * t})`;
+      }
+      gtx.lineWidth = 1.4;
+      gtx.fill();
+      gtx.stroke();
+    }
+
+    requestAnimationFrame(frame);
+  }
+
+  frame();
+})();
+
+/**********Bkg exagon flares***********/
 
 /**********SCROLLL BUTTON***********/
 
