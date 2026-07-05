@@ -233,6 +233,7 @@ body {
   margin: 0;
   padding: 0%;
   overflow-x: hidden;
+  isolation: isolate;
   /*Faint fixed glows so the frosted panels have something to blur */
   background-image:
     radial-gradient(55vw 55vw at 12% 8%, rgba(225, 10, 0, 0.10), transparent 60%),
@@ -243,7 +244,7 @@ body {
 } 
 
 #glowCanvas {
-  position: fixed;
+  position: absolute;
   top: 0; left: 0;
   width: 100vw;
   height: 100vh;
@@ -316,7 +317,7 @@ body {
       background-color: var(--dark-modeBkg);
       text-align: center;
       overflow-x: hidden;
-     
+      isolation: isolate; 
     }
 
     header {
@@ -589,7 +590,7 @@ body {
       padding: 50px 0;
       font-size: calc(var(--var,1vh)*11*30/75)px;
       opacity: 1;
-      filter: blur(0px);
+      filter: none;
       transition: all 1s;
 
     }
@@ -962,6 +963,7 @@ body {
   text-align:center;
   background-color: var(--dark-modeBkg);
   overflow-x: hidden;
+  isolation: isolate;
 }
 /************SCROLL************/
 
@@ -1525,7 +1527,7 @@ nav ul li.active a span{
   padding: 50px 0;
   font-size: calc(var(--var,1vh)*11*30/75);
   opacity: 1;
-  filter: blur(0px);
+  filter: none;
   transition: all 1s;
 }
 
@@ -2244,7 +2246,7 @@ nav ul li.active a span{
   padding: 50px 0;
   font-size: calc(var(--var,1vh)*11*30/75);
   opacity: 1;
-  filter: blur(0px);
+  filter: none;
   transition: all 1s;
 }
 
@@ -2533,3 +2535,5 @@ th{
 }
 
 }
+/*Fixes the blur issue on Chrome PC, for Phone is fine*/
+.section { filter: none !important; }

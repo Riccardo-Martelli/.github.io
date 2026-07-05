@@ -730,7 +730,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 1000);
   }, 1500);
 
-  // Optional: additional fade out on scroll (still works)
+  // additional fade out on scroll (still works)
   window.addEventListener("scroll", () => {
     const scrollY = window.scrollY;
     const newOpacity = Math.max(1 - scrollY / 100, 0);
@@ -748,7 +748,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
   const glow = document.getElementById('glowCanvas');
-  const gtx = glow.getContext('2d');
+  const gtx = glow.getContext('2d', {willReadFrequently: true});
   const hero = document.getElementById('starCanvas');
 
   const SIZE = 34;              // hex radius in pixels
@@ -780,6 +780,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   build();
   window.addEventListener('resize', build);
+  // keep the (now absolute) canvas overlaying the viewport as we scroll,
+    // moved via top rather than transform so it is not promoted to its own layer
+ 
+  window.addEventListener('scroll', () => {
+      glow.style.top = window.scrollY + 'px';
+    }, { passive: true });
 
   window.addEventListener('mousemove', (e) => {
     // suppress while over the shooting-stars canvas
