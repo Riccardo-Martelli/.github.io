@@ -694,23 +694,10 @@ toggle.addEventListener("change", () => {
   }
 });
 
-/*************IMAGE MANIPULATIONS***********/
-  const img = document.getElementById('teacher-image');
-  let front = 'Fotoprofilo.PNG';
-  let back = 'FacePic.png';
-  let showingFront = true;
 
-  img.addEventListener('click', () => {
-    img.classList.add('flip-effect');
-
-    setTimeout(() => {
-      img.src = showingFront ? back : front;
-      showingFront = !showingFront;
-      img.classList.remove('flipping');
-    }, 650); // half of transition for smooth effect
-  });
-
-/******WELCOME MESSAGE ANIMATION*********/
+////////////////////////////////////
+/////// WELCOME MESSAGE ANIMATION
+////////////////////////////////////
 
 document.addEventListener("DOMContentLoaded", () => {
   const welcome_name = document.getElementById("welcome_name");
@@ -753,7 +740,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const SIZE = 34;              // hex radius in pixels
   const GAP = 3;               // spacing between cells
-  const REACH = 200;            // how far the cursor light spreads
+  const REACH = 150;            // how far the cursor light spreads
   const hexW = Math.sqrt(3) * SIZE;
   const hexH = 2 * SIZE;
   let cells = [];
@@ -799,12 +786,12 @@ document.addEventListener("DOMContentLoaded", () => {
   
   });
 
-  /* ---- autonomous flares: random clusters that light up on their own ---- */
+  /* autonomous flares: random clusters that light up on their own  */
     const flares = [];
-    const FLARE_R    = 120;   // cluster radius in pixels (covers a few tiles)
-    const FLARE_MS   = 1600;  // full fade-in then fade-out duration per flare
+    const FLARE_R = 120;   // cluster radius in pixels (covers a few tiles)
+    const FLARE_MS = 1600;  // full fade-in then fade-out duration per flare
     const FLARE_PEAK = 0.75;  // brightness at the flare's peak (0 to 1)
-    const FLARE_MAX  = 5;     // max concurrent flares
+    const FLARE_MAX = 5;     // max concurrent flares
     let nextFlare = 0;        // timestamp of the next spawn
 
     function spawnFlare(now) {
@@ -817,7 +804,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function flareIntensity(c, now) {
+      
       let best = 0;
+
       for (const f of flares) {
         const age = now - f.born;
         if (age < 0 || age > FLARE_MS) continue;
@@ -827,8 +816,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const v = (1 - d / FLARE_R) * env * FLARE_PEAK;
         if (v > best) best = v;
       }
+
       return best;
     }
+
   function hexPath(cx, cy) {
     gtx.beginPath();
 
@@ -882,8 +873,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 /**********Bkg exagon flares***********/
 
-/**********SCROLLL BUTTON***********/
-
+/////////////////////////////
+////////// SCROLLL BUTTON
+/////////////////////////////
   window.addEventListener("scroll", () => {
     const text = document.querySelector("#scroll-indicator .text");
     if (window.scrollY > 50) {
@@ -893,8 +885,30 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-/*********************************/
+//////////////////////////////////
+//////////// IMAGE MANIPULATIONS
+//////////////////////////////////
+  const fig = document.getElementById('teacher-fig');
+  const img = document.getElementById('teacher-image');
+  const caption = document.getElementById('img-caption');
+  let front = 'Fotoprofilo.PNG';
+  let back = 'FacePic.png';
+  let showingFront = true;
 
+  fig.addEventListener('click', () => {
+    img.classList.add('flip-effect');
+
+    setTimeout(() => {
+      img.src = showingFront ? back : front;
+      showingFront = !showingFront;
+      if (caption) {
+        caption.textContent = showingFront
+          ? 'Click to see a more professional me'
+          : 'Click for the off-duty version';
+      }
+      img.classList.remove('flipping');
+    }, 650); // half of transition for smooth effect
+  });
 
 
 /******CHATBOT SECTION*********/
