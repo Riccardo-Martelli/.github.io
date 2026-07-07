@@ -57,13 +57,16 @@ a::selection {
 * { box-sizing: border-box; }
 *
 .content {
+
   max-width: var(--content-max);
   margin-inline: auto;
   padding-inline: var(--gutter);
   box-sizing: border-box;
+
 }
 
 .content:not(.tooltip) {
+ 
   width: min(var(--content-max), 100% - 2 * var(--space-3));
   padding-block: var(--space-4);
   margin-block: var(--space-3);
@@ -78,6 +81,7 @@ a::selection {
     inset 0 1px 0 color-mix(in srgb, var(--text-color) 22%, transparent);
   -webkit-backdrop-filter: blur(16px) saturate(1.3);
   backdrop-filter: blur(16px) saturate(1.3);
+
 }
 
 .content h1 {
@@ -460,9 +464,9 @@ body {
 /* Phone part */
 @media only screen and (max-width: 467px) {
   .switch {
-    position: fixed;
-    top: 3%;
-    right: 10%;
+    position: absolute;
+    top: var(--space-3);
+    right: var(--step-3);
     width: 10px;
     height: 8px;
   }
