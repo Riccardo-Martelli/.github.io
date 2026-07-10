@@ -774,7 +774,12 @@ document.addEventListener("DOMContentLoaded", () => {
       glow.style.top = window.scrollY + 'px';
     }, { passive: true });
 
+  let lastTouch = 0;   // timestamp of the most recent touch event
+
   window.addEventListener('mousemove', (e) => {
+    // ignore the synthetic mousemove phones fire right after a tap
+    if (performance.now() - lastTouch < 700) return;
+
     // suppress while over the shooting-stars canvas
     if (e.clientY <= hero.getBoundingClientRect().bottom) {
       mouse.x = mouse.y = -9999;
@@ -783,8 +788,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
     mouse.x = e.clientX;
     mouse.y = e.clientY;
-  
   });
+
+  // touch: follow the finger while pressed, clear when it lifts, so the
+  //glow doesn't stay stuck on phones (no mouse-away event there)
+  function pointFromTouch(e) {
+
+    lastTouch = performance.now();
+    const t = e.touches[0] || e.changedTouches[0];
+    
+    if (!t) return;
+    
+    if (t.clientY <= hero.getBoundingClientRect().bottom) {
+    
+      mouse.x = mouse.y = -9999;
+      return;
+
+    }
+
+    mouse.x = t.clientX;
+    mouse.y = t.clientY;
+
+  }
+
+  window.addEventListener('touchstart', pointFromTouch, { passive: true });
+  window.addEventListener('touchmove',  pointFromTouch, { passive: true });
+  window.addEventListener('touchend',   () => { lastTouch = performance.now(); mouse.x = mouse.y = -9999; }, { passive: true });
+  window.addEventListener('touchcancel',() => { lastTouch = performance.now(); mouse.x = mouse.y = -9999; }, { passive: true });
 
   /* autonomous flares: random clusters that light up on their own  */
     const flares = [];
@@ -854,11 +884,15 @@ document.addEventListener("DOMContentLoaded", () => {
       if (t <= 0.02) continue;                             // nothing to draw
 
       hexPath(c.x, c.y);
-      gtx.fillStyle = `hsla(0, 100%, 39%, ${0.5 * t})`;
-      if (isDarkMode) {
+      if (isDarkMode) {//Light mode
+
+        gtx.fillStyle = `hsla(0, 100%, 35%, ${0.95 * t})`;
         gtx.strokeStyle = `hsla(0, 100%, 0%, ${0.8 * t})`;
-      } else {
+      } else {//Dark Mode     
+
+        gtx.fillStyle   = `hsla(0, 100%, 39%, ${0.85 * t})`;
         gtx.strokeStyle = `hsla(0, 100%, 100%, ${0.8 * t})`;
+
       }
       gtx.lineWidth = 1.4;
       gtx.fill();
