@@ -20,32 +20,7 @@ const entries = [
     desc: "Some integrals seem to be solvable only with numerical methods, but complex analysis can help us solve them analytically.",
     tags: ["Complex Analysis"]
   },
-  /*
-  {
-    title: "REPLACE WITH YOUR PROBABILITY/STATS POST TITLE",
-    url: "notes/probability-statistics.html",
-    desc: "One-line summary of the probability & statistics piece.",
-    tags: ["Probability & Statistics"]
-  },
-  {
-    title: "The Black–Scholes formula from basic probability",
-    url: "notes/black-scholes.html",
-    desc: "Pricing a European call with calculus and intuition, skipping the measure-theoretic machinery.",
-    tags: ["Derivatives Pricing", "Stochastic Calculus"]
-  },
-  {
-    title: "The Kalman filter as recursive least squares",
-    url: "notes/kalman.html",
-    desc: "Deriving the update equations as a running Bayesian estimate, with a small Python check.",
-    tags: ["Stochastic Calculus", "AI & ML"]
-  },
-  {
-    title: "Entropy-based allocation, intuitively",
-    url: "notes/entropy-allocation.html",
-    desc: "What 'maximising diversification via entropy' really means for a portfolio.",
-    tags: ["Derivatives Pricing", "AI & ML"]
-  },
-  */
+
   {
     title: "On Learning by Teaching and by Doing.",
     url: "Philo/learning-by-teaching-and-doing.html",
@@ -110,7 +85,7 @@ if (list && bar) {
   render("All");
 }
 
-/* ----------------------------------------------------- theme + progress --- */
+/*  theme + progress  */
 /* Honour the dark/light choice saved by the portfolio (same localStorage key)
    so the Notes page matches whatever mode the visitor last picked. */
 (function syncTheme() {
@@ -192,5 +167,25 @@ function stopMoving() {
 
 startMoving();
 
+/////////////////////////////////////////////
+////////////READING TIME
+/////////////////////////////////////////////
+/*Reading time found using 200-250 words/min estimate*/
+(function readingTime() {
+  
+  const article = document.querySelector("article.content");
+  const title = document.getElementById("article-title");
+  if (!article || !title) return; // skips notes.html
 
+  const words = (article.textContent.trim().match(/\S+/g) || []).length;
+  const fast = Math.ceil(words / 250); // lower bound faster reading
+  const slow = Math.ceil(words / 200); // upper bound slower reading
 
+  const span = fast === slow ? `${fast} min read` : `${fast}-${slow} min read`;
+
+  const el = document.createElement("p");
+  el.className = "article-meta reading-time";
+  el.textContent = span;
+  title.insertAdjacentElement("afterend", el);
+
+})();

@@ -651,6 +651,7 @@ if (isDarkMode) {
 }
 
 const toggle = document.getElementById("modeToggle");
+toggle.checked = isDarkMode;
 toggle.addEventListener("change", () => {
     slider.setAttribute("data-tooltip", isDarkMode ? "Light Mode" : "Dark Mode");
     isDarkMode = !isDarkMode;
@@ -740,7 +741,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const SIZE = 34;              // hex radius in pixels
   const GAP = 3;               // spacing between cells
-  const REACH = 150;            // how far the cursor light spreads
+  const REACH = 100;            // how far the cursor light spreads
   const hexW = Math.sqrt(3) * SIZE;
   const hexH = 2 * SIZE;
   let cells = [];
@@ -766,6 +767,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   build();
+
   window.addEventListener('resize', build);
   // keep the (now absolute) canvas overlaying the viewport as we scroll,
     // moved via top rather than transform so it is not promoted to its own layer
@@ -886,7 +888,7 @@ document.addEventListener("DOMContentLoaded", () => {
       hexPath(c.x, c.y);
       if (isDarkMode) {//Light mode
 
-        gtx.fillStyle = `hsla(0, 100%, 35%, ${0.95 * t})`;
+        gtx.fillStyle = `hsla(0, 100%, 60%, ${2.0 * t})`;
         gtx.strokeStyle = `hsla(0, 100%, 0%, ${0.8 * t})`;
       } else {//Dark Mode     
 
@@ -894,7 +896,7 @@ document.addEventListener("DOMContentLoaded", () => {
         gtx.strokeStyle = `hsla(0, 100%, 100%, ${0.8 * t})`;
 
       }
-      gtx.lineWidth = 1.4;
+      gtx.lineWidth = 1.5;
       gtx.fill();
       gtx.stroke();
     }
