@@ -307,7 +307,9 @@ body {
   transition: all 1s;
   border-radius: 15px;
 }
-
+ .img-caption {
+    margin-bottom: 2rem;   /* gap between caption and "I'm Riccardo..." */
+  }
 
   .flowcharts{
       margin: 12.5px;
