@@ -17,7 +17,9 @@ a::selection {
 }
 
 :root {
+   e
   /* colours (theme-switched in notes_script.js, same keys as the main site) */
+  --hex: url("mouse/hand.png") 26 25, pointer;
   --text-color: white;
   --dark-modeBkg: black;
   --red: red;
@@ -41,6 +43,14 @@ a::selection {
   --step-2: clamp(1.8rem, 1.2rem + 2.5vw, 3.5rem);  /* h2/h1 */
   --step-3: clamp(2.4rem, 1.5rem + 5vw, 5.5rem);    /* hero  */
     scrollbar-width: none; /* Firefox */
+}
+/*Sets the hand*/
+  a, button, [role="button"], [role="link"], [role="tab"], [role="switch"],
+[role="menuitem"], [onclick], [tabindex]:not([tabindex="-1"]),
+input[type="submit"], input[type="button"], input[type="reset"],
+input[type="checkbox"], input[type="radio"],
+label, select, summary {
+  cursor: var(--hex) !important;
 }
 
 #scroll-progress {
@@ -185,6 +195,7 @@ mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
 html { scroll-behavior: smooth; }
 
 body {
+  cursor: url("mouse/arrow.png") 3 2, auto;
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;

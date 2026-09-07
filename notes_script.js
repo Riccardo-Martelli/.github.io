@@ -29,7 +29,15 @@ const entries = [
   }
 ];
 
-/* --------------------------------------------------------------- render --- */
+/*Exagon hand cursor*/
+
+for (const el of document.querySelectorAll("*")) {
+  if (getComputedStyle(el).cursor === "pointer") {
+    el.style.cursor = "url('/.github.io/mouse/hand.png') 26 25, pointer";
+  }
+}
+
+/* --- render --- */
 const list = document.getElementById("entry-list");
 const bar  = document.getElementById("topics");
 

@@ -16,7 +16,12 @@ function setHeaderH() {
 }
 setHeaderH();
 window.addEventListener('resize', setHeaderH);
-
+// hexagon rendering
+for (const el of document.querySelectorAll("*")) {
+  if (getComputedStyle(el).cursor === "pointer") {
+    el.style.cursor = "url('/.github.io/mouse/hand.png') 26 25, pointer";
+  }
+}
 //Parallaxeffect
 let planet = document.getElementById('planet');
 let Welcome = document.getElementById('Welcome');

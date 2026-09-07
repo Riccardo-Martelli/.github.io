@@ -77,7 +77,7 @@ a::selection{
 :root{
 
   /*Variables*/
-
+    --hex: url("mouse/hand.png") 26 25, pointer;
     --visibility: visible;
     /*Dark mode colors*/
     --black:black;
@@ -929,7 +929,14 @@ input:checked + .slider:before {
 
 /* for PC */
 @media only screen and (min-width: 927px) {
-
+/*Creates the hand for clickable stuff*/
+a, button, [role="button"], [role="link"], [role="tab"], [role="switch"],
+[role="menuitem"], [onclick], [tabindex]:not([tabindex="-1"]),
+input[type="submit"], input[type="button"], input[type="reset"],
+input[type="checkbox"], input[type="radio"],
+label, select, summary {
+  cursor: var(--hex) !important;
+}
 html{
     scroll-behavior: smooth;
   }
@@ -981,6 +988,7 @@ html{
 }
 
 body {
+  cursor: url(mouse/arrow.png) 3 2, auto;
   font-family: Arial, sans-serif;
   /*margin: var(--margin-PC);*/
   text-align:center;
