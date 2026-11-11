@@ -952,6 +952,55 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 
+///////////////////////////////////////////////
+//////////////////SCROLL GRAB 
+///////////////////////////////////////////////
+// click or drag on the top progress bar to scroll the page
+(() => {
+
+  const bar = document.getElementById("scroll-progress");
+  if(!bar) return;
+
+  const root = document.documentElement;
+
+  // the bar is 4px, too thin to hit: invisible taller strip on top of it
+  const strip = document.createElement("div");
+  strip.style.cssText = "position:fixed; top:0; left:0; width:100%; height:12px; z-index:10000; touch-action:none; cursor:url('/.github.io/mouse/hand.png') 26 25, pointer;";
+  document.body.appendChild(strip);
+
+  const jump = (x) => {
+
+    const f = Math.min(Math.max(x / root.clientWidth, 0), 1);
+    window.scrollTo({ top: f * (root.scrollHeight - root.clientHeight), behavior: "instant" });
+  };
+
+  strip.addEventListener("mouseenter", () => bar.style.height = "8px");
+  strip.addEventListener("mouseleave", () => { if(!root.classList.contains("grabbing")) bar.style.height = ""; });
+
+  strip.addEventListener("pointerdown", (e) => {
+
+    if(e.button !== 0) return;
+    e.preventDefault(); // no text selection while dragging
+    strip.setPointerCapture(e.pointerId);
+    root.classList.add("grabbing");
+    root.style.scrollBehavior = "auto"; // smooth scroll would lag behind the pointer
+    jump(e.clientX);
+  });
+
+  strip.addEventListener("pointermove", (e) => {
+    if(strip.hasPointerCapture(e.pointerId)) jump(e.clientX);
+  });
+
+  const release = () => {
+
+    root.classList.remove("grabbing");
+    root.style.scrollBehavior = "";
+    bar.style.height = "";
+  };
+  strip.addEventListener("pointerup", release);
+  strip.addEventListener("pointercancel", release);
+})();
+
 /******CHATBOT SECTION*********/
 /*
 const chatWidget = document.getElementById('chat-widget');

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How simple and practical ideas can still be of great use in the era of AI</title> <!-- Change manually -->
+  <link rel="shortcut icon" href="../favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+  <link rel="manifest" href="../site.webmanifest"> 
+
+  <!-- CSS -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+   <link rel="stylesheet" href="../notes_style.css">
+
+  <!-- article-only helpers, using theme tokens so they follow dark/light -->
+  <style>
+    .figure-caption {
+      font-style: italic;
+      text-align: center;
+      color: color-mix(in srgb, var(--text-color) 60%, transparent);
+      margin-top: 8px;
+      margin-bottom: 32px;
+      font-size: 0.9em;
+    }
+    .image-container, .tikz-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 32px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="scroll-progress"></div>
+
+  <header class="notes-header">
+    <a href="../index.html" class="back-link" style="position: static;">Riccardo's Portfolio</a>
+    <a href="../notes.html" class="back-link" style="position: static; margin-left: 1.5rem;"> Notes</a>
+    <h1 id="article-title"></h1> 
+    <p class="article-meta" id="article-meta"></p>
+    <label class="switch">
+      <input type="checkbox" id="modeToggle">
+      <span class="slider" data-tooltip="Dark Mode"></span>
+    </label>
+  </header>
+
+  <script>
+    document.getElementById("article-title").textContent = document.title;
+  </script>
+
+  <main>
+    <article class="content">
+      <!-- ===== part to modify, the rest is a template ===== -->
+              <p>
+        In my <a href="../Philo/learning-by-teaching-and-doing.html">first article</a> I wrote about learning by doing. nvimpp is that idea applied to code: a small C++ program I wrote mostly by hand, between other projects, because I still enjoy programming and because one daily annoyance had become too much.
+      </p>
+
+      <p>
+        I live in the terminal, and two tools there changed how I work. <a href="https://github.com/ajeetdsouza/zoxide">zoxide</a> remembers the folders I visit and jumps to the right one from a few letters. <a href="https://github.com/atuinsh/atuin">atuin</a> records my shell history and lets me search and browse it. Neither does the last step, opening the file. With zoxide I jumped to a folder, then still had to find the file and open it in Neovim (nvim). Hopping between projects like that all day was a pain.
+      </p>
+
+      <h2>What it does</h2>
+
+      <p>
+        nvimpp is a thin wrapper around Neovim. It records every file I open, then hands the arguments to Neovim untouched, so it can replace <code>nvim</code> without changing anything else. The useful part is one key. I type <code>nvim main</code> and press Alt-Enter instead of Enter, and Neovim opens the file I use most whose name contains <code>main</code>, wherever it is on disk. When I quit, I am back in the folder I started from. I used it to edit this website.
+      </p>
+
+      <div class="image-container">
+        <img src="https://raw.githubusercontent.com/Riccardo-Martelli/NVIMPP/master/media/nvimpp.gif" alt="nvimpp opening files and jumping with Alt-Enter" style="max-width: 100%;">
+        <p class="figure-caption">nvimpp: opening a file by name, and jumping to the best match with Alt-Enter.</p>
+      </div>
+
+      <p>
+        Its companion, nvimi, is the atuin side: it reads the history and shows an inline picker of my most used files, plus statistics and the raw history. The code is on <a href="https://github.com/Riccardo-Martelli/NVIMPP">GitHub</a>.
+      </p>
+
+      <div class="image-container">
+        <img src="https://raw.githubusercontent.com/Riccardo-Martelli/NVIMPP/master/media/nvimi.gif" alt="nvimi picker, statistics and history" style="max-width: 100%;">
+        <p class="figure-caption">nvimi: the picker ranked by frecency, the statistics, and the history.</p>
+      </div>
+
+      <h2>A bit of statistics, a bit of programming</h2>
+
+      <p>
+        Deciding which file is "the one I use most" does not need artificial intelligence (AI). It needs one formula. Each time I open a file, that launch adds <code>0.5^(age / half-life)</code> to the file's score, where <code>age</code> is the time since the launch. With a half-life of 7 days, a launch from today counts 1, one from a week ago 0.5, one from a month ago about 0.05. Files that are opened both often and recently rank first. This is what zoxide calls frecency.
+      </p>
+
+      <p>
+        The programming was the fun part. Even a tool this small makes you deal with how the machine works underneath: how memory is managed, how to choose types so that whole families of errors cannot happen, how a program reads keys from the terminal and hands control to another process. I learned more of that writing nvimpp than I would have by reading about it.
+      </p>
+
+      <h2>Where AI comes in</h2>
+
+      <p>
+        I did not write nvimpp with AI. I used it mostly for debugging. On many platforms people complain that programming has turned into waiting for a coding agent to finish, and this project went the other way.
+      </p>
+
+      <p>
+        Still, it turned out to be useful for exactly that kind of work. People who use coding agents keep several sessions open, check what each agent changed, paste code from one to another, and review the result. Every one of those steps means reaching a file that lives somewhere else. nvimpp makes that jump quick from wherever you are.
+      </p>
+
+      <p>
+        I think there is something poetic in writing code that AI cannot replace, but AI is a good tool to work with. It can make code more robust and it helps when something breaks. Mostly it works as a quicker Stack Overflow: it points you to a function, or explains how a system you don't know behaves. After that the work is yours. You read the function, understand it, and use it again later on your own, or the code stops working and you won't know why. You iterate many times before it works.
+      </p>
+
+      <p>
+        nvimpp was not meant to work with AI. It was a fun project that happened to be useful there too.
+      </p>
+
+
+      <!-- =========================================== -->
+    </article>
+  </main>
+
+  <hr>
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2026 Riccardo Martelli. <a href="../index.html">Back to the portfolio</a> or <a href="../notes.html">Back to notes</a>.</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="../notes_script.js"></script>
+</body>
+</html>

@@ -15,17 +15,26 @@ const entries = [
     tags: ["Physics"]
   },*/
   {
+    title: "How simple and practical ideas can still be of great use in the era of AI",
+    url: "Programming/nvimpp.html",
+    desc: "nvimpp is a program I worked on, a wrapper for Neovim (nvim). Some basic statistics can make a coder's life easier, and that is still useful in the era of AI.",
+    tags: ["C++", "Programming"],
+    date: "2026-11-11"
+  },
+  {
     title: "A Seemengly Impossible Integral Solved with Residue Theorem",
     url: "Math/integral24.html",
     desc: "Some integrals seem to be solvable only with numerical methods, but complex analysis can help us solve them analytically.",
-    tags: ["Complex Analysis"]
+    tags: ["Complex Analysis"],
+    date: "2026-08-12"
   },
 
   {
     title: "On Learning by Teaching and by Doing.",
     url: "Philo/learning-by-teaching-and-doing.html",
     desc: "A short note on why explaining a thing is the fastest way to find the holes in your own understanding.",
-    tags: ["Philosophy & Society"]
+    tags: ["Philosophy & Society"],
+    date: "2026-07-05"
   }
 ];
 
@@ -36,7 +45,39 @@ for (const el of document.querySelectorAll("*")) {
     el.style.cursor = "url('/.github.io/mouse/hand.png') 26 25, pointer";
   }
 }
+//////////////////////
+/////// NOTE META
+/////////////////////
+const ARROW = '<i class="fa-solid fa-arrow-right"></i>'; // \uf061
+const WPM = 200; // reading speed, words per minute
 
+const fmt_date = (d) => new Date(d + "T12:00").toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
+
+const meta_html = (e, min, sep = "<br>") => [`Published ${ARROW} ${fmt_date(e.date)}`, `Reading time ${ARROW} ${min} min`, `Topics ${ARROW} ${e.tags.join(", ")}`].join(sep);
+// prose words only: math (rendered or raw TeX), scripts and figures don't count
+function reading_min(el) {
+
+  const c = el.cloneNode(true);
+  c.querySelectorAll("script, style, svg, mjx-container").forEach(n => n.remove());
+  const text = c.textContent.replace(/\$\$[\s\S]*?\$\$|\\\([\s\S]*?\\\)|\\\[[\s\S]*?\\\]|\$[^$]*\$/g, " ");
+  const words = text.split(/\s+/).filter(Boolean).length;
+
+  return Math.max(1, Math.round(words / WPM));
+}
+
+// preview: fetch each article once, same count as on the article page
+const minutes = {};
+const get_min = (url) => minutes[url] ??= fetch(url).then(r => r.text()).then(h => {
+
+  const doc = new DOMParser().parseFromString(h, "text/html");
+
+  return reading_min(doc.querySelector(".content") || doc.body);
+});
+
+// article page: fill <p id="article-meta"> from this page's entry
+const article_meta = document.getElementById("article-meta");
+const this_entry = entries.find(e => location.pathname.endsWith("/" + e.url));
+if(article_meta && this_entry) article_meta.innerHTML = meta_html(this_entry, reading_min(document.querySelector(".content")));
 /* --- render --- */
 const list = document.getElementById("entry-list");
 const bar  = document.getElementById("topics");
@@ -61,8 +102,14 @@ function render(active) {
     <article class="note-entry" style="--i:${i}">
       <a href="${e.url}" class="note-title">${e.title}</a>
       <p class="note-desc">${e.desc}</p>
-      <div class="note-tags">${e.tags.join("&nbsp;&middot;&nbsp;")}</div>
+      <div class="note-tags" data-url="${e.url}">${meta_html(e, "...", "&nbsp;&nbsp;&middot;&nbsp;&nbsp;")}</div>
     </article>`).join("");
+
+  shown.forEach(e => get_min(e.url).then(m => {
+
+    const el = list.querySelector(`[data-url="${e.url}"]`);
+    if(el) el.innerHTML = meta_html(e, m, "&nbsp;&nbsp;&middot;&nbsp;&nbsp;");
+  }));
 }
 
 function buildBar() {
@@ -197,3 +244,53 @@ startMoving();
   title.insertAdjacentElement("afterend", el);
 
 })();
+
+///////////////////////////////////////////////
+//////////////////SCROLL GRAB 
+///////////////////////////////////////////////
+// click or drag on the top progress bar to scroll the page
+(() => {
+
+  const bar = document.getElementById("scroll-progress");
+  if(!bar) return;
+
+  const root = document.documentElement;
+
+  // the bar is 4px, too thin to hit: invisible taller strip on top of it
+  const strip = document.createElement("div");
+  strip.style.cssText = "position:fixed; top:0; left:0; width:100%; height:12px; z-index:10000; touch-action:none; cursor:url('/.github.io/mouse/hand.png') 26 25, pointer;";
+  document.body.appendChild(strip);
+
+  const jump = (x) => {
+
+    const f = Math.min(Math.max(x / root.clientWidth, 0), 1);
+    window.scrollTo({ top: f * (root.scrollHeight - root.clientHeight), behavior: "instant" });
+  };
+
+  strip.addEventListener("mouseenter", () => bar.style.height = "8px");
+  strip.addEventListener("mouseleave", () => { if(!root.classList.contains("grabbing")) bar.style.height = ""; });
+
+  strip.addEventListener("pointerdown", (e) => {
+
+    if(e.button !== 0) return;
+    e.preventDefault(); // no text selection while dragging
+    strip.setPointerCapture(e.pointerId);
+    root.classList.add("grabbing");
+    root.style.scrollBehavior = "auto"; // smooth scroll would lag behind the pointer
+    jump(e.clientX);
+  });
+
+  strip.addEventListener("pointermove", (e) => {
+    if(strip.hasPointerCapture(e.pointerId)) jump(e.clientX);
+  });
+
+  const release = () => {
+
+    root.classList.remove("grabbing");
+    root.style.scrollBehavior = "";
+    bar.style.height = "";
+  };
+  strip.addEventListener("pointerup", release);
+  strip.addEventListener("pointercancel", release);
+})();
+
