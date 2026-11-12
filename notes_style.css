@@ -154,7 +154,7 @@ label, select, summary {
  
 .content code {
 
-  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-family: Literata;
   font-size: 0.9em;
   background: color-mix(in srgb, var(--text-color) 12%, transparent);
   padding: 0.15em 0.4em;
@@ -196,7 +196,7 @@ html { scroll-behavior: smooth; }
 
 body {
   cursor: url("mouse/arrow.png") 3 2, auto;
-  font-family: Arial, sans-serif;
+  font-family: Literata;
   margin: 0;
   padding: 0;
   overflow-x: hidden;

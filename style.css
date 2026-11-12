@@ -242,7 +242,7 @@ canvas {
 
 body {
 
-  font-family: Arial, sans-serif;
+  font-family: Literata;
   margin: 0;
   padding: 0%;
   overflow-x: hidden;
@@ -329,7 +329,7 @@ body {
     }
 
     body {
-      font-family: Arial, sans-serif;
+      font-family: Literata;
       margin: 0;
       padding: 0;
       background-color: var(--dark-modeBkg);
@@ -989,7 +989,7 @@ html{
 
 body {
   cursor: url(mouse/arrow.png) 3 2, auto;
-  font-family: Arial, sans-serif;
+  font-family: Literata;
   /*margin: var(--margin-PC);*/
   text-align:center;
   background-color: var(--dark-modeBkg);
@@ -1896,7 +1896,7 @@ th{
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: Literata;
   margin: 0;
   padding: 0;
   text-align:center;
